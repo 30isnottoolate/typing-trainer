@@ -11,6 +11,8 @@ const App: React.FC = () => {
 
             if (event.currentTarget.value !== textSource.slice(0, event.currentTarget.value.length)) {
                 setErrorCount(prevState => prevState + 1);
+            } else if (event.currentTarget.value === textSource) {
+                console.log("Done. Number of errors: " + errorCount);
             }
         }
     }
