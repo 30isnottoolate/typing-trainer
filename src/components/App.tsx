@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 
 const App: React.FC = () => {
     const [textSource, setTextSource] = useState("Some text.");
@@ -32,7 +32,12 @@ const App: React.FC = () => {
     return (
         <div>
             <div id="text-source">{textSource}</div>
-            <textarea id="text-input" disabled={finished ? true : false} value={textInput} onChange={(event) => handleChange(event)} />
+            <textarea
+                id="text-input"
+                disabled={finished ? true : false}
+                value={textInput}
+                onChange={(event) => handleChange(event)}
+            />
         </div>
     );
 }
