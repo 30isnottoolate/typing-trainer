@@ -7,7 +7,7 @@ const App: React.FC = () => {
     return (
         <div>
             <div id="text-source">{textSource}</div>
-            <textarea id="text-input" />
+            <textarea id="text-input" value={textInput} onChange={(event) => setTextInput(event.currentTarget.value)} />
         </div>
     );
 }
