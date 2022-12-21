@@ -13,6 +13,7 @@ const App: React.FC = () => {
                 setErrorCount(prevState => prevState + 1);
             } else if (event.currentTarget.value === textSource) {
                 console.log("Done. Number of errors: " + errorCount);
+                console.log(`Accuray: ${(100 - errorCount / textSource.length * 100)}%`);
             }
         }
     }
