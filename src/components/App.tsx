@@ -3,13 +3,14 @@ import React, {useState} from "react";
 const App: React.FC = () => {
     const [textSource, setTextSource] = useState("Some text.");
     const [textInput, setTextInput] = useState("");
+    const [errorCount, setErrorCount] = useState(0);
 
     const handleChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
         if (event.target) {
             setTextInput(event.currentTarget.value);
 
             if (event.currentTarget.value !== textSource.slice(0, event.currentTarget.value.length)) {
-                console.log("wrong!");
+                setErrorCount(prevState => prevState + 1);
             }
         }
     }
