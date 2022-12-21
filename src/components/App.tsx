@@ -6,6 +6,7 @@ const App: React.FC = () => {
     const [errorCount, setErrorCount] = useState(0);
     const [timerActive, setTimerActive] = useState(false);
     const [startingTime, setStartingTime] = useState(0);
+    const [finished, setFinished] = useState(false);
 
     const handleChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
         if (event.target) {
@@ -22,6 +23,8 @@ const App: React.FC = () => {
                 console.log("Done. Number of errors: " + errorCount);
                 console.log(`Accuray: ${(100 - errorCount / textSource.length * 100)}%`);
                 console.log(`Time: ${Date.now() - startingTime}`);
+                setTimerActive(false);
+                setFinished(true);
             }
         }
     }
@@ -29,7 +32,7 @@ const App: React.FC = () => {
     return (
         <div>
             <div id="text-source">{textSource}</div>
-            <textarea id="text-input" value={textInput} onChange={(event) => handleChange(event)} />
+            <textarea id="text-input" disabled={finished ? true : false} value={textInput} onChange={(event) => handleChange(event)} />
         </div>
     );
 }
