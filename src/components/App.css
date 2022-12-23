@@ -1,0 +1,50 @@
+* {
+    box-sizing: border-box;
+}
+
+.key {
+    width: 50px;
+    height: 50px;
+    border: 1px solid #000000;
+}
+
+.first-row {
+    display: grid;
+    grid-template-columns: 50px repeat(10, 50px);
+    gap: 5px;
+    margin: 5px 0;
+}
+
+.second-row {
+    display: grid;
+    grid-template-columns: 75px repeat(10, 50px);
+    gap: 5px;
+    margin: 5px 0;
+}
+
+.third-row {
+    display: grid;
+    grid-template-columns: 95px repeat(10, 50px);
+    gap: 5px;
+    margin: 5px 0;
+}
+
+.fourth-row {
+    display: grid;
+    grid-template-columns: 120px repeat(9, 50px);
+    gap: 5px;
+    margin: 5px 0;
+}
+
+.fifth-row {
+    display: grid;
+    grid-template-columns: 200px 300px;
+    gap: 5px;
+    margin: 5px 0;
+}
+
+#space {
+    width: 300px;
+    height: 50px;
+    border: 1px solid #000000;
+}
