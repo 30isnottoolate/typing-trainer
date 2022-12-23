@@ -38,6 +38,13 @@ const App: React.FC = () => {
                 value={textInput}
                 onChange={(event) => handleChange(event)}
             />
+            <div id="keyboard">
+                <div className="first-row"></div>
+                <div className="second-row"></div>
+                <div className="third-row"></div>
+                <div className="forth-row"></div>
+                <div className="fifth-row"></div>
+            </div>
         </div>
     );
 }
