@@ -39,11 +39,53 @@ const App: React.FC = () => {
                 onChange={(event) => handleChange(event)}
             />
             <div id="keyboard">
-                <div className="first-row"></div>
-                <div className="second-row"></div>
-                <div className="third-row"></div>
-                <div className="forth-row"></div>
-                <div className="fifth-row"></div>
+                <div className="first-row">
+                    <div id="1"></div>
+                    <div id="2"></div>
+                    <div id="3"></div>
+                    <div id="4"></div>
+                    <div id="5"></div>
+                    <div id="6"></div>
+                    <div id="7"></div>
+                    <div id="8"></div>
+                    <div id="9"></div>
+                    <div id="0"></div>
+                </div>
+                <div className="second-row">
+                    <div id="q"></div>
+                    <div id="w"></div>
+                    <div id="e"></div>
+                    <div id="r"></div>
+                    <div id="t"></div>
+                    <div id="y"></div>
+                    <div id="u"></div>
+                    <div id="i"></div>
+                    <div id="o"></div>
+                    <div id="p"></div>
+                </div>
+                <div className="third-row">
+                    <div id="a"></div>
+                    <div id="s"></div>
+                    <div id="d"></div>
+                    <div id="f"></div>
+                    <div id="g"></div>
+                    <div id="h"></div>
+                    <div id="j"></div>
+                    <div id="k"></div>
+                    <div id="l"></div>
+                </div>
+                <div className="forth-row">
+                    <div id="z"></div>
+                    <div id="x"></div>
+                    <div id="c"></div>
+                    <div id="v"></div>
+                    <div id="b"></div>
+                    <div id="n"></div>
+                    <div id="m"></div>
+                </div>
+                <div className="fifth-row">
+                    <div id="space"></div>
+                </div>
             </div>
         </div>
     );
