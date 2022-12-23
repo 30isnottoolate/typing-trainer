@@ -40,48 +40,48 @@ const App: React.FC = () => {
             />
             <div id="keyboard">
                 <div className="first-row">
-                    <div id="1">1</div>
-                    <div id="2">2</div>
-                    <div id="3">3</div>
-                    <div id="4">4</div>
-                    <div id="5">5</div>
-                    <div id="6">6</div>
-                    <div id="7">7</div>
-                    <div id="8">8</div>
-                    <div id="9">9</div>
-                    <div id="0">0</div>
+                    <div id="1" className="key">1</div>
+                    <div id="2" className="key">2</div>
+                    <div id="3" className="key">3</div>
+                    <div id="4" className="key">4</div>
+                    <div id="5" className="key">5</div>
+                    <div id="6" className="key">6</div>
+                    <div id="7" className="key">7</div>
+                    <div id="8" className="key">8</div>
+                    <div id="9" className="key">9</div>
+                    <div id="0" className="key">0</div>
                 </div>
                 <div className="second-row">
-                    <div id="q">Q</div>
-                    <div id="w">W</div>
-                    <div id="e">E</div>
-                    <div id="r">R</div>
-                    <div id="t">T</div>
-                    <div id="y">Y</div>
-                    <div id="u">U</div>
-                    <div id="i">I</div>
-                    <div id="o">O</div>
-                    <div id="p">P</div>
+                    <div id="q" className="key">Q</div>
+                    <div id="w" className="key">W</div>
+                    <div id="e" className="key">E</div>
+                    <div id="r" className="key">R</div>
+                    <div id="t" className="key">T</div>
+                    <div id="y" className="key">Y</div>
+                    <div id="u" className="key">U</div>
+                    <div id="i" className="key">I</div>
+                    <div id="o" className="key">O</div>
+                    <div id="p" className="key">P</div>
                 </div>
                 <div className="third-row">
-                    <div id="a">A</div>
-                    <div id="s">S</div>
-                    <div id="d">D</div>
-                    <div id="f">F</div>
-                    <div id="g">G</div>
-                    <div id="h">H</div>
-                    <div id="j">J</div>
-                    <div id="k">K</div>
-                    <div id="l">L</div>
+                    <div id="a" className="key">A</div>
+                    <div id="s" className="key">S</div>
+                    <div id="d" className="key">D</div>
+                    <div id="f" className="key">F</div>
+                    <div id="g" className="key">G</div>
+                    <div id="h" className="key">H</div>
+                    <div id="j" className="key">J</div>
+                    <div id="k" className="key">K</div>
+                    <div id="l" className="key">L</div>
                 </div>
                 <div className="forth-row">
-                    <div id="z">Z</div>
-                    <div id="x">X</div>
-                    <div id="c">C</div>
-                    <div id="v">V</div>
-                    <div id="b">B</div>
-                    <div id="n">N</div>
-                    <div id="m">M</div>
+                    <div id="z" className="key">Z</div>
+                    <div id="x" className="key">X</div>
+                    <div id="c" className="key">C</div>
+                    <div id="v" className="key">V</div>
+                    <div id="b" className="key">B</div>
+                    <div id="n" className="key">N</div>
+                    <div id="m" className="key">M</div>
                 </div>
                 <div className="fifth-row">
                     <div id="space"></div>
