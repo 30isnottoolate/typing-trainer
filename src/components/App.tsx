@@ -79,6 +79,7 @@ const App: React.FC = () => {
                     <div id="l" className="key">L</div>
                 </div>
                 <div className="fourth-row">
+                    <div></div>
                     <div id="z" className="key">Z</div>
                     <div id="x" className="key">X</div>
                     <div id="c" className="key">C</div>
@@ -89,7 +90,7 @@ const App: React.FC = () => {
                 </div>
                 <div className="fifth-row">
                     <div></div>
-                    <div id="space"></div>
+                    <div id="space">SPACE</div>
                 </div>
             </div>
         </div>
