@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "./App.css";
 
 const App: React.FC = () => {
     const [textSource, setTextSource] = useState("Some text.");
@@ -40,6 +41,7 @@ const App: React.FC = () => {
             />
             <div id="keyboard">
                 <div className="first-row">
+                    <div></div>
                     <div id="1" className="key">1</div>
                     <div id="2" className="key">2</div>
                     <div id="3" className="key">3</div>
@@ -52,6 +54,7 @@ const App: React.FC = () => {
                     <div id="0" className="key">0</div>
                 </div>
                 <div className="second-row">
+                    <div></div>
                     <div id="q" className="key">Q</div>
                     <div id="w" className="key">W</div>
                     <div id="e" className="key">E</div>
@@ -64,6 +67,7 @@ const App: React.FC = () => {
                     <div id="p" className="key">P</div>
                 </div>
                 <div className="third-row">
+                    <div></div>
                     <div id="a" className="key">A</div>
                     <div id="s" className="key">S</div>
                     <div id="d" className="key">D</div>
@@ -74,7 +78,7 @@ const App: React.FC = () => {
                     <div id="k" className="key">K</div>
                     <div id="l" className="key">L</div>
                 </div>
-                <div className="forth-row">
+                <div className="fourth-row">
                     <div id="z" className="key">Z</div>
                     <div id="x" className="key">X</div>
                     <div id="c" className="key">C</div>
@@ -84,6 +88,7 @@ const App: React.FC = () => {
                     <div id="m" className="key">M</div>
                 </div>
                 <div className="fifth-row">
+                    <div></div>
                     <div id="space"></div>
                 </div>
             </div>
