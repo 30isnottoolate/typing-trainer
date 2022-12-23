@@ -105,7 +105,8 @@ const App: React.FC = () => {
                     <div className="blank-key"></div>
                     <div className="blank-key"></div>
                     <div className="blank-key"></div>
-                    <div id="space">SPACE</div>
+                    <div id="space"></div>
+                    <div className="blank-key"></div>
                     <div className="blank-key"></div>
                     <div className="blank-key"></div>
                     <div className="blank-key"></div>
