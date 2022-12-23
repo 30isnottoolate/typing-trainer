@@ -41,7 +41,7 @@ const App: React.FC = () => {
             />
             <div id="keyboard">
                 <div className="first-row">
-                    <div></div>
+                    <div className="blank-key"></div>
                     <div id="1" className="key">1</div>
                     <div id="2" className="key">2</div>
                     <div id="3" className="key">3</div>
@@ -52,9 +52,12 @@ const App: React.FC = () => {
                     <div id="8" className="key">8</div>
                     <div id="9" className="key">9</div>
                     <div id="0" className="key">0</div>
+                    <div className="blank-key"></div>
+                    <div className="blank-key"></div>
+                    <div className="blank-key"></div>
                 </div>
                 <div className="second-row">
-                    <div></div>
+                    <div className="blank-key"></div>
                     <div id="q" className="key">Q</div>
                     <div id="w" className="key">W</div>
                     <div id="e" className="key">E</div>
@@ -65,9 +68,12 @@ const App: React.FC = () => {
                     <div id="i" className="key">I</div>
                     <div id="o" className="key">O</div>
                     <div id="p" className="key">P</div>
+                    <div className="blank-key"></div>
+                    <div className="blank-key"></div>
+                    <div className="blank-key"></div>
                 </div>
                 <div className="third-row">
-                    <div></div>
+                    <div className="blank-key"></div>
                     <div id="a" className="key">A</div>
                     <div id="s" className="key">S</div>
                     <div id="d" className="key">D</div>
@@ -77,9 +83,12 @@ const App: React.FC = () => {
                     <div id="j" className="key">J</div>
                     <div id="k" className="key">K</div>
                     <div id="l" className="key">L</div>
+                    <div className="blank-key"></div>
+                    <div className="blank-key"></div>
+                    <div className="blank-key"></div>
                 </div>
                 <div className="fourth-row">
-                    <div></div>
+                    <div className="blank-key"></div>
                     <div id="z" className="key">Z</div>
                     <div id="x" className="key">X</div>
                     <div id="c" className="key">C</div>
@@ -87,10 +96,19 @@ const App: React.FC = () => {
                     <div id="b" className="key">B</div>
                     <div id="n" className="key">N</div>
                     <div id="m" className="key">M</div>
+                    <div className="blank-key"></div>
+                    <div className="blank-key"></div>
+                    <div className="blank-key"></div>
+                    <div className="blank-key"></div>
                 </div>
                 <div className="fifth-row">
-                    <div></div>
+                    <div className="blank-key"></div>
+                    <div className="blank-key"></div>
+                    <div className="blank-key"></div>
                     <div id="space">SPACE</div>
+                    <div className="blank-key"></div>
+                    <div className="blank-key"></div>
+                    <div className="blank-key"></div>
                 </div>
             </div>
         </div>

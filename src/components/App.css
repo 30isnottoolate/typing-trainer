@@ -8,6 +8,11 @@
     border: 1px solid #000000;
 }
 
+.blank-key {
+    height: 50px;
+    border: 1px solid #000000;
+}
+
 .first-row {
     display: grid;
     grid-template-columns: 50px repeat(10, 50px);
@@ -38,7 +43,7 @@
 
 .fifth-row {
     display: grid;
-    grid-template-columns: 200px 300px;
+    grid-template-columns: repeat(3, 65px) 300px;
     gap: 5px;
     margin: 5px 0;
 }
