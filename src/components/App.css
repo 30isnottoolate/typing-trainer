@@ -12,11 +12,13 @@
     height: 50px;
     padding: 14px 0;
     border: 1px solid #000000;
+    border-radius: 5px;
 }
 
 .blank-key {
     height: 50px;
     border: 1px solid #000000;
+    border-radius: 5px;
 }
 
 .first-row {
@@ -57,4 +59,5 @@
 #space {
     height: 50px;
     border: 1px solid #000000;
+    border-radius: 5px;
 }
