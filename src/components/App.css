@@ -15,35 +15,35 @@
 
 .first-row {
     display: grid;
-    grid-template-columns: 50px repeat(12, 50px) 115px;
+    grid-template-columns: 50px repeat(12, 50px) 105px;
     gap: 5px;
     margin: 5px 0;
 }
 
 .second-row {
     display: grid;
-    grid-template-columns: 80px repeat(12, 50px) 85px;
+    grid-template-columns: 80px repeat(12, 50px) 75px;
     gap: 5px;
     margin: 5px 0;
 }
 
 .third-row {
     display: grid;
-    grid-template-columns: 95px repeat(11, 50px) 125px;
+    grid-template-columns: 95px repeat(11, 50px) 115px;
     gap: 5px;
     margin: 5px 0;
 }
 
 .fourth-row {
     display: grid;
-    grid-template-columns: 125px repeat(10, 50px) 150px;
+    grid-template-columns: 125px repeat(10, 50px) 140px;
     gap: 5px;
     margin: 5px 0;
 }
 
 .fifth-row {
     display: grid;
-    grid-template-columns: repeat(3, 67.5px) 332.5px repeat(4, 65px);
+    grid-template-columns: repeat(3, 67.5px) 312.5px repeat(4, 67.5px);
     gap: 5px;
     margin: 5px 0;
 }
