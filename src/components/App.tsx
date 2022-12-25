@@ -42,60 +42,60 @@ const App: React.FC = () => {
             <div id="keyboard">
                 <div className="first-row">
                     <div className="blank-key"></div>
-                    <div id="1" className="key">1</div>
-                    <div id="2" className="key">2</div>
-                    <div id="3" className="key">3</div>
-                    <div id="4" className="key">4</div>
-                    <div id="5" className="key">5</div>
-                    <div id="6" className="key">6</div>
-                    <div id="7" className="key">7</div>
-                    <div id="8" className="key">8</div>
-                    <div id="9" className="key">9</div>
-                    <div id="0" className="key">0</div>
+                    <div id="1" className="key first-column">1</div>
+                    <div id="2" className="key second-column">2</div>
+                    <div id="3" className="key third-column">3</div>
+                    <div id="4" className="key fourth-column">4</div>
+                    <div id="5" className="key fourth-column">5</div>
+                    <div id="6" className="key first-column">6</div>
+                    <div id="7" className="key first-column">7</div>
+                    <div id="8" className="key second-column">8</div>
+                    <div id="9" className="key third-column">9</div>
+                    <div id="0" className="key fourth-column">0</div>
                     <div className="blank-key"></div>
                     <div className="blank-key"></div>
                     <div className="blank-key"></div>
                 </div>
                 <div className="second-row">
                     <div className="blank-key"></div>
-                    <div id="q" className="key">Q</div>
-                    <div id="w" className="key">W</div>
-                    <div id="e" className="key">E</div>
-                    <div id="r" className="key">R</div>
-                    <div id="t" className="key">T</div>
-                    <div id="y" className="key">Y</div>
-                    <div id="u" className="key">U</div>
-                    <div id="i" className="key">I</div>
-                    <div id="o" className="key">O</div>
-                    <div id="p" className="key">P</div>
+                    <div id="q" className="key first-column">Q</div>
+                    <div id="w" className="key second-column">W</div>
+                    <div id="e" className="key third-column">E</div>
+                    <div id="r" className="key fourth-column">R</div>
+                    <div id="t" className="key fourth-column">T</div>
+                    <div id="y" className="key first-column">Y</div>
+                    <div id="u" className="key first-column">U</div>
+                    <div id="i" className="key second-column">I</div>
+                    <div id="o" className="key third-column">O</div>
+                    <div id="p" className="key fourth-column">P</div>
                     <div className="blank-key"></div>
                     <div className="blank-key"></div>
                     <div className="blank-key"></div>
                 </div>
                 <div className="third-row">
                     <div className="blank-key"></div>
-                    <div id="a" className="key">A</div>
-                    <div id="s" className="key">S</div>
-                    <div id="d" className="key">D</div>
-                    <div id="f" className="key">F</div>
-                    <div id="g" className="key">G</div>
-                    <div id="h" className="key">H</div>
-                    <div id="j" className="key">J</div>
-                    <div id="k" className="key">K</div>
-                    <div id="l" className="key">L</div>
+                    <div id="a" className="key first-column">A</div>
+                    <div id="s" className="key second-column">S</div>
+                    <div id="d" className="key third-column">D</div>
+                    <div id="f" className="key fourth-column">F</div>
+                    <div id="g" className="key fourth-column">G</div>
+                    <div id="h" className="key first-column">H</div>
+                    <div id="j" className="key first-column">J</div>
+                    <div id="k" className="key second-column">K</div>
+                    <div id="l" className="key third-column">L</div>
                     <div className="blank-key"></div>
                     <div className="blank-key"></div>
                     <div className="blank-key"></div>
                 </div>
                 <div className="fourth-row">
                     <div className="blank-key"></div>
-                    <div id="z" className="key">Z</div>
-                    <div id="x" className="key">X</div>
-                    <div id="c" className="key">C</div>
-                    <div id="v" className="key">V</div>
-                    <div id="b" className="key">B</div>
-                    <div id="n" className="key">N</div>
-                    <div id="m" className="key">M</div>
+                    <div id="z" className="key first-column">Z</div>
+                    <div id="x" className="key second-column">X</div>
+                    <div id="c" className="key third-column">C</div>
+                    <div id="v" className="key fourth-column">V</div>
+                    <div id="b" className="key fourth-column">B</div>
+                    <div id="n" className="key first-column">N</div>
+                    <div id="m" className="key first-column">M</div>
                     <div className="blank-key"></div>
                     <div className="blank-key"></div>
                     <div className="blank-key"></div>
