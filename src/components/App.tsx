@@ -33,13 +33,15 @@ const App: React.FC = () => {
 
     return (
         <div>
-            <div id="text-source">{textSource}</div>
-            <textarea
-                id="text-input"
-                disabled={finished ? true : false}
-                value={textInput}
-                onChange={(event) => handleChange(event)}
-            />
+            <div id="text-zone">
+                <div id="text-source">{textSource}</div>
+                <textarea
+                    id="text-input"
+                    disabled={finished ? true : false}
+                    value={textInput}
+                    onChange={(event) => handleChange(event)}
+                />
+            </div>
             <div id="keyboard">
                 <div className="first-row">
                     <div className="blank-key"></div>
