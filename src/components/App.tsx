@@ -24,6 +24,7 @@ const App: React.FC = () => {
                 console.log("Done. Number of errors: " + errorCount);
                 console.log(`Accuray: ${(100 - errorCount / textSource.length * 100)}%`);
                 console.log(`Time: ${Date.now() - startingTime}`);
+                console.log(`Speed: ${(textSource.length * 60000 / (Date.now() - startingTime)).toFixed(2)} chars/min`)
                 setTimerActive(false);
                 setFinished(true);
             }
