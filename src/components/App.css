@@ -1,7 +1,37 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
 * {
     box-sizing: border-box;
+}
+
+#text-zone {
+    width: 90vw;
+    height: 500px;
+    padding: 0;
+    border: 1px solid #000000;
+}
+
+#text-source {
+    font-size: 20px;
+    font-family: "Roboto", Arial, Helvetica, sans-serif;
+    position: absolute;
+    width: 90vw;
+    height: 500px;
+    padding: 10px;
+    opacity: 1;
+}
+
+#text-input {
+    font-size: 20px;
+    font-family: "Roboto", Arial, Helvetica, sans-serif;
+    position: absolute;
+    width: 90vw;
+    height: 500px;
+    padding: 10px;
+    border-width: 0px;
+    resize: none; 
+    opacity: 0.55;
 }
 
 #text-source, #keyboard {
