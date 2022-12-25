@@ -16,6 +16,7 @@
 }
 
 .blank-key {
+    background-color: #cbd5e1;
     height: 50px;
     border: 1px solid #000000;
     border-radius: 5px;
@@ -57,7 +58,24 @@
 }
 
 #space {
+    background-color: #d8b4fe;
     height: 50px;
     border: 1px solid #000000;
     border-radius: 5px;
+}
+
+.first-column {
+    background-color: #fcd34d;
+}
+
+.second-column {
+    background-color: #86efac;
+}
+
+.third-column {
+    background-color: #7dd3fc;
+}
+
+.fourth-column {
+    background-color: #fda4af;
 }
