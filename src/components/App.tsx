@@ -10,6 +10,10 @@ const App: React.FC = () => {
     const [finished, setFinished] = useState(false);
     const [currentChar, setCurrentChar] = useState("");
 
+    useEffect(() => {
+        setCurrentChar(textSource[0]);
+    }, [])
+
     const handleChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
         if (event.target) {
             setTextInput(event.currentTarget.value);
