@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./App.css";
 
 const App: React.FC = () => {
@@ -8,6 +8,7 @@ const App: React.FC = () => {
     const [timerActive, setTimerActive] = useState(false);
     const [startingTime, setStartingTime] = useState(0);
     const [finished, setFinished] = useState(false);
+    const [currentChar, setCurrentChar] = useState("");
 
     const handleChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
         if (event.target) {
