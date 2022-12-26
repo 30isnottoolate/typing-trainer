@@ -5,6 +5,11 @@
     box-sizing: border-box;
 }
 
+#root {
+    display: grid;
+    justify-items: center;
+}
+
 #text-zone {
     width: 90vw;
     height: 500px;
