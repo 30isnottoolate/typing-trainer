@@ -32,7 +32,7 @@ const App: React.FC = () => {
     }
 
     return (
-        <div>
+        <>
             <div id="text-zone">
                 <div id="text-source">{textSource}</div>
                 <textarea
@@ -115,7 +115,7 @@ const App: React.FC = () => {
                     <div className="blank-key"></div>
                 </div>
             </div>
-        </div>
+        </>
     );
 }
 
