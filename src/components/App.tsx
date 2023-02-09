@@ -1,6 +1,12 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
 
+const FIRST_ROW = ["", "1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "", "", ""];
+const SECOND_ROW = ["", "q", "w", "e", "r", "t", "y", "u", "i", "o", "p", "", "", ""];
+const THIRD_ROW = ["", "a", "s", "d", "f", "g", "h", "j", "k", "", "", ""];
+const FOURTH_ROW = ["", "z", "x", "c", "v", "b", "n", "m", "", "", "", ""];
+const FIFTH_ROW = ["", "", "", " ", "", "", "", ""];
+
 const App: React.FC = () => {
     const [textSource, setTextSource] = useState("Some text.");
     const [textInput, setTextInput] = useState("");
