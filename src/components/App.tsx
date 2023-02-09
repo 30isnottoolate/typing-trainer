@@ -10,7 +10,7 @@ const FIFTH_ROW = ["", "", "", " ", "", "", "", ""];
 const COLUMN_CLASSES = ["", "first", "second", "third", "fourth", "fourth", "first", "first", "second", "third", "fourth"];
 
 const App: React.FC = () => {
-    const [textSource, setTextSource] = useState("Some text.");
+    const [textSource, setTextSource] = useState("Som1e text.");
     const [textInput, setTextInput] = useState("");
     const [errorCount, setErrorCount] = useState(0);
     const [timerActive, setTimerActive] = useState(false);
@@ -39,6 +39,14 @@ const App: React.FC = () => {
         }
     }
 
+    const columnClass = (item: string, index: number) => {
+        return `${item === "" ? "blank-key" : `key ${COLUMN_CLASSES[index]}-column`}`;
+    }
+
+    const highlightClass = (item: string) => {
+        return `${textSource[textInput.length] && textSource[textInput.length].toLocaleLowerCase() === item ? " highlighted" : ""}`
+    }
+
     return (
         <>
             <div id="text-zone">
@@ -55,8 +63,8 @@ const App: React.FC = () => {
                     {FIRST_ROW.map((item, index) =>
                         <div
                             key={index}
-                            className={`${item === "" ? "blank-key" : "key"}${item !== "" ? ` ${COLUMN_CLASSES[index]}-column` : ""}`}
-                            style={{ opacity: `${textSource[textInput.length] && textSource[textInput.length].toLocaleLowerCase() === item ? 1 : 0.5}` }} >
+                            className={`${columnClass(item, index)}${highlightClass(item)}`}
+                            /* style={{ opacity: `${textSource[textInput.length] && textSource[textInput.length].toLocaleLowerCase() === item ? 1 : 0.5}` }} */ >
                             {item.toUpperCase()}
                         </div>
                     )}
