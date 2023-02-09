@@ -12,7 +12,11 @@ const App: React.FC = () => {
 
     useEffect(() => {
         setCurrentChar(textSource[0]);
-    }, [])
+    }, []);
+
+    useEffect(() => {
+        console.log(textSource[textInput.length]);
+    }, [textInput]);
 
     const handleChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
         if (event.target) {
