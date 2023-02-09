@@ -22,31 +22,32 @@
 
 #text-zone {
     width: 90vw;
-    height: 500px;
+    height: 32rem;
     padding: 0;
-    border: 1px solid #000000;
+    border: 0.0625rem solid #000000;
 }
 
-#text-source {
-    font-size: 20px;
+#text-source, #text-input {
+    font-size: 1.25rem;
     font-family: "Roboto", Arial, Helvetica, sans-serif;
     position: absolute;
     width: 90vw;
-    height: 500px;
-    padding: 10px;
+    height: 32rem;
+    padding: 0.75rem;
+}
+
+#text-source {
     opacity: 1;
 }
 
 #text-input {
-    font-size: 20px;
-    font-family: "Roboto", Arial, Helvetica, sans-serif;
-    position: absolute;
-    width: 90vw;
-    height: 500px;
-    padding: 10px;
-    border-width: 0px;
+    border-width: 0;
     resize: none; 
     opacity: 0.55;
+}
+
+#text-input:focus {
+    outline: 0;
 }
 
 #text-source, #keyboard {
@@ -54,18 +55,18 @@
 }
 
 .key, .blank-key, .space-key {
-    height: 50px;
-    border: 1px solid #000000;
-    border-radius: 5px;
+    height: 3.125rem;
+    border: 0.0625rem solid #000000;
+    border-radius: 0.3125rem;
 }
 
 .key {
     display: grid;
     align-content: center;
     justify-content: center;
-    font-size: 18px;
+    font-size: 1.125rem;
     font-family: "Popping", Arial, Helvetica, sans-serif;
-    width: 50px;
+    width: 3.125rem;
 }
 
 .blank-key {
@@ -77,42 +78,37 @@
 }
 
 .highlighted {
-    box-shadow: 0 0 4px 4px var(--highlight-color);
+    box-shadow: 0 0 0.25rem 0.25rem var(--highlight-color);
+}
+
+.first-row, .second-row, .third-row, .fourth-row, .fifth-row {
+    gap: 0.3125rem;
+    margin: 0.3125rem 0;
 }
 
 .first-row {
     display: grid;
-    grid-template-columns: 50px repeat(12, 50px) 105px;
-    gap: 5px;
-    margin: 5px 0;
+    grid-template-columns: 3.125rem repeat(12, 3.125rem) 6.5625rem;
 }
 
 .second-row {
     display: grid;
-    grid-template-columns: 80px repeat(12, 50px) 75px;
-    gap: 5px;
-    margin: 5px 0;
+    grid-template-columns: 5rem repeat(12, 3.125rem) 4.6875rem;
 }
 
 .third-row {
     display: grid;
-    grid-template-columns: 95px repeat(11, 50px) 115px;
-    gap: 5px;
-    margin: 5px 0;
+    grid-template-columns: 5.9375rem repeat(11, 3.125rem) 7.1875rem;
 }
 
 .fourth-row {
     display: grid;
-    grid-template-columns: 125px repeat(10, 50px) 140px;
-    gap: 5px;
-    margin: 5px 0;
+    grid-template-columns: 7.8125rem repeat(10, 3.125rem) 8.75rem; 
 }
 
 .fifth-row {
     display: grid;
-    grid-template-columns: repeat(3, 67.5px) 312.5px repeat(4, 67.5px);
-    gap: 5px;
-    margin: 5px 0;
+    grid-template-columns: repeat(3, 4.2188rem) 19.5313rem repeat(4, 4.2188rem);
 }
 
 .first-column {
