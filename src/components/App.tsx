@@ -7,6 +7,8 @@ const THIRD_ROW = ["", "a", "s", "d", "f", "g", "h", "j", "k", "", "", ""];
 const FOURTH_ROW = ["", "z", "x", "c", "v", "b", "n", "m", "", "", "", ""];
 const FIFTH_ROW = ["", "", "", " ", "", "", "", ""];
 
+const COLUMNS = ["", "first", "second", "third", "fourth", "fourth", "first", "first", "second", "third", "fourth"];
+
 const App: React.FC = () => {
     const [textSource, setTextSource] = useState("Some text.");
     const [textInput, setTextInput] = useState("");
@@ -59,6 +61,14 @@ const App: React.FC = () => {
             </div>
             <div id="keyboard">
                 <div className="first-row">
+                    {FIRST_ROW.map((item, index) =>
+                        <div
+                            key={index}
+                            className={`${item === "" ? "blank-key" : "key"} ${item !== "" && COLUMNS[index]}-column`} 
+                            style={{opacity: `${textSource[textInput.length].toLocaleLowerCase() === item ? 1 : 0.5}`}} >
+                            {item.toUpperCase()}
+                        </div>
+                    )}
                     <div className="blank-key"></div>
                     <div id="1" className="key first-column">1</div>
                     <div id="2" className="key second-column">2</div>
