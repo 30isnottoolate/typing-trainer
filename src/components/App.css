@@ -43,7 +43,7 @@
 #text-input {
     border-width: 0;
     resize: none; 
-    opacity: 0.55;
+    opacity: 0.6;
 }
 
 #text-input:focus {
@@ -88,27 +88,27 @@
 
 .first-row {
     display: grid;
-    grid-template-columns: 3.125rem repeat(12, 3.125rem) 6.5625rem;
+    grid-template-columns: repeat(13, 3.125rem) 6.625rem;
 }
 
 .second-row {
     display: grid;
-    grid-template-columns: 5rem repeat(12, 3.125rem) 4.6875rem;
+    grid-template-columns: 5rem repeat(12, 3.125rem) 4.75rem;
 }
 
 .third-row {
     display: grid;
-    grid-template-columns: 5.9375rem repeat(11, 3.125rem) 7.1875rem;
+    grid-template-columns: 6rem repeat(11, 3.125rem) 7.1875rem;
 }
 
 .fourth-row {
     display: grid;
-    grid-template-columns: 7.8125rem repeat(10, 3.125rem) 8.75rem; 
+    grid-template-columns: 7.875rem repeat(10, 3.125rem) 8.75rem; 
 }
 
 .fifth-row {
     display: grid;
-    grid-template-columns: repeat(3, 4.2188rem) 19.5313rem repeat(4, 4.2188rem);
+    grid-template-columns: repeat(3, 4.25rem) 19.375rem repeat(4, 4.25rem);
 }
 
 .first-column {
