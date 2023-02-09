@@ -1,5 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fira+Mono&display=swap');
 
 :root {
     --blank-key-color: #cbd5e188;
@@ -29,7 +29,7 @@
 
 #text-source, #text-input {
     font-size: 1.25rem;
-    font-family: "Roboto", Arial, Helvetica, sans-serif;
+    font-family: "Fira Mono", monospace;
     position: absolute;
     width: 90vw;
     height: 32rem;
