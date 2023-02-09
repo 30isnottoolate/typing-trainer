@@ -3,8 +3,8 @@ import "./App.css";
 
 const FIRST_ROW = ["", "1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "", "", ""];
 const SECOND_ROW = ["", "q", "w", "e", "r", "t", "y", "u", "i", "o", "p", "", "", ""];
-const THIRD_ROW = ["", "a", "s", "d", "f", "g", "h", "j", "k", "", "", ""];
-const FOURTH_ROW = ["", "z", "x", "c", "v", "b", "n", "m", "", "", "", ""];
+const THIRD_ROW = ["", "a", "s", "d", "f", "g", "h", "j", "k", "l", "", "", ""];
+const FOURTH_ROW = ["", "z", "x", "c", "v", "b", "n", "m", ",", ".", "", ""];
 const FIFTH_ROW = ["", "", "", " ", "", "", "", ""];
 
 const COLUMNS = ["", "first", "second", "third", "fourth", "fourth", "first", "first", "second", "third", "fourth"];
@@ -64,8 +64,8 @@ const App: React.FC = () => {
                     {FIRST_ROW.map((item, index) =>
                         <div
                             key={index}
-                            className={`${item === "" ? "blank-key" : "key"} ${item !== "" && COLUMNS[index]}-column`} 
-                            style={{opacity: `${textSource[textInput.length].toLocaleLowerCase() === item ? 1 : 0.5}`}} >
+                            className={`${item === "" ? "blank-key" : "key"}${item !== "" ? ` ${COLUMNS[index]}-column` : ""}`}
+                            style={{ opacity: `${textSource[textInput.length] && textSource[textInput.length].toLocaleLowerCase() === item ? 1 : 0.5}` }} >
                             {item.toUpperCase()}
                         </div>
                     )}
@@ -85,6 +85,14 @@ const App: React.FC = () => {
                     <div className="blank-key"></div>
                 </div>
                 <div className="second-row">
+                    {SECOND_ROW.map((item, index) =>
+                        <div
+                            key={index}
+                            className={`${item === "" ? "blank-key" : "key"}${item !== "" ? ` ${COLUMNS[index]}-column` : ""}`}
+                            style={{ opacity: `${textSource[textInput.length] && textSource[textInput.length].toLocaleLowerCase() === item ? 1 : 0.5}` }} >
+                            {item.toUpperCase()}
+                        </div>
+                    )}
                     <div className="blank-key"></div>
                     <div id="q" className="key first-column">Q</div>
                     <div id="w" className="key second-column">W</div>
@@ -101,6 +109,14 @@ const App: React.FC = () => {
                     <div className="blank-key"></div>
                 </div>
                 <div className="third-row">
+                    {THIRD_ROW.map((item, index) =>
+                        <div
+                            key={index}
+                            className={`${item === "" ? "blank-key" : "key"}${item !== "" ? ` ${COLUMNS[index]}-column` : ""}`}
+                            style={{ opacity: `${textSource[textInput.length] && textSource[textInput.length].toLocaleLowerCase() === item ? 1 : 0.5}` }} >
+                            {item.toUpperCase()}
+                        </div>
+                    )}
                     <div className="blank-key"></div>
                     <div id="a" className="key first-column">A</div>
                     <div id="s" className="key second-column">S</div>
@@ -116,6 +132,14 @@ const App: React.FC = () => {
                     <div className="blank-key"></div>
                 </div>
                 <div className="fourth-row">
+                    {FOURTH_ROW.map((item, index) =>
+                        <div
+                            key={index}
+                            className={`${item === "" ? "blank-key" : "key"}${item !== "" ? ` ${COLUMNS[index]}-column` : ""}`}
+                            style={{ opacity: `${textSource[textInput.length] && textSource[textInput.length].toLocaleLowerCase() === item ? 1 : 0.5}` }} >
+                            {item.toUpperCase()}
+                        </div>
+                    )}
                     <div className="blank-key"></div>
                     <div id="z" className="key first-column">Z</div>
                     <div id="x" className="key second-column">X</div>
@@ -130,6 +154,15 @@ const App: React.FC = () => {
                     <div className="blank-key"></div>
                 </div>
                 <div className="fifth-row">
+                {FIFTH_ROW.map((item, index) =>
+                        <div
+                            key={index}
+                            id={item === " " ? "space" : ""}
+                            className={`${item === "" ? "blank-key" : ""}`}
+                            style={{ opacity: `${textSource[textInput.length] && textSource[textInput.length].toLocaleLowerCase() === item ? 1 : 0.5}` }} >
+                            {item.toUpperCase()}
+                        </div>
+                    )}
                     <div className="blank-key"></div>
                     <div className="blank-key"></div>
                     <div className="blank-key"></div>
