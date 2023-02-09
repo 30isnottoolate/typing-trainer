@@ -63,8 +63,7 @@ const App: React.FC = () => {
                     {FIRST_ROW.map((item, index) =>
                         <div
                             key={index}
-                            className={`${columnClass(item, index)}${highlightClass(item)}`}
-                            /* style={{ opacity: `${textSource[textInput.length] && textSource[textInput.length].toLocaleLowerCase() === item ? 1 : 0.5}` }} */ >
+                            className={`${columnClass(item, index)}${highlightClass(item)}`} >
                             {item.toUpperCase()}
                         </div>
                     )}
@@ -73,8 +72,7 @@ const App: React.FC = () => {
                     {SECOND_ROW.map((item, index) =>
                         <div
                             key={index}
-                            className={`${item === "" ? "blank-key" : "key"}${item !== "" ? ` ${COLUMN_CLASSES[index]}-column` : ""}`}
-                            style={{ opacity: `${textSource[textInput.length] && textSource[textInput.length].toLocaleLowerCase() === item ? 1 : 0.5}` }} >
+                            className={`${columnClass(item, index)}${highlightClass(item)}`} >
                             {item.toUpperCase()}
                         </div>
                     )}
@@ -83,8 +81,7 @@ const App: React.FC = () => {
                     {THIRD_ROW.map((item, index) =>
                         <div
                             key={index}
-                            className={`${item === "" ? "blank-key" : "key"}${item !== "" ? ` ${COLUMN_CLASSES[index]}-column` : ""}`}
-                            style={{ opacity: `${textSource[textInput.length] && textSource[textInput.length].toLocaleLowerCase() === item ? 1 : 0.5}` }} >
+                            className={`${columnClass(item, index)}${highlightClass(item)}`} >
                             {item.toUpperCase()}
                         </div>
                     )}
@@ -93,8 +90,7 @@ const App: React.FC = () => {
                     {FOURTH_ROW.map((item, index) =>
                         <div
                             key={index}
-                            className={`${item === "" ? "blank-key" : "key"}${item !== "" ? ` ${COLUMN_CLASSES[index]}-column` : ""}`}
-                            style={{ opacity: `${textSource[textInput.length] && textSource[textInput.length].toLocaleLowerCase() === item ? 1 : 0.5}` }} >
+                            className={`${columnClass(item, index)}${highlightClass(item)}`} >
                             {item.toUpperCase()}
                         </div>
                     )}
@@ -103,11 +99,8 @@ const App: React.FC = () => {
                     {FIFTH_ROW.map((item, index) =>
                         <div
                             key={index}
-                            id={item === " " ? "space" : ""}
-                            className={`${item === "" ? "blank-key" : ""}`}
-                            style={{ opacity: `${textSource[textInput.length] && textSource[textInput.length].toLocaleLowerCase() === item ? 1 : 0.5}` }} >
-                            {item.toUpperCase()}
-                        </div>
+                            className={`${item === " " ? "space-key" : ""}${item === "" ? "blank-key" : ""}${highlightClass(item)}`}
+                        />
                     )}
                 </div>
             </div>

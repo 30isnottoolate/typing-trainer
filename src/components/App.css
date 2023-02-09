@@ -55,16 +55,24 @@
     opacity: 0.5;
 }
 
-.highlighted {
-    opacity: 1;
-}
-
 .blank-key {
     background-color: #cbd5e1;
     height: 50px;
     border: 1px solid #000000;
     border-radius: 5px;
     opacity: 0.5;
+}
+
+.space-key {
+    background-color: #d8b4fe;
+    height: 50px;
+    border: 1px solid #000000;
+    border-radius: 5px;
+    opacity: 0.5;
+}
+
+.highlighted {
+    opacity: 1;
 }
 
 .first-row {
@@ -100,14 +108,6 @@
     grid-template-columns: repeat(3, 67.5px) 312.5px repeat(4, 67.5px);
     gap: 5px;
     margin: 5px 0;
-}
-
-#space {
-    background-color: #d8b4fe;
-    height: 50px;
-    border: 1px solid #000000;
-    border-radius: 5px;
-    opacity: 0.5;
 }
 
 .first-column {
