@@ -3,7 +3,7 @@ import "./App.css";
 import Keyboard from "./Keyboard";
 
 const App: React.FC = () => {
-    const [textSource, setTextSource] = useState("Som1e text.");
+    const [textSource, setTextSource] = useState("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.");
     const [textInput, setTextInput] = useState("");
     const [errorCount, setErrorCount] = useState(0);
     const [timerActive, setTimerActive] = useState(false);
