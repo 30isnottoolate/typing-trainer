@@ -1,13 +1,6 @@
 import React, { useState } from "react";
 import "./App.css";
-
-const FIRST_ROW = ["", "1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "", "", ""];
-const SECOND_ROW = ["", "q", "w", "e", "r", "t", "y", "u", "i", "o", "p", "", "", ""];
-const THIRD_ROW = ["", "a", "s", "d", "f", "g", "h", "j", "k", "l", "", "", ""];
-const FOURTH_ROW = ["", "z", "x", "c", "v", "b", "n", "m", ",", ".", "", ""];
-const FIFTH_ROW = ["", "", "", " ", "", "", "", ""];
-
-const COLUMN_CLASSES = ["", "first", "second", "third", "fourth", "fourth", "first", "first", "second", "third", "fourth"];
+import Keyboard from "./Keyboard";
 
 const App: React.FC = () => {
     const [textSource, setTextSource] = useState("Som1e text.");
@@ -39,14 +32,6 @@ const App: React.FC = () => {
         }
     }
 
-    const columnClass = (item: string, index: number) => {
-        return `${item === "" ? "blank-key" : `key ${COLUMN_CLASSES[index]}-column`}`;
-    }
-
-    const highlightClass = (item: string) => {
-        return `${textSource[textInput.length] && textSource[textInput.length].toLocaleLowerCase() === item ? " highlighted" : ""}`
-    }
-
     return (
         <>
             <div id="text-zone">
@@ -54,56 +39,12 @@ const App: React.FC = () => {
                 <textarea
                     id="text-input"
                     disabled={finished ? true : false}
+                    spellCheck={false}
                     value={textInput}
                     onChange={(event) => handleChange(event)}
                 />
             </div>
-            <div id="keyboard">
-                <div className="first-row">
-                    {FIRST_ROW.map((item, index) =>
-                        <div
-                            key={index}
-                            className={`${columnClass(item, index)}${highlightClass(item)}`} >
-                            {item.toUpperCase()}
-                        </div>
-                    )}
-                </div>
-                <div className="second-row">
-                    {SECOND_ROW.map((item, index) =>
-                        <div
-                            key={index}
-                            className={`${columnClass(item, index)}${highlightClass(item)}`} >
-                            {item.toUpperCase()}
-                        </div>
-                    )}
-                </div>
-                <div className="third-row">
-                    {THIRD_ROW.map((item, index) =>
-                        <div
-                            key={index}
-                            className={`${columnClass(item, index)}${highlightClass(item)}`} >
-                            {item.toUpperCase()}
-                        </div>
-                    )}
-                </div>
-                <div className="fourth-row">
-                    {FOURTH_ROW.map((item, index) =>
-                        <div
-                            key={index}
-                            className={`${columnClass(item, index)}${highlightClass(item)}`} >
-                            {item.toUpperCase()}
-                        </div>
-                    )}
-                </div>
-                <div className="fifth-row">
-                    {FIFTH_ROW.map((item, index) =>
-                        <div
-                            key={index}
-                            className={`${item === " " ? "space-key" : ""}${item === "" ? "blank-key" : ""}${highlightClass(item)}`}
-                        />
-                    )}
-                </div>
-            </div>
+            <Keyboard currentKey={textSource[textInput.length]} />
         </>
     );
 }
