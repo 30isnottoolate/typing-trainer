@@ -18,10 +18,12 @@ const FinishBox: React.FC<FinishBoxProps> = ({ finishTime, finishAccurary, finis
                     <span>Accuracy: </span><span>{finishAccurary}</span>
                     <span>Speed: </span><span>{finishSpeed}</span>
                 </div>
-                {success &&
-                    <button>Next</button>}
-                <button>Restart</button>
-                <button>Menu</button>
+                <div className="buttons-container">
+                    {success &&
+                        <button>Next</button>}
+                    <button>Restart</button>
+                    <button>Menu</button>
+                </div>
             </div>
         </div>
     );
