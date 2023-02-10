@@ -12,12 +12,28 @@
 }
 
 * {
+    margin: 0;
     box-sizing: border-box;
 }
 
 #root {
     display: grid;
     justify-items: center;
+}
+
+.menu-screen {
+    display: grid;
+    align-content: center;
+    justify-content: center;
+    background-color: #00000022;
+    width: 100vw;
+    height: 100vh;
+}
+
+.menu-box {
+    background-color: #bbbbbb;
+    width: 20rem;
+    height: 30rem;
 }
 
 #text-zone {
