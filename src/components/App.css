@@ -36,6 +36,12 @@
     height: 30rem;
 }
 
+.yes-no-box {
+    background-color: #bbbbbb;
+    width: 20rem;
+    height: 10rem;
+}
+
 #text-zone {
     width: 90vw;
     height: 32rem;
