@@ -1,6 +1,7 @@
 import React from "react";
 
 interface LevelMenuProps {
+    setCurrentLevel: React.Dispatch<React.SetStateAction<number>>;
 }
 
 const LevelMenu: React.FC<LevelMenuProps> = ({ }: LevelMenuProps) => {

@@ -10,6 +10,7 @@ const App: React.FC = () => {
     const [timerActive, setTimerActive] = useState(false);
     const [startingTime, setStartingTime] = useState(0);
     const [finished, setFinished] = useState(false);
+    const [currentLevel, setCurrentLevel] = useState(0);
 
     const handleChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
         if (event.target) {
@@ -35,7 +36,7 @@ const App: React.FC = () => {
 
     return (
         <>
-        <LevelMenu />
+        <LevelMenu setCurrentLevel={setCurrentLevel} />
             {/* <div id="text-zone">
                 <div id="text-source">{textSource}</div>
                 <textarea
