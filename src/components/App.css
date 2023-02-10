@@ -42,6 +42,28 @@
     height: 10rem;
 }
 
+.finish-box {
+    background-color: #bbbbbb;
+    width: 20rem;
+    height: 10rem;
+}
+
+.finish-stats-container {
+    display: grid;
+    grid-template-columns: auto auto;
+}
+
+.buttons-container {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    justify-content: end;
+    width: 100%;
+}
+
+.buttons-container button {
+    width: 4rem;
+}
+
 #text-zone {
     width: 90vw;
     height: 32rem;
