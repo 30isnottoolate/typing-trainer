@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./App.css";
 import LevelMenu from "./LevelMenu";
 import Keyboard from "./Keyboard";
+import FinishBox from "./FinishBox";
 
 const App: React.FC = () => {
     const [textSource, setTextSource] = useState("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.");
@@ -36,7 +37,8 @@ const App: React.FC = () => {
 
     return (
         <>
-        <LevelMenu setCurrentLevel={setCurrentLevel} />
+        <FinishBox finishTime={60} finishAccurary={100} finishSpeed={200} success={true} />
+        {/* <LevelMenu setCurrentLevel={setCurrentLevel} /> */}
             {/* <div id="text-zone">
                 <div id="text-source">{textSource}</div>
                 <textarea
