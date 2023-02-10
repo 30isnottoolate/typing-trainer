@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./App.css";
+import LevelMenu from "./LevelMenu";
 import Keyboard from "./Keyboard";
 
 const App: React.FC = () => {
@@ -34,7 +35,8 @@ const App: React.FC = () => {
 
     return (
         <>
-            <div id="text-zone">
+        <LevelMenu />
+            {/* <div id="text-zone">
                 <div id="text-source">{textSource}</div>
                 <textarea
                     id="text-input"
@@ -44,7 +46,7 @@ const App: React.FC = () => {
                     onChange={(event) => handleChange(event)}
                 />
             </div>
-            <Keyboard currentKey={textSource[textInput.length]} />
+            <Keyboard currentKey={textSource[textInput.length]} /> */}
         </>
     );
 }
