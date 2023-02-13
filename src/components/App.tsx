@@ -38,19 +38,34 @@ const App: React.FC = () => {
 
     return (
         <>
-        <FinishBox finishTime={60} finishAccurary={100} finishSpeed={200} success={true} />
-        {/* <LevelMenu setCurrentLevel={setCurrentLevel} /> */}
-            {/* <div id="text-zone">
-                <div id="text-source">{textSource}</div>
-                <textarea
-                    id="text-input"
-                    disabled={finished ? true : false}
-                    spellCheck={false}
-                    value={textInput}
-                    onChange={(event) => handleChange(event)}
+            {appStatus === "menu" &&
+                <LevelMenu
+                    setCurrentLevel={setCurrentLevel}
                 />
-            </div>
-            <Keyboard currentKey={textSource[textInput.length]} /> */}
+            }
+            {appStatus === "training" &&
+                <>
+                    <div id="text-zone">
+                        <div id="text-source">{textSource}</div>
+                        <textarea
+                            id="text-input"
+                            disabled={finished ? true : false}
+                            spellCheck={false}
+                            value={textInput}
+                            onChange={(event) => handleChange(event)}
+                        />
+                    </div>
+                    <Keyboard currentKey={textSource[textInput.length]} />
+                </>
+            }
+            {appStatus === "finished" &&
+                <FinishBox
+                    finishTime={60}
+                    finishAccurary={100}
+                    finishSpeed={200}
+                    success={true}
+                />
+            }
         </>
     );
 }
