@@ -29,7 +29,7 @@ const App: React.FC = () => {
                 do {
                     let randomIndex = Math.floor(Math.random() * currentWords.length);
                     let randomWord = currentWords[randomIndex];
-    
+
                     if ((lineCollector + randomWord).length < 66) {
                         lineCollector = `${lineCollector} ${randomWord}`;
                     } else {
@@ -70,6 +70,10 @@ const App: React.FC = () => {
         return textInput !== textSource.slice(0, textInput.length) ? "typo" : "";
     }
 
+    const currentKey = textSource[textInput.length] === `\n` ? "return"
+        : textInput !== textSource.slice(0, textInput.length) ? "backsp."
+            : textSource[textInput.length];
+
     return (
         <>
             {appStatus === "menu" &&
@@ -91,7 +95,7 @@ const App: React.FC = () => {
                         value={textInput}
                         onChange={(event) => handleChange(event)}
                     />
-                    <Keyboard currentKey={textSource[textInput.length]} />
+                    <Keyboard currentKey={currentKey} />
                 </>
             }
             {appStatus === "paused" &&
