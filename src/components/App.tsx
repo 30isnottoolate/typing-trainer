@@ -63,16 +63,14 @@ const App: React.FC = () => {
             }
             {appStatus === "training" &&
                 <>
-                    <div id="text-zone">
-                        <div id="text-source">{textSource}</div>
-                        <textarea
-                            id="text-input"
-                            disabled={finished ? true : false}
-                            spellCheck={false}
-                            value={textInput}
-                            onChange={(event) => handleChange(event)}
-                        />
-                    </div>
+                    <div id="text-source">{textSource}</div>
+                    <textarea
+                        id="text-input"
+                        disabled={finished ? true : false}
+                        spellCheck={false}
+                        value={textInput}
+                        onChange={(event) => handleChange(event)}
+                    />
                     <Keyboard currentKey={textSource[textInput.length]} />
                 </>
             }
