@@ -12,6 +12,7 @@ const App: React.FC = () => {
     const [startingTime, setStartingTime] = useState(0);
     const [finished, setFinished] = useState(false);
     const [currentLevel, setCurrentLevel] = useState(0);
+    const [appStatus, setAppStatus] = useState("menu"); //menu, training, paused, finished
 
     const handleChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
         if (event.target) {
