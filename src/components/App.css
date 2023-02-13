@@ -71,8 +71,12 @@
     width: 68.5ch;
     height: calc(100vh - 20.5rem);
     padding: 1ch;
-    word-break: break-all;
+    white-space: pre-wrap;
     overflow-y: scroll;
+}
+
+.typo {
+    color: #ff0000;
 }
 
 #text-source {

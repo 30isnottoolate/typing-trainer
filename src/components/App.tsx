@@ -8,13 +8,13 @@ import FinishBox from "./FinishBox";
 import wordBank from "../utilities/wordBank";
 
 const App: React.FC = () => {
-    const [textSource, setTextSource] = useState("");
+    const [textSource, setTextSource] = useState(`dfhsdkjfhsdkjfhsjdfhskhdkfjksdf\nasdasdghashdhashd\ndfsdfsdfsdfsd\nasdadadsadd\nsdfsdf`);
     const [textInput, setTextInput] = useState("");
     const [errorCount, setErrorCount] = useState(0);
     const [timerActive, setTimerActive] = useState(false);
     const [startingTime, setStartingTime] = useState(0);
     const [finished, setFinished] = useState(false);
-    const [currentLevel, setCurrentLevel] = useState(1);
+    const [currentLevel, setCurrentLevel] = useState(0);
     const [appStatus, setAppStatus] = useState("training"); //menu, training, paused, finished
 
     useEffect(() => {
@@ -54,7 +54,7 @@ const App: React.FC = () => {
         }
     }
 
-    const textInputClass = () => {
+    const textSourceClass = () => {
         return textInput !== textSource.slice(0, textInput.length) ? "typo" : "";
     }
 
@@ -67,10 +67,13 @@ const App: React.FC = () => {
             }
             {appStatus === "training" &&
                 <>
-                    <div id="text-source">{textSource}</div>
+                    <div
+                        id="text-source"
+                        className={textSourceClass()} >
+                        {textSource}
+                    </div>
                     <textarea
                         id="text-input"
-                        className={textInputClass()}
                         disabled={finished ? true : false}
                         spellCheck={false}
                         value={textInput}
