@@ -6,20 +6,20 @@ interface LevelMenuProps {
 }
 
 const levels = [
-    "Level 1 (ASDFJKL)", 
-    "Level 2 (RU)", 
-    "Level 3 (EI)", 
-    "Level 4 (WO)", 
-    "Level 5 (QP)", 
-    "Level 6 (GH)", 
-    "Level 7 (TY)", 
-    "Level 8 (VM)", 
-    "Level 9 (BN)", 
-    "Level 10 (C)", 
+    "Level 1 (ASDFJKL)",
+    "Level 2 (RU)",
+    "Level 3 (EI)",
+    "Level 4 (WO)",
+    "Level 5 (QP)",
+    "Level 6 (GH)",
+    "Level 7 (TY)",
+    "Level 8 (VM)",
+    "Level 9 (BN)",
+    "Level 10 (C)",
     "Level 11 (ZX)"
 ];
 
-const LevelMenu: React.FC<LevelMenuProps> = ({ }: LevelMenuProps) => {
+const LevelMenu: React.FC<LevelMenuProps> = ({ setCurrentLevel, setAppStatus }: LevelMenuProps) => {
 
     return (
         <div className="menu-screen">
@@ -38,12 +38,18 @@ const LevelMenu: React.FC<LevelMenuProps> = ({ }: LevelMenuProps) => {
                     <span>char/min</span>
                 </div>
                 <label htmlFor="level-selection">Choose a level:</label>
-                <select name="level-selection">
-                    {levels.map((item, index) => 
-                    <option value={index + 1}>{item}</option>
+                <select 
+                    name="level-selection" 
+                    onChange={event => setCurrentLevel(Number(event.target.value))}>
+                    {levels.map((item, index) =>
+                        <option
+                            key={index}
+                            value={index + 1} >
+                            {item}
+                        </option>
                     )}
                 </select>
-                <button>Start Training</button>
+                <button onClick={() => setAppStatus("training")}>Start Training</button>
             </div>
         </div>
     );
