@@ -1,19 +1,36 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./App.css";
 import LevelMenu from "./LevelMenu";
 import Keyboard from "./Keyboard";
 import YesNoBox from "./YesNoBox";
 import FinishBox from "./FinishBox";
 
+import wordBank from "../utilities/wordBank";
+
 const App: React.FC = () => {
-    const [textSource, setTextSource] = useState("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.");
+    const [textSource, setTextSource] = useState("");
     const [textInput, setTextInput] = useState("");
     const [errorCount, setErrorCount] = useState(0);
     const [timerActive, setTimerActive] = useState(false);
     const [startingTime, setStartingTime] = useState(0);
     const [finished, setFinished] = useState(false);
-    const [currentLevel, setCurrentLevel] = useState(0);
-    const [appStatus, setAppStatus] = useState("menu"); //menu, training, paused, finished
+    const [currentLevel, setCurrentLevel] = useState(1);
+    const [appStatus, setAppStatus] = useState("training"); //menu, training, paused, finished
+
+    useEffect(() => {
+        if (currentLevel > 0) {
+            let currentWords = wordBank[currentLevel - 1];
+            let textCollector = currentWords[Math.floor(Math.random() * currentWords.length)];
+
+            do {
+                let randomIndex = Math.floor(Math.random() * currentWords.length);
+                textCollector = `${textCollector} ${currentWords[randomIndex]}`;
+            }
+            while (textCollector.length < 1000);
+
+            setTextSource(textCollector);
+        }
+    }, [currentLevel]);
 
     const handleChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
         if (event.target) {
