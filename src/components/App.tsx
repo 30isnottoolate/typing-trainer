@@ -66,9 +66,7 @@ const App: React.FC = () => {
         }
     }
 
-    const textSourceClass = () => {
-        return textInput !== textSource.slice(0, textInput.length) ? "typo" : "";
-    }
+    const textSourceClass = textInput !== textSource.slice(0, textInput.length) ? "typo" : "";
 
     const currentKey = textSource[textInput.length] === `\n` ? "return"
         : textInput !== textSource.slice(0, textInput.length) ? "backsp."
@@ -85,7 +83,7 @@ const App: React.FC = () => {
                 <>
                     <div
                         id="text-source"
-                        className={textSourceClass()} >
+                        className={textSourceClass} >
                         {textSource}
                     </div>
                     <textarea
