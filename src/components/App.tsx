@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./App.css";
 import LevelMenu from "./LevelMenu";
 import Keyboard from "./Keyboard";
+import YesNoBox from "./YesNoBox";
 import FinishBox from "./FinishBox";
 
 const App: React.FC = () => {
@@ -57,6 +58,9 @@ const App: React.FC = () => {
                     </div>
                     <Keyboard currentKey={textSource[textInput.length]} />
                 </>
+            }
+            {appStatus === "paused" &&
+                <YesNoBox />
             }
             {appStatus === "finished" &&
                 <FinishBox
