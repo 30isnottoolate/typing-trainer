@@ -102,18 +102,18 @@
     bottom: 1.5rem;
 }
 
-.key, .blank-key, .space-key {
+.key, .blank-key, .space-key, .special-key {
+    display: grid;
+    align-content: center;
+    justify-content: center;
+    font-size: 1.125rem;
+    font-family: "Poppins", Arial, Helvetica, sans-serif;
     height: 3.125rem;
     border: 0.0625rem solid #000000;
     border-radius: 0.3125rem;
 }
 
 .key {
-    display: grid;
-    align-content: center;
-    justify-content: center;
-    font-size: 1.125rem;
-    font-family: "Poppins", Arial, Helvetica, sans-serif;
     width: 3.125rem;
 }
 
@@ -123,6 +123,10 @@
 
 .space-key {
     background-color: var(--space-key-color);
+}
+
+.special-key {
+    background-color: var(--fourth-column);
 }
 
 .highlighted {
