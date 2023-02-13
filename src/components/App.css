@@ -64,20 +64,15 @@
     width: 4rem;
 }
 
-#text-zone {
-    width: 90vw;
-    height: 32rem;
-    padding: 0;
-    border: 0.0625rem solid #000000;
-}
-
 #text-source, #text-input {
     font-size: 1.25rem;
     font-family: "Fira Mono", monospace;
     position: absolute;
-    width: 90vw;
-    height: 32rem;
-    padding: 0.75rem;
+    width: 68.5ch;
+    height: calc(100vh - 20.5rem);
+    padding: 1ch;
+    word-break: break-all;
+    overflow-y: scroll;
 }
 
 #text-source {
@@ -96,6 +91,11 @@
 
 #text-source, #keyboard {
     user-select: none;
+}
+
+#keyboard {
+    position: absolute;
+    bottom: 1.5rem;
 }
 
 .key, .blank-key, .space-key {
