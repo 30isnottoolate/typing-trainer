@@ -5,6 +5,20 @@ interface LevelMenuProps {
     setAppStatus: React.Dispatch<React.SetStateAction<string>>;
 }
 
+const levels = [
+    "Level 1 (ASDFJKL)", 
+    "Level 2 (RU)", 
+    "Level 3 (EI)", 
+    "Level 4 (WO)", 
+    "Level 5 (QP)", 
+    "Level 6 (GH)", 
+    "Level 7 (TY)", 
+    "Level 8 (VM)", 
+    "Level 9 (BN)", 
+    "Level 10 (C)", 
+    "Level 11 (ZX)"
+];
+
 const LevelMenu: React.FC<LevelMenuProps> = ({ }: LevelMenuProps) => {
 
     return (
@@ -25,9 +39,9 @@ const LevelMenu: React.FC<LevelMenuProps> = ({ }: LevelMenuProps) => {
                 </div>
                 <label htmlFor="level-selection">Choose a level:</label>
                 <select name="level-selection">
-                    <option>1</option>
-                    <option disabled>2</option>
-                    <option disabled>3</option>
+                    {levels.map((item, index) => 
+                    <option value={index + 1}>{item}</option>
+                    )}
                 </select>
                 <button>Start Training</button>
             </div>
