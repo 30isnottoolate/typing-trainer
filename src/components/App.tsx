@@ -54,6 +54,10 @@ const App: React.FC = () => {
         }
     }
 
+    const textInputClass = () => {
+        return textInput !== textSource.slice(0, textInput.length) ? "typo" : "";
+    }
+
     return (
         <>
             {appStatus === "menu" &&
@@ -66,6 +70,7 @@ const App: React.FC = () => {
                     <div id="text-source">{textSource}</div>
                     <textarea
                         id="text-input"
+                        className={textInputClass()}
                         disabled={finished ? true : false}
                         spellCheck={false}
                         value={textInput}
