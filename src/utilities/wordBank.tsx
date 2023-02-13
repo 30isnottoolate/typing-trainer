@@ -1,5 +1,4 @@
-const wordBank = {
-"asdfjkl": 
+const wordBank = [
 [
     "flask",
     "skald",
@@ -34,7 +33,6 @@ const wordBank = {
     "la",
     "as"
 ],
-"ru":
 [
     "jarfuls",
     "jarsful",
@@ -94,7 +92,6 @@ const wordBank = {
     "us",
     "ar"
 ],
-"ei":
 [
     "surflike",
     "failures",
@@ -186,7 +183,6 @@ const wordBank = {
     "id",
     "li"
 ],
-"wo":
 [
     "fieldworks",
     "dwarflike",
@@ -273,7 +269,6 @@ const wordBank = {
     "we",
     "wo"
 ],
-"qp":
 [
     "squawkier",
     "odalisque",
@@ -358,7 +353,6 @@ const wordBank = {
     "op",
     "pa"
 ],
-"gh":
 [
     "dealfish",
     "gadflies",
@@ -419,7 +413,6 @@ const wordBank = {
     "hi",
     "sh"
 ],
-"ty":
 [
     "skylighted",
     "hayfields",
@@ -500,7 +493,6 @@ const wordBank = {
     "ya",
     "ye"
 ],
-"vm":
 [
     "hamfistedly",
     "makeshift",
@@ -562,7 +554,6 @@ const wordBank = {
     "me",
     "mi"
 ],
-"bn":
 [
     "fieldsman",
     "mandibles",
@@ -656,7 +647,6 @@ const wordBank = {
     "be",
     "bi"
 ],
-"c":
 [
     "backfields",
     "backfield",
@@ -720,7 +710,6 @@ const wordBank = {
     "cab",
     "cam"
 ],
-"zx":
 [
     "climaxed",
     "climaxes",
@@ -793,6 +782,6 @@ const wordBank = {
     "ex",
     "xi"
 ]
-}
+];
 
 export default wordBank;
