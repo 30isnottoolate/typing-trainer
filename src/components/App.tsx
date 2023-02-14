@@ -15,7 +15,8 @@ const App: React.FC = () => {
     const [startingTime, setStartingTime] = useState(0);
     const [finished, setFinished] = useState(false);
     const [currentLevel, setCurrentLevel] = useState(1);
-    const [appStatus, setAppStatus] = useState("training"); //menu, training, paused, finished
+    const [appStatus, setAppStatus] = useState("menu"); //menu, training, paused, finished
+    const [score, setScore] = useState({time: 0, accuracy: 0, speed: 0, success: false});
 
     useEffect(() => {
         if (currentLevel > 0) {
