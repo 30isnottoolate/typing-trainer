@@ -117,6 +117,8 @@ const App: React.FC = () => {
                     finishAccurary={score.accuracy}
                     finishSpeed={score.speed}
                     success={score.success}
+                    setCurrentLevel={setCurrentLevel}
+                    setAppStatus={setAppStatus}
                 />
             }
         </>
