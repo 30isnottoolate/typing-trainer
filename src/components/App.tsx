@@ -16,14 +16,14 @@ const App: React.FC = () => {
     const [finished, setFinished] = useState(false);
     const [currentLevel, setCurrentLevel] = useState(1);
     const [appStatus, setAppStatus] = useState("menu"); //menu, training, paused, finished
-    const [score, setScore] = useState({time: 0, accuracy: 0, speed: 0, success: false});
+    const [score, setScore] = useState({ time: 0, accuracy: 0, speed: 0, success: false });
 
     useEffect(() => {
         if (currentLevel > 0) {
             let currentWords = wordBank[currentLevel - 1];
             let textCollector = "";
 
-            for (let numberOfLines = 0; numberOfLines < 16; numberOfLines++) {
+            for (let numberOfLines = 0; numberOfLines < 3; numberOfLines++) {
                 let lineCollector = "";
                 let isLineFull = false;
 
@@ -57,10 +57,13 @@ const App: React.FC = () => {
             if (event.currentTarget.value !== textSource.slice(0, event.currentTarget.value.length)) {
                 setErrorCount(prevState => prevState + 1);
             } else if (event.currentTarget.value === textSource) {
-                console.log("Done. Number of errors: " + errorCount);
-                console.log(`Accuray: ${(100 - errorCount / textSource.length * 100)}%`);
-                console.log(`Time: ${Date.now() - startingTime}`);
-                console.log(`Speed: ${(textSource.length * 60000 / (Date.now() - startingTime)).toFixed(2)} chars/min`)
+                
+                setScore({ 
+                    time: Date.now() - startingTime, 
+                    accuracy: Number((100 - errorCount / textSource.length * 100).toFixed(2)), 
+                    speed: Number((textSource.length * 60000 / (Date.now() - startingTime)).toFixed(2)), 
+                    success: true });
+                setAppStatus("finished");
                 setTimerActive(false);
                 setFinished(true);
             }
@@ -103,10 +106,10 @@ const App: React.FC = () => {
             }
             {appStatus === "finished" &&
                 <FinishBox
-                    finishTime={60}
-                    finishAccurary={100}
-                    finishSpeed={200}
-                    success={true}
+                    finishTime={score.time}
+                    finishAccurary={score.accuracy}
+                    finishSpeed={score.speed}
+                    success={score.success}
                 />
             }
         </>
