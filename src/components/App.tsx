@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import "./App.css";
 import LevelMenu from "./LevelMenu";
 import Keyboard from "./Keyboard";
@@ -17,6 +17,8 @@ const App: React.FC = () => {
     const [currentLevel, setCurrentLevel] = useState(1);
     const [appStatus, setAppStatus] = useState("menu"); //menu, training, paused, finished
     const [score, setScore] = useState({ time: 0, accuracy: 0, speed: 0, success: false });
+
+    const textAreaRef = useRef<HTMLTextAreaElement>(null);
 
     useEffect(() => {
         if (currentLevel > 0) {
@@ -93,6 +95,7 @@ const App: React.FC = () => {
                     </div>
                     <textarea
                         id="text-input"
+                        ref={textAreaRef}
                         disabled={finished ? true : false}
                         spellCheck={false}
                         value={textInput}
