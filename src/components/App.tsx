@@ -47,6 +47,10 @@ const App: React.FC = () => {
         }
     }, [currentLevel]);
 
+    useEffect(() => {
+        if (appStatus === "training" && textAreaRef.current) textAreaRef.current.focus();
+    }, [appStatus])
+
     const handleChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
         if (event.target) {
             setTextInput(event.currentTarget.value);
