@@ -16,6 +16,10 @@ const FinishBox: React.FC<FinishBoxProps> = ({ finishTime, finishAccurary, finis
         setAppStatus("training");
     }
 
+    const restartLevel = () => {
+        setAppStatus("training");
+    }
+
     return (
         <div className="menu-screen">
             <div className="finish-box">
@@ -29,7 +33,7 @@ const FinishBox: React.FC<FinishBoxProps> = ({ finishTime, finishAccurary, finis
                     {success &&
                         <button onClick={nextLevel}>Next</button>
                     }
-                    <button>Restart</button>
+                    <button onClick={restartLevel}>Restart</button>
                     <button>Menu</button>
                 </div>
             </div>
