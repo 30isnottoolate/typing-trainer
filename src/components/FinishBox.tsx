@@ -9,7 +9,12 @@ interface FinishBoxProps {
     setAppStatus: React.Dispatch<React.SetStateAction<string>>;
 }
 
-const FinishBox: React.FC<FinishBoxProps> = ({ finishTime, finishAccurary, finishSpeed, success }: FinishBoxProps) => {
+const FinishBox: React.FC<FinishBoxProps> = ({ finishTime, finishAccurary, finishSpeed, success, setCurrentLevel, setAppStatus }: FinishBoxProps) => {
+
+    const nextLevel = () => {
+        setCurrentLevel(prevState => prevState + 1);
+        setAppStatus("training");
+    }
 
     return (
         <div className="menu-screen">
@@ -22,7 +27,8 @@ const FinishBox: React.FC<FinishBoxProps> = ({ finishTime, finishAccurary, finis
                 </div>
                 <div className="buttons-container">
                     {success &&
-                        <button>Next</button>}
+                        <button onClick={nextLevel}>Next</button>
+                    }
                     <button>Restart</button>
                     <button>Menu</button>
                 </div>
