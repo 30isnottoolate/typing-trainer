@@ -65,9 +65,9 @@ const App: React.FC = () => {
             } else if (event.currentTarget.value === textSource) {
                 
                 setScore({ 
-                    time: Date.now() - startingTime, 
+                    time: Math.round((Date.now() - startingTime) / 1000), 
                     accuracy: Number((100 - errorCount / textSource.length * 100).toFixed(2)), 
-                    speed: Number((textSource.length * 60000 / (Date.now() - startingTime)).toFixed(2)), 
+                    speed: Number((textSource.length * 60000 / (Date.now() - startingTime)).toFixed(0)), 
                     success: true });
                 setAppStatus("finished");
                 setTimerActive(false);
