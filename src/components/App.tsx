@@ -13,7 +13,6 @@ const App: React.FC = () => {
     const [errorCount, setErrorCount] = useState(0);
     const [timerActive, setTimerActive] = useState(false);
     const [startingTime, setStartingTime] = useState(0);
-    const [finished, setFinished] = useState(false);
     const [currentLevel, setCurrentLevel] = useState(1);
     const [appStatus, setAppStatus] = useState("menu"); //menu, training, paused, finished
     const [score, setScore] = useState({ time: 0, accuracy: 0, speed: 0, success: false });
@@ -72,7 +71,6 @@ const App: React.FC = () => {
                     success: true });
                 setAppStatus("finished");
                 setTimerActive(false);
-                setFinished(true);
             }
         }
     }
@@ -101,7 +99,6 @@ const App: React.FC = () => {
                     <textarea
                         id="text-input"
                         ref={textAreaRef}
-                        disabled={finished ? true : false}
                         spellCheck={false}
                         value={textInput}
                         onChange={(event) => handleChange(event)}
