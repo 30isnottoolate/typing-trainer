@@ -18,7 +18,6 @@ interface TrainerProps {
 const Trainer: React.FC<TrainerProps> = (
     { textInput, currentLevel, setCurrentLevel, appStatus, setAppStatus, setTextInput }: TrainerProps) => {
 
-
     const [textSource, setTextSource] = useState("");
     const [trainerStatus, setTrainerStatus] = useState("idle"); // idle, active, paused, finished
     const [score, setScore] = useState({ time: 0, accuracy: 0, speed: 0, success: false });
@@ -27,10 +26,37 @@ const Trainer: React.FC<TrainerProps> = (
     const [startingTime, setStartingTime] = useState(0);
 
     const textAreaRef = useRef<HTMLTextAreaElement>(null);
+    
+    useEffect(() => {
+        if (currentLevel > 0) {
+            let currentWords = wordBank[currentLevel - 1];
+            let textCollector = "";
+
+            for (let numberOfLines = 0; numberOfLines < 3; numberOfLines++) {
+                let lineCollector = "";
+                let isLineFull = false;
+
+                do {
+                    let randomIndex = Math.floor(Math.random() * currentWords.length);
+                    let randomWord = currentWords[randomIndex];
+
+                    if ((lineCollector + randomWord).length < 66) {
+                        lineCollector = `${lineCollector} ${randomWord}`;
+                    } else {
+                        textCollector = `${textCollector}\n${lineCollector.trim()}`;
+                        isLineFull = true;
+                    }
+                }
+                while (!isLineFull);
+            }
+
+            setTextSource(textCollector.trim());
+        }
+    }, [currentLevel]);
 
     useEffect(() => {
         if (appStatus === "training" && textAreaRef.current) textAreaRef.current.focus();
-    }, [appStatus])
+    }, [appStatus]);
 
     const handleChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
         if (event.target) {
