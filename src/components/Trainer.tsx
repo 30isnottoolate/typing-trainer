@@ -4,10 +4,8 @@ import YesNoBox from "./YesNoBox";
 import FinishBox from "./FinishBox";
 
 interface TrainerProps {
-    textSourceClass: string;
     textSource: string;
     textInput: string;
-    currentKey: string;
     setCurrentLevel: React.Dispatch<React.SetStateAction<number>>;
     appStatus: string;
     setAppStatus: React.Dispatch<React.SetStateAction<string>>;
@@ -15,7 +13,7 @@ interface TrainerProps {
 }
 
 const Trainer: React.FC<TrainerProps> = (
-    { textSourceClass, textSource, textInput, currentKey, setCurrentLevel, appStatus, setAppStatus, setTextInput }: TrainerProps) => {
+    { textSource, textInput, setCurrentLevel, appStatus, setAppStatus, setTextInput }: TrainerProps) => {
 
     const [trainerStatus, setTrainerStatus] = useState("idle"); // idle, active, paused, finished
     const [score, setScore] = useState({ time: 0, accuracy: 0, speed: 0, success: false });
@@ -53,6 +51,12 @@ const Trainer: React.FC<TrainerProps> = (
             }
         }
     }
+
+    const textSourceClass = textInput !== textSource.slice(0, textInput.length) ? "typo" : "";
+
+    const currentKey = textSource[textInput.length] === `\n` ? "return"
+        : textInput !== textSource.slice(0, textInput.length) ? "backsp."
+            : textSource[textInput.length];
 
     return (
         <>

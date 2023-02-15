@@ -43,12 +43,6 @@ const App: React.FC = () => {
         if (appStatus === "training" && textAreaRef.current) textAreaRef.current.focus();
     }, [appStatus]) */
 
-    const textSourceClass = textInput !== textSource.slice(0, textInput.length) ? "typo" : "";
-
-    const currentKey = textSource[textInput.length] === `\n` ? "return"
-        : textInput !== textSource.slice(0, textInput.length) ? "backsp."
-            : textSource[textInput.length];
-
     return (
         <>
             {appStatus === "menu" &&
@@ -61,10 +55,8 @@ const App: React.FC = () => {
             }
             {appStatus === "training" &&
                 <Trainer
-                    textSourceClass={textSourceClass}
                     textSource={textSource}
                     textInput={textInput}
-                    currentKey={currentKey}
                     setCurrentLevel={setCurrentLevel}
                     appStatus={appStatus}
                     setAppStatus={setAppStatus}
