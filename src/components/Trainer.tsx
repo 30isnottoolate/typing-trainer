@@ -7,17 +7,16 @@ import YesNoBox from "./YesNoBox";
 import FinishBox from "./FinishBox";
 
 interface TrainerProps {
-    textInput: string;
     currentLevel: number;
     setCurrentLevel: React.Dispatch<React.SetStateAction<number>>;
     appStatus: string;
     setAppStatus: React.Dispatch<React.SetStateAction<string>>;
-    setTextInput: React.Dispatch<React.SetStateAction<string>>;
 }
 
 const Trainer: React.FC<TrainerProps> = (
-    { textInput, currentLevel, setCurrentLevel, appStatus, setAppStatus, setTextInput }: TrainerProps) => {
+    { currentLevel, setCurrentLevel, appStatus, setAppStatus }: TrainerProps) => {
 
+    const [textInput, setTextInput] = useState("");
     const [textSource, setTextSource] = useState("");
     const [trainerStatus, setTrainerStatus] = useState("idle"); // idle, active, paused, finished
     const [score, setScore] = useState({ time: 0, accuracy: 0, speed: 0, success: false });
@@ -26,7 +25,7 @@ const Trainer: React.FC<TrainerProps> = (
     const [startingTime, setStartingTime] = useState(0);
 
     const textAreaRef = useRef<HTMLTextAreaElement>(null);
-    
+
     useEffect(() => {
         if (currentLevel > 0) {
             let currentWords = wordBank[currentLevel - 1];
