@@ -1,4 +1,4 @@
-import React, { useState, ChangeEvent } from "react";
+import React, { useState, useRef, useEffect, ChangeEvent } from "react";
 import Keyboard from "./Keyboard";
 import YesNoBox from "./YesNoBox";
 import FinishBox from "./FinishBox";
@@ -6,22 +6,28 @@ import FinishBox from "./FinishBox";
 interface TrainerProps {
     textSourceClass: string;
     textSource: string;
-    textAreaRef: React.RefObject<HTMLTextAreaElement>;
     textInput: string;
     currentKey: string;
     setCurrentLevel: React.Dispatch<React.SetStateAction<number>>;
+    appStatus: string;
     setAppStatus: React.Dispatch<React.SetStateAction<string>>;
     setTextInput: React.Dispatch<React.SetStateAction<string>>;
 }
 
 const Trainer: React.FC<TrainerProps> = (
-    { textSourceClass, textSource, textAreaRef, textInput, currentKey, setCurrentLevel, setAppStatus, setTextInput }: TrainerProps) => {
+    { textSourceClass, textSource, textInput, currentKey, setCurrentLevel, appStatus, setAppStatus, setTextInput }: TrainerProps) => {
 
     const [trainerStatus, setTrainerStatus] = useState("idle"); // idle, active, paused, finished
     const [score, setScore] = useState({ time: 0, accuracy: 0, speed: 0, success: false });
     const [errorCount, setErrorCount] = useState(0);
     const [timerActive, setTimerActive] = useState(false);
     const [startingTime, setStartingTime] = useState(0);
+
+    const textAreaRef = useRef<HTMLTextAreaElement>(null);
+
+    useEffect(() => {
+        if (appStatus === "training" && textAreaRef.current) textAreaRef.current.focus();
+    }, [appStatus])
 
     const handleChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
         if (event.target) {

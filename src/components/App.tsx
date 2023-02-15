@@ -12,8 +12,6 @@ const App: React.FC = () => {
     const [appStatus, setAppStatus] = useState("menu"); //menu, training, paused, finished
     const [progressionScore, setProgressionScore] = useState({ accuracy: 95, speed: 180 });
 
-    const textAreaRef = useRef<HTMLTextAreaElement>(null);
-
     useEffect(() => {
         if (currentLevel > 0) {
             let currentWords = wordBank[currentLevel - 1];
@@ -41,9 +39,9 @@ const App: React.FC = () => {
         }
     }, [currentLevel]);
 
-    useEffect(() => {
+    /* useEffect(() => {
         if (appStatus === "training" && textAreaRef.current) textAreaRef.current.focus();
-    }, [appStatus])
+    }, [appStatus]) */
 
     const textSourceClass = textInput !== textSource.slice(0, textInput.length) ? "typo" : "";
 
@@ -65,10 +63,10 @@ const App: React.FC = () => {
                 <Trainer
                     textSourceClass={textSourceClass}
                     textSource={textSource}
-                    textAreaRef={textAreaRef}
                     textInput={textInput}
                     currentKey={currentKey}
                     setCurrentLevel={setCurrentLevel}
+                    appStatus={appStatus}
                     setAppStatus={setAppStatus}
                     setTextInput={setTextInput}
                 />
