@@ -15,7 +15,6 @@ const App: React.FC = () => {
     const [startingTime, setStartingTime] = useState(0);
     const [currentLevel, setCurrentLevel] = useState(1);
     const [appStatus, setAppStatus] = useState("menu"); //menu, training, paused, finished
-    const [score, setScore] = useState({ time: 0, accuracy: 0, speed: 0, success: false });
     const [progressionScore, setProgressionScore] = useState({ accuracy: 95, speed: 180 });
 
     const textAreaRef = useRef<HTMLTextAreaElement>(null);
@@ -51,31 +50,6 @@ const App: React.FC = () => {
         if (appStatus === "training" && textAreaRef.current) textAreaRef.current.focus();
     }, [appStatus])
 
-    const handleChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
-        if (event.target) {
-            setTextInput(event.currentTarget.value);
-
-            if (!timerActive) {
-                setTimerActive(true);
-                setStartingTime(Date.now());
-            }
-
-            if (event.currentTarget.value !== textSource.slice(0, event.currentTarget.value.length)) {
-                setErrorCount(prevState => prevState + 1);
-            } else if (event.currentTarget.value === textSource) {
-
-                setScore({
-                    time: Math.round((Date.now() - startingTime) / 1000),
-                    accuracy: Number((100 - errorCount / textSource.length * 100).toFixed(2)),
-                    speed: Number((textSource.length * 60000 / (Date.now() - startingTime)).toFixed(0)),
-                    success: true
-                });
-                setAppStatus("finished");
-                setTimerActive(false);
-            }
-        }
-    }
-
     const textSourceClass = textInput !== textSource.slice(0, textInput.length) ? "typo" : "";
 
     const currentKey = textSource[textInput.length] === `\n` ? "return"
@@ -98,21 +72,10 @@ const App: React.FC = () => {
                     textSource={textSource}
                     textAreaRef={textAreaRef}
                     textInput={textInput}
-                    handleChange={handleChange}
                     currentKey={currentKey}
-                />
-            }
-            {appStatus === "paused" &&
-                <YesNoBox />
-            }
-            {appStatus === "finished" &&
-                <FinishBox
-                    finishTime={score.time}
-                    finishAccurary={score.accuracy}
-                    finishSpeed={score.speed}
-                    success={score.success}
                     setCurrentLevel={setCurrentLevel}
                     setAppStatus={setAppStatus}
+                    setTextInput={setTextInput}
                 />
             }
         </>
