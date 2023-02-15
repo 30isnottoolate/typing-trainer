@@ -2,17 +2,12 @@ import React, { useState, useRef, useEffect } from "react";
 import "./App.css";
 import LevelMenu from "./LevelMenu";
 import Trainer from "./Trainer";
-import YesNoBox from "./YesNoBox";
-import FinishBox from "./FinishBox";
 
 import wordBank from "../utilities/wordBank";
 
 const App: React.FC = () => {
     const [textSource, setTextSource] = useState("");
     const [textInput, setTextInput] = useState("");
-    const [errorCount, setErrorCount] = useState(0);
-    const [timerActive, setTimerActive] = useState(false);
-    const [startingTime, setStartingTime] = useState(0);
     const [currentLevel, setCurrentLevel] = useState(1);
     const [appStatus, setAppStatus] = useState("menu"); //menu, training, paused, finished
     const [progressionScore, setProgressionScore] = useState({ accuracy: 95, speed: 180 });
