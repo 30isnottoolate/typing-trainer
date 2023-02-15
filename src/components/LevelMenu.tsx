@@ -3,6 +3,8 @@ import React from "react";
 interface LevelMenuProps {
     setCurrentLevel: React.Dispatch<React.SetStateAction<number>>;
     setAppStatus: React.Dispatch<React.SetStateAction<string>>;
+    progressionScore: {accuracy: number, speed: number};
+    setProgressionScore: React.Dispatch<React.SetStateAction<object>>;
 }
 
 const levels = [
@@ -19,7 +21,8 @@ const levels = [
     "Level 11 (ZX)"
 ];
 
-const LevelMenu: React.FC<LevelMenuProps> = ({ setCurrentLevel, setAppStatus }: LevelMenuProps) => {
+const LevelMenu: React.FC<LevelMenuProps> = (
+    { setCurrentLevel, setAppStatus, progressionScore, setProgressionScore }: LevelMenuProps) => {
 
     return (
         <div className="menu-screen">

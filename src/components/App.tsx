@@ -89,6 +89,8 @@ const App: React.FC = () => {
                 <LevelMenu
                     setCurrentLevel={setCurrentLevel}
                     setAppStatus={setAppStatus}
+                    progressionScore={progressionScore}
+                    setProgressionScore={setProgressionScore}
                 />
             }
             {appStatus === "training" &&
