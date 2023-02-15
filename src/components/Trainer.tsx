@@ -16,7 +16,7 @@ interface TrainerProps {
 }
 
 const Trainer: React.FC<TrainerProps> = (
-    { currentLevel, setCurrentLevel, appStatus, setAppStatus }: TrainerProps) => {
+    { currentLevel, setCurrentLevel, appStatus, setAppStatus, progressionScore, setProgressionScore }: TrainerProps) => {
 
     const [textInput, setTextInput] = useState("");
     const [textSource, setTextSource] = useState("");
@@ -78,7 +78,7 @@ const Trainer: React.FC<TrainerProps> = (
                     speed: Number((textSource.length * 60000 / (Date.now() - startingTime)).toFixed(0)),
                     success: true
                 });
-                setAppStatus("finished");
+                setTrainerStatus("finished");
                 setTimerActive(false);
             }
         }
