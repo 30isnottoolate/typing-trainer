@@ -24,6 +24,8 @@ const App: React.FC = () => {
                     setCurrentLevel={setCurrentLevel}
                     appStatus={appStatus}
                     setAppStatus={setAppStatus}
+                    progressionScore={progressionScore}
+                    setProgressionScore={setProgressionScore}
                 />
             }
         </>

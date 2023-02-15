@@ -11,6 +11,8 @@ interface TrainerProps {
     setCurrentLevel: React.Dispatch<React.SetStateAction<number>>;
     appStatus: string;
     setAppStatus: React.Dispatch<React.SetStateAction<string>>;
+    progressionScore: {accuracy: number, speed: number};
+    setProgressionScore: React.Dispatch<React.SetStateAction<object>>;
 }
 
 const Trainer: React.FC<TrainerProps> = (
