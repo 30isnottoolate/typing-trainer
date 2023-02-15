@@ -1,4 +1,7 @@
 import React, { useState, useRef, useEffect, ChangeEvent } from "react";
+
+import wordBank from "../utilities/wordBank";
+
 import Keyboard from "./Keyboard";
 import YesNoBox from "./YesNoBox";
 import FinishBox from "./FinishBox";
@@ -14,7 +17,7 @@ interface TrainerProps {
 }
 
 const Trainer: React.FC<TrainerProps> = (
-    { textSource, textInput, setCurrentLevel, appStatus, setAppStatus, setTextInput }: TrainerProps) => {
+    { textSource, textInput, currentLevel, setCurrentLevel, appStatus, setAppStatus, setTextInput }: TrainerProps) => {
 
     const [trainerStatus, setTrainerStatus] = useState("idle"); // idle, active, paused, finished
     const [score, setScore] = useState({ time: 0, accuracy: 0, speed: 0, success: false });
