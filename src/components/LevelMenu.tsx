@@ -3,7 +3,7 @@ import React from "react";
 interface LevelMenuProps {
     setCurrentLevel: React.Dispatch<React.SetStateAction<number>>;
     setAppStatus: React.Dispatch<React.SetStateAction<string>>;
-    progressionScore: {accuracy: number, speed: number};
+    progressionScore: { accuracy: number, speed: number };
     setProgressionScore: React.Dispatch<React.SetStateAction<object>>;
 }
 
@@ -31,18 +31,36 @@ const LevelMenu: React.FC<LevelMenuProps> = (
                 <p>Settings</p>
                 <p>Threshold to unlock next level:</p>
                 <div>
-                    <label htmlFor="accuracy">Accuracy:</label>
-                    <input type="number" name="accuracy" min="75" max="100" value="85" />
-                    <span>%</span>
+                    <label htmlFor="accuracy">Accuracy: </label>
+                    <input
+                        type="number"
+                        name="accuracy"
+                        min="75"
+                        max="100"
+                        value={progressionScore.accuracy}
+                        onChange={event => setProgressionScore(prevState => {
+                            return { ...prevState, accuracy: event.target.value }
+                        })}
+                    />
+                    <span> %</span>
                 </div>
                 <div>
-                    <label htmlFor="speed">Speed:</label>
-                    <input type="number" name="speed" min="150" max="300" value="180" />
-                    <span>char/min</span>
+                    <label htmlFor="speed">Speed: </label>
+                    <input
+                        type="number"
+                        name="speed"
+                        min="150"
+                        max="300"
+                        value={progressionScore.speed}
+                        onChange={event => setProgressionScore(prevState => {
+                            return { ...prevState, speed: event.target.value }
+                        })}
+                    />
+                    <span> char/min</span>
                 </div>
-                <label htmlFor="level-selection">Choose a level:</label>
-                <select 
-                    name="level-selection" 
+                <label htmlFor="level-selection">Choose a level: </label>
+                <select
+                    name="level-selection"
                     onChange={event => setCurrentLevel(Number(event.target.value))}>
                     {levels.map((item, index) =>
                         <option
