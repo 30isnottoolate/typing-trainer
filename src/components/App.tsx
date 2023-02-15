@@ -17,7 +17,7 @@ const App: React.FC = () => {
     const [currentLevel, setCurrentLevel] = useState(1);
     const [appStatus, setAppStatus] = useState("menu"); //menu, training, paused, finished
     const [score, setScore] = useState({ time: 0, accuracy: 0, speed: 0, success: false });
-    const [progressionScore, setProgressionScore] = useState({ accuracy: 0, speed: 0 });
+    const [progressionScore, setProgressionScore] = useState({ accuracy: 95, speed: 180 });
 
     const textAreaRef = useRef<HTMLTextAreaElement>(null);
 
