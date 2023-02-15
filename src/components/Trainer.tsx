@@ -6,6 +6,7 @@ import FinishBox from "./FinishBox";
 interface TrainerProps {
     textSource: string;
     textInput: string;
+    currentLevel: number;
     setCurrentLevel: React.Dispatch<React.SetStateAction<number>>;
     appStatus: string;
     setAppStatus: React.Dispatch<React.SetStateAction<string>>;

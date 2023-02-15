@@ -57,6 +57,7 @@ const App: React.FC = () => {
                 <Trainer
                     textSource={textSource}
                     textInput={textInput}
+                    currentLevel={currentLevel}
                     setCurrentLevel={setCurrentLevel}
                     appStatus={appStatus}
                     setAppStatus={setAppStatus}
