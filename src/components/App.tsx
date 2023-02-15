@@ -2,7 +2,6 @@ import React, { useState, useRef, useEffect } from "react";
 import "./App.css";
 import LevelMenu from "./LevelMenu";
 import Trainer from "./Trainer";
-import Keyboard from "./Keyboard";
 import YesNoBox from "./YesNoBox";
 import FinishBox from "./FinishBox";
 
