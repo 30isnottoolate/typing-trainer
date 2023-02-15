@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import "./App.css";
 import LevelMenu from "./LevelMenu";
+import Trainer from "./Trainer";
 import Keyboard from "./Keyboard";
 import YesNoBox from "./YesNoBox";
 import FinishBox from "./FinishBox";
@@ -16,7 +17,7 @@ const App: React.FC = () => {
     const [currentLevel, setCurrentLevel] = useState(1);
     const [appStatus, setAppStatus] = useState("menu"); //menu, training, paused, finished
     const [score, setScore] = useState({ time: 0, accuracy: 0, speed: 0, success: false });
-    const [progressionScore, setProgressionScore] = useState({accuracy: 0, speed: 0});
+    const [progressionScore, setProgressionScore] = useState({ accuracy: 0, speed: 0 });
 
     const textAreaRef = useRef<HTMLTextAreaElement>(null);
 
@@ -63,12 +64,13 @@ const App: React.FC = () => {
             if (event.currentTarget.value !== textSource.slice(0, event.currentTarget.value.length)) {
                 setErrorCount(prevState => prevState + 1);
             } else if (event.currentTarget.value === textSource) {
-                
-                setScore({ 
-                    time: Math.round((Date.now() - startingTime) / 1000), 
-                    accuracy: Number((100 - errorCount / textSource.length * 100).toFixed(2)), 
-                    speed: Number((textSource.length * 60000 / (Date.now() - startingTime)).toFixed(0)), 
-                    success: true });
+
+                setScore({
+                    time: Math.round((Date.now() - startingTime) / 1000),
+                    accuracy: Number((100 - errorCount / textSource.length * 100).toFixed(2)),
+                    speed: Number((textSource.length * 60000 / (Date.now() - startingTime)).toFixed(0)),
+                    success: true
+                });
                 setAppStatus("finished");
                 setTimerActive(false);
             }
@@ -90,21 +92,14 @@ const App: React.FC = () => {
                 />
             }
             {appStatus === "training" &&
-                <>
-                    <div
-                        id="text-source"
-                        className={textSourceClass} >
-                        {textSource}
-                    </div>
-                    <textarea
-                        id="text-input"
-                        ref={textAreaRef}
-                        spellCheck={false}
-                        value={textInput}
-                        onChange={(event) => handleChange(event)}
-                    />
-                    <Keyboard currentKey={currentKey} />
-                </>
+                <Trainer
+                    textSourceClass={textSourceClass}
+                    textSource={textSource}
+                    textAreaRef={textAreaRef}
+                    textInput={textInput}
+                    handleChange={handleChange}
+                    currentKey={currentKey}
+                />
             }
             {appStatus === "paused" &&
                 <YesNoBox />
