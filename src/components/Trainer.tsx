@@ -72,11 +72,16 @@ const Trainer: React.FC<TrainerProps> = (
                 setErrorCount(prevState => prevState + 1);
             } else if (event.currentTarget.value === textSource) {
 
+                const timeScore = Math.round((Date.now() - startingTime) / 1000);
+                const accuracyScore = Number((100 - errorCount / textSource.length * 100).toFixed(2));
+                const speedScore = Number((textSource.length * 60000 / (Date.now() - startingTime)).toFixed(0));
+                const successScore = accuracyScore > progressionScore.accuracy && speedScore > progressionScore.speed ? true : false;
+
                 setScore({
-                    time: Math.round((Date.now() - startingTime) / 1000),
-                    accuracy: Number((100 - errorCount / textSource.length * 100).toFixed(2)),
-                    speed: Number((textSource.length * 60000 / (Date.now() - startingTime)).toFixed(0)),
-                    success: true
+                    time: timeScore,
+                    accuracy: accuracyScore,
+                    speed: speedScore,
+                    success: successScore
                 });
                 setTrainerStatus("finished");
                 setTimerActive(false);
