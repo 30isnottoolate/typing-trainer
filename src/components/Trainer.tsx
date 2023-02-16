@@ -12,11 +12,10 @@ interface TrainerProps {
     appStatus: string;
     setAppStatus: React.Dispatch<React.SetStateAction<string>>;
     progressionScore: {accuracy: number, speed: number};
-    setProgressionScore: React.Dispatch<React.SetStateAction<object>>;
 }
 
 const Trainer: React.FC<TrainerProps> = (
-    { currentLevel, setCurrentLevel, appStatus, setAppStatus, progressionScore, setProgressionScore }: TrainerProps) => {
+    { currentLevel, setCurrentLevel, appStatus, setAppStatus, progressionScore }: TrainerProps) => {
 
     const [textInput, setTextInput] = useState("");
     const [textSource, setTextSource] = useState("");
