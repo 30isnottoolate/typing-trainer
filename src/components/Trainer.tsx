@@ -11,7 +11,7 @@ interface TrainerProps {
     setCurrentLevel: React.Dispatch<React.SetStateAction<number>>;
     appStatus: string;
     setAppStatus: React.Dispatch<React.SetStateAction<string>>;
-    progressionScore: {accuracy: number, speed: number};
+    progressionScore: { accuracy: number, speed: number };
 }
 
 const Trainer: React.FC<TrainerProps> = (
@@ -96,19 +96,23 @@ const Trainer: React.FC<TrainerProps> = (
 
     return (
         <>
-            <div
-                id="text-source"
-                className={textSourceClass} >
-                {textSource}
-            </div>
-            <textarea
-                id="text-input"
-                ref={textAreaRef}
-                spellCheck={false}
-                value={textInput}
-                onChange={(event) => handleChange(event)}
-            />
-            <Keyboard currentKey={currentKey} />
+            {(trainerStatus === "idle" || trainerStatus === "active") &&
+                <>
+                    <div
+                        id="text-source"
+                        className={textSourceClass} >
+                        {textSource}
+                    </div>
+                    <textarea
+                        id="text-input"
+                        ref={textAreaRef}
+                        spellCheck={false}
+                        value={textInput}
+                        onChange={(event) => handleChange(event)}
+                    />
+                    <Keyboard currentKey={currentKey} />
+                </>
+            }
             {trainerStatus === "paused" &&
                 <YesNoBox />
             }
