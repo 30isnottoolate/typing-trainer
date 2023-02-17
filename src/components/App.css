@@ -178,3 +178,9 @@
 .fourth-column {
     background-color: var(--fourth-column);
 }
+
+#pause-button {
+    position: absolute;
+    left: 1rem;
+    top: 1rem;
+}

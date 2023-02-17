@@ -91,6 +91,7 @@ const Trainer: React.FC<TrainerProps> = (
                         onChange={(event) => handleChange(event)}
                     />
                     <Keyboard currentKey={currentKey} />
+                    <div id="pause-button">II</div>
                 </>
             }
             {trainerStatus === "paused" &&
