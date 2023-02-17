@@ -51,6 +51,7 @@ const Trainer: React.FC<TrainerProps> = (
             }
 
             setTextSource(textCollector.trim());
+            setTextInput("");
         }
     }, [currentLevel]);
 
