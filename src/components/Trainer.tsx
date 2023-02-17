@@ -23,16 +23,17 @@ const Trainer: React.FC<TrainerProps> = (
     const [trainerStatus, setTrainerStatus] = useState("idle"); // idle, active, paused, finished
     const [score, setScore] = useState({ time: 0, accuracy: 0, speed: 0, success: false });
     const [errorCount, setErrorCount] = useState(0);
-    const [timerActive, setTimerActive] = useState(false);
+    const [timer, setTimer] = useState({ active: false, start: 0, stored: 0 });
+    /* const [timerActive, setTimerActive] = useState(false);
     const [startingTime, setStartingTime] = useState(0);
-    const [storedTime, setStoredTime] = useState(0);
+    const [storedTime, setStoredTime] = useState(0); */
 
     const textAreaRef = useRef<HTMLTextAreaElement>(null);
 
     useEffect(() => {
-            setTextSource(textGenerator(currentLevel, wordBank));
+        setTextSource(textGenerator(currentLevel, wordBank));
 
-            setTextInput("");
+        setTextInput("");
     }, [currentLevel]);
 
     useEffect(() => {
@@ -40,30 +41,38 @@ const Trainer: React.FC<TrainerProps> = (
     }, [appStatus, trainerStatus]);
 
     useEffect(() => {
-        if (!timerActive && startingTime !== 0) {
-            setStoredTime(Date.now() - startingTime);
-        } else if (timerActive && startingTime !== 0) {
-            setStartingTime(Date.now() - storedTime);
-        } else if (timerActive && startingTime === 0) {
-            setStartingTime(Date.now());
+        if (!timer.active && timer.start !== 0) {
+            setTimer(prevState => {
+                return { ...prevState, stored: Date.now() - timer.start }
+            });
+        } else if (timer.active && timer.start !== 0) {
+            setTimer(prevState => {
+                return { ...prevState, start: Date.now() - timer.stored }
+            });
+        } else if (timer.active && timer.start === 0) {
+            setTimer(prevState => {
+                return { ...prevState, start: Date.now() }
+            });
         }
-    }, [timerActive]);
+    }, [timer.active]);
 
     const handleChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
         if (event.target) {
             setTextInput(event.currentTarget.value);
 
-            if (!timerActive) {
-                setTimerActive(true);
+            if (!timer.active) {
+                setTimer(prevState => {
+                    return { ...prevState, active: true }
+                });
             }
 
             if (event.currentTarget.value !== textSource.slice(0, event.currentTarget.value.length)) {
                 setErrorCount(prevState => prevState + 1);
             } else if (event.currentTarget.value === textSource) {
 
-                const timeScore = Math.round((Date.now() - startingTime) / 1000);
+                const timeScore = Math.round((Date.now() - timer.start) / 1000);
                 const accuracyScore = Number((100 - errorCount / textSource.length * 100).toFixed(2));
-                const speedScore = Number((textSource.length * 60000 / (Date.now() - startingTime)).toFixed(0));
+                const speedScore = Number((textSource.length * 60000 / (Date.now() - timer.start)).toFixed(0));
                 const successScore = accuracyScore > progressionScore.accuracy && speedScore > progressionScore.speed ? true : false;
 
                 setScore({
@@ -73,7 +82,9 @@ const Trainer: React.FC<TrainerProps> = (
                     success: successScore
                 });
                 setTrainerStatus("finished");
-                setTimerActive(false);
+                setTimer(prevState => {
+                    return { ...prevState, active: false }
+                });
             }
         }
     }
@@ -101,7 +112,11 @@ const Trainer: React.FC<TrainerProps> = (
                         onChange={(event) => handleChange(event)}
                     />
                     <Keyboard currentKey={currentKey} />
-                    <div id="pause-button" onClick={() => setTimerActive(prevState => !prevState)}>II</div>
+                    <div id="pause-button" onClick={() => setTimer(prevState => {
+                        return { ...prevState, active: !prevState.active }
+                    })}>
+                        II
+                    </div>
                 </>
             }
             {trainerStatus === "paused" &&
