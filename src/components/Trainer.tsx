@@ -73,9 +73,7 @@ const Trainer: React.FC<TrainerProps> = (
                     success: successScore
                 });
                 setTrainerStatus("finished");
-                setTimer(prevState => {
-                    return { ...prevState, active: false }
-                });
+                setTimer(prevState => { return { ...prevState, active: false } });
             }
         }
     }
@@ -85,6 +83,10 @@ const Trainer: React.FC<TrainerProps> = (
     const currentKey = textSource[textInput.length] === `\n` ? "return"
         : textInput !== textSource.slice(0, textInput.length) ? "backsp."
             : textSource[textInput.length];
+
+    const toggleTimer = () => {
+        setTimer(prevState => { return { ...prevState, active: !prevState.active } });
+    }
 
     return (
         <>
@@ -103,9 +105,7 @@ const Trainer: React.FC<TrainerProps> = (
                         onChange={(event) => handleChange(event)}
                     />
                     <Keyboard currentKey={currentKey} />
-                    <div id="pause-button" onClick={() => setTimer(prevState => {
-                        return { ...prevState, active: !prevState.active }
-                    })}>
+                    <div id="pause-button" onClick={() => toggleTimer()}>
                         II
                     </div>
                 </>
