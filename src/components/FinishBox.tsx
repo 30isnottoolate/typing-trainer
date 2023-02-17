@@ -7,6 +7,7 @@ interface FinishBoxProps {
     success: boolean;
     setCurrentLevel: React.Dispatch<React.SetStateAction<number>>;
     setAppStatus: React.Dispatch<React.SetStateAction<string>>;
+    setTrainerStatus: React.Dispatch<React.SetStateAction<string>>;
 }
 
 const FinishBox: React.FC<FinishBoxProps> = ({ finishTime, finishAccurary, finishSpeed, success, setCurrentLevel, setAppStatus }: FinishBoxProps) => {

@@ -124,6 +124,7 @@ const Trainer: React.FC<TrainerProps> = (
                     success={score.success}
                     setCurrentLevel={setCurrentLevel}
                     setAppStatus={setAppStatus}
+                    setTrainerStatus={setTrainerStatus}
                 />
             }
         </>
