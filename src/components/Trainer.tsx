@@ -39,17 +39,11 @@ const Trainer: React.FC<TrainerProps> = (
 
     useEffect(() => {
         if (!timer.active && timer.start !== 0) {
-            setTimer(prevState => {
-                return { ...prevState, stored: Date.now() - timer.start }
-            });
+            setTimer(prevState => { return { ...prevState, stored: Date.now() - timer.start } });
         } else if (timer.active && timer.start !== 0) {
-            setTimer(prevState => {
-                return { ...prevState, start: Date.now() - timer.stored }
-            });
+            setTimer(prevState => { return { ...prevState, start: Date.now() - timer.stored } });
         } else if (timer.active && timer.start === 0) {
-            setTimer(prevState => {
-                return { ...prevState, start: Date.now() }
-            });
+            setTimer(prevState => { return { ...prevState, start: Date.now() } });
         }
     }, [timer.active]);
 
