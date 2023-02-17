@@ -1,4 +1,4 @@
-const textGenerator = (currentLevel: number, wordBank: [string[]]) => {
+const textGenerator = (currentLevel: number, wordBank: string[][]) => {
     let textCollector = "";
 
     if (currentLevel > 0) {
