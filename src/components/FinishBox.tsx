@@ -10,15 +10,15 @@ interface FinishBoxProps {
     setTrainerStatus: React.Dispatch<React.SetStateAction<string>>;
 }
 
-const FinishBox: React.FC<FinishBoxProps> = ({ finishTime, finishAccurary, finishSpeed, success, setCurrentLevel, setAppStatus }: FinishBoxProps) => {
+const FinishBox: React.FC<FinishBoxProps> = ({ finishTime, finishAccurary, finishSpeed, success, setCurrentLevel, setAppStatus, setTrainerStatus }: FinishBoxProps) => {
 
     const nextLevel = () => {
         setCurrentLevel(prevState => prevState + 1);
-        setAppStatus("training");
+        setTrainerStatus("training");
     }
 
     const restartLevel = () => {
-        setAppStatus("training");
+        setTrainerStatus("training");
     }
 
     return (
