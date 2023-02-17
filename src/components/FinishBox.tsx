@@ -14,11 +14,11 @@ const FinishBox: React.FC<FinishBoxProps> = ({ finishTime, finishAccurary, finis
 
     const nextLevel = () => {
         setCurrentLevel(prevState => prevState + 1);
-        setTrainerStatus("training");
+        setTrainerStatus("active");
     }
 
     const restartLevel = () => {
-        setTrainerStatus("training");
+        setTrainerStatus("active");
     }
 
     const toMenu = () => {
