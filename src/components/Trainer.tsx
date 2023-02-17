@@ -57,7 +57,7 @@ const Trainer: React.FC<TrainerProps> = (
 
     useEffect(() => {
         if (appStatus === "training" && textAreaRef.current) textAreaRef.current.focus();
-    }, [appStatus]);
+    }, [appStatus, trainerStatus]);
 
     const handleChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
         if (event.target) {
