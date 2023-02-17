@@ -24,9 +24,6 @@ const Trainer: React.FC<TrainerProps> = (
     const [score, setScore] = useState({ time: 0, accuracy: 0, speed: 0, success: false });
     const [errorCount, setErrorCount] = useState(0);
     const [timer, setTimer] = useState({ active: false, start: 0, stored: 0 });
-    /* const [timerActive, setTimerActive] = useState(false);
-    const [startingTime, setStartingTime] = useState(0);
-    const [storedTime, setStoredTime] = useState(0); */
 
     const textAreaRef = useRef<HTMLTextAreaElement>(null);
 
