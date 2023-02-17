@@ -25,6 +25,7 @@ const Trainer: React.FC<TrainerProps> = (
     const [errorCount, setErrorCount] = useState(0);
     const [timerActive, setTimerActive] = useState(false);
     const [startingTime, setStartingTime] = useState(0);
+    const [storedTime, setStoredTime] = useState(0);
 
     const textAreaRef = useRef<HTMLTextAreaElement>(null);
 
@@ -38,13 +39,22 @@ const Trainer: React.FC<TrainerProps> = (
         if (appStatus === "training" && textAreaRef.current) textAreaRef.current.focus();
     }, [appStatus, trainerStatus]);
 
+    useEffect(() => {
+        if (!timerActive && startingTime !== 0) {
+            setStoredTime(Date.now() - startingTime);
+        } else if (timerActive && startingTime !== 0) {
+            setStartingTime(Date.now() - storedTime);
+        } else if (timerActive && startingTime === 0) {
+            setStartingTime(Date.now());
+        }
+    }, [timerActive]);
+
     const handleChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
         if (event.target) {
             setTextInput(event.currentTarget.value);
 
             if (!timerActive) {
                 setTimerActive(true);
-                setStartingTime(Date.now());
             }
 
             if (event.currentTarget.value !== textSource.slice(0, event.currentTarget.value.length)) {
@@ -91,7 +101,7 @@ const Trainer: React.FC<TrainerProps> = (
                         onChange={(event) => handleChange(event)}
                     />
                     <Keyboard currentKey={currentKey} />
-                    <div id="pause-button">II</div>
+                    <div id="pause-button" onClick={() => setTimerActive(prevState => !prevState)}>II</div>
                 </>
             }
             {trainerStatus === "paused" &&
