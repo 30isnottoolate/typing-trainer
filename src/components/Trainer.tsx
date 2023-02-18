@@ -121,7 +121,11 @@ const Trainer: React.FC<TrainerProps> = (
                 </>
             }
             {trainerStatus === "paused" &&
-                <PauseBox />
+                <PauseBox
+                    setTrainerStatus={setTrainerStatus}
+                    restartTraining={restartTraining}
+                    setAppStatus={setAppStatus}
+                />
             }
             {trainerStatus === "finished" &&
                 <FinishBox
