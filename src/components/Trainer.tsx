@@ -34,13 +34,13 @@ const Trainer: React.FC<TrainerProps> = (
     }, [currentLevel]);
 
     useEffect(() => {
-        if (appStatus === "training" && textAreaRef.current) {
+        if (textAreaRef.current) {
             textAreaRef.current.focus()
             textAreaRef.current.setSelectionRange(textInput.length, textInput.length);
         }
-    }, [appStatus, trainerStatus]);
+    }, [trainerStatus]);
 
-    useEffect(() => {
+    /* useEffect(() => {
         if (!timer.active && timer.start !== 0) {
             setTimer(prevState => ({ ...prevState, stored: Date.now() - timer.start }));
         } else if (timer.active && timer.start !== 0) {
@@ -48,11 +48,16 @@ const Trainer: React.FC<TrainerProps> = (
         } else if (timer.active && timer.start === 0) {
             setTimer(prevState => ({ ...prevState, start: Date.now() }));
         }
-    }, [timer.active]);
+    }, [timer.active]); */
 
     const pauseTraining = () => {
         setTrainerStatus("paused");
-        setTimer(prevState => ({ ...prevState, active: false }));
+
+        if (timer.start === 0) {
+            setTimer(prevState => ({ ...prevState, active: false }));
+        } else {
+            setTimer(prevState => ({ ...prevState, active: false, stored: Date.now() - timer.start }));
+        }
     }
 
     const continueTraining = () => {
@@ -90,7 +95,11 @@ const Trainer: React.FC<TrainerProps> = (
             setTextInput(event.currentTarget.value);
 
             if (!timer.active) {
-                setTimer(prevState => ({ ...prevState, active: true }));
+                if (timer.stored === 0) {
+                    setTimer(prevState => ({ ...prevState, active: true, start: Date.now() }));
+                } else {
+                    setTimer(prevState => ({ ...prevState, active: true, start: Date.now() - timer.stored }));
+                }
             }
 
             if (event.currentTarget.value !== textSource.slice(0, event.currentTarget.value.length)) {
