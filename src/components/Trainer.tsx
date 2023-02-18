@@ -47,6 +47,11 @@ const Trainer: React.FC<TrainerProps> = (
         }
     }, [timer.active]);
 
+    const restartTraining = () => {
+        setTextSource(textGenerator(currentLevel, wordBank));
+        setTextInput("");
+    }
+
     const finishTraining = () => {
         const timeScore = Math.round((Date.now() - timer.start) / 1000);
         const accuracyScore = Number((100 - errorCount / textSource.length * 100).toFixed(2));
