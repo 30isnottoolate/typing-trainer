@@ -1,12 +1,12 @@
-import React from "react";
+import React, {Dispatch, SetStateAction} from "react";
 
 interface PauseBoxProps {
-    setTrainerStatus: React.Dispatch<React.SetStateAction<string>>;
+    setTrainerStatus: Dispatch<SetStateAction<string>>;
     restartTraining: () => void;
-    setAppStatus: React.Dispatch<React.SetStateAction<string>>;
+    setAppStatus: Dispatch<SetStateAction<string>>;
 }
 
-const PauseBox: React.FC<PauseBoxProps> = ({setTrainerStatus, restartTraining, setAppStatus}) => {
+const PauseBox: React.FC<PauseBoxProps> = ({setTrainerStatus, restartTraining, setAppStatus}: PauseBoxProps) => {
 
     return (
         <div className="menu-screen">
