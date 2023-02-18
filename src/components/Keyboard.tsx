@@ -9,7 +9,7 @@ const Keyboard: React.FC<KeyboardProps> = ({ currentKey }: KeyboardProps) => {
 
     const columnClass = (item: string, index: number) => {
         let classNameToReturn = item === "" ? "blank-key"
-            : (item === "backsp." || item === "return") ? "special-key"
+            : (item === "back" || item === "return") ? "special-key"
                 : `key ${COLUMN_CLASSES[index]}-column`;
 
         return classNameToReturn;
