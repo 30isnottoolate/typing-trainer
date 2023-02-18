@@ -94,8 +94,14 @@ const Trainer: React.FC<TrainerProps> = (
         : textInput !== textSource.slice(0, textInput.length) ? "backsp."
             : textSource[textInput.length];
 
-    const toggleTimer = () => {
-        setTimer(prevState => ({ ...prevState, active: !prevState.active }));
+    const pauseTraining = () => {
+        setTrainerStatus("paused");
+        setTimer(prevState => ({ ...prevState, active: false }));
+    }
+
+    const continueTraining = () => {
+        setTrainerStatus("active");
+        setTimer(prevState => ({ ...prevState, active: true }));
     }
 
     return (
@@ -115,7 +121,7 @@ const Trainer: React.FC<TrainerProps> = (
                         onChange={(event) => handleChange(event)}
                     />
                     <Keyboard currentKey={currentKey} />
-                    <div id="pause-button" onClick={() => toggleTimer()}>
+                    <div id="pause-button" onClick={() => pauseTraining()}>
                         II
                     </div>
                 </>
