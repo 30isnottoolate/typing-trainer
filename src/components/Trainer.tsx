@@ -29,8 +29,8 @@ const Trainer: React.FC<TrainerProps> = (
 
     useEffect(() => {
         setTextSource(textGenerator(currentLevel, wordBank));
-
         setTextInput("");
+
     }, [currentLevel]);
 
     useEffect(() => {
@@ -47,6 +47,25 @@ const Trainer: React.FC<TrainerProps> = (
         }
     }, [timer.active]);
 
+    const finishTraining = () => {
+        const timeScore = Math.round((Date.now() - timer.start) / 1000);
+        const accuracyScore = Number((100 - errorCount / textSource.length * 100).toFixed(2));
+        const speedScore = Number((textSource.length * 60000 / (Date.now() - timer.start)).toFixed(0));
+        const successScore = accuracyScore > progressionScore.accuracy && speedScore > progressionScore.speed ? true : false;
+
+        setScore({
+            time: timeScore,
+            accuracy: accuracyScore,
+            speed: speedScore,
+            success: successScore
+        });
+
+        setTrainerStatus("finished");
+        setTimer(prevState => ({ ...prevState, active: false }));
+        setTextSource(textGenerator(currentLevel, wordBank));
+        setTextInput("");
+    }
+
     const handleChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
         if (event.target) {
             setTextInput(event.currentTarget.value);
@@ -59,19 +78,7 @@ const Trainer: React.FC<TrainerProps> = (
                 setErrorCount(prevState => prevState + 1);
             } else if (event.currentTarget.value === textSource) {
 
-                const timeScore = Math.round((Date.now() - timer.start) / 1000);
-                const accuracyScore = Number((100 - errorCount / textSource.length * 100).toFixed(2));
-                const speedScore = Number((textSource.length * 60000 / (Date.now() - timer.start)).toFixed(0));
-                const successScore = accuracyScore > progressionScore.accuracy && speedScore > progressionScore.speed ? true : false;
-
-                setScore({
-                    time: timeScore,
-                    accuracy: accuracyScore,
-                    speed: speedScore,
-                    success: successScore
-                });
-                setTrainerStatus("finished");
-                setTimer(prevState => ({ ...prevState, active: false }));
+                finishTraining();
             }
         }
     }
