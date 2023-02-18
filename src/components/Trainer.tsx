@@ -4,7 +4,7 @@ import wordBank from "../utilities/wordBank";
 import textGenerator from "../utilities/textGenerator";
 
 import Keyboard from "./Keyboard";
-import YesNoBox from "./YesNoBox";
+import PauseBox from "./PauseBox";
 import FinishBox from "./FinishBox";
 
 interface TrainerProps {
@@ -116,7 +116,7 @@ const Trainer: React.FC<TrainerProps> = (
                 </>
             }
             {trainerStatus === "paused" &&
-                <YesNoBox />
+                <PauseBox />
             }
             {trainerStatus === "finished" &&
                 <FinishBox
