@@ -38,9 +38,7 @@ const LevelMenu: React.FC<LevelMenuProps> = (
                         min="75"
                         max="100"
                         value={progressionScore.accuracy}
-                        onChange={event => setProgressionScore(prevState => {
-                            return { ...prevState, accuracy: event.target.value }
-                        })}
+                        onChange={event => setProgressionScore(prevState => ({ ...prevState, accuracy: event.target.value }))}
                     />
                     <span> %</span>
                 </div>
@@ -52,9 +50,7 @@ const LevelMenu: React.FC<LevelMenuProps> = (
                         min="150"
                         max="300"
                         value={progressionScore.speed}
-                        onChange={event => setProgressionScore(prevState => {
-                            return { ...prevState, speed: event.target.value }
-                        })}
+                        onChange={event => setProgressionScore(prevState => ({ ...prevState, speed: event.target.value }))}
                     />
                     <span> char/min</span>
                 </div>
