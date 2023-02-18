@@ -47,7 +47,19 @@ const Trainer: React.FC<TrainerProps> = (
         }
     }, [timer.active]);
 
+    const pauseTraining = () => {
+        setTrainerStatus("paused");
+        setTimer(prevState => ({ ...prevState, active: false }));
+    }
+
+    const continueTraining = () => {
+        setTrainerStatus("active");
+        setTimer(prevState => ({ ...prevState, active: true }));
+    }
+
     const restartTraining = () => {
+        setTrainerStatus("idle");
+        setTimer({ active: false, start: 0, stored: 0 });
         setTextSource(textGenerator(currentLevel, wordBank));
         setTextInput("");
     }
@@ -94,16 +106,6 @@ const Trainer: React.FC<TrainerProps> = (
         : textInput !== textSource.slice(0, textInput.length) ? "backsp."
             : textSource[textInput.length];
 
-    const pauseTraining = () => {
-        setTrainerStatus("paused");
-        setTimer(prevState => ({ ...prevState, active: false }));
-    }
-
-    const continueTraining = () => {
-        setTrainerStatus("active");
-        setTimer(prevState => ({ ...prevState, active: true }));
-    }
-
     return (
         <>
             {(trainerStatus === "idle" || trainerStatus === "active") &&
@@ -135,10 +137,7 @@ const Trainer: React.FC<TrainerProps> = (
             }
             {trainerStatus === "finished" &&
                 <FinishBox
-                    finishTime={score.time}
-                    finishAccurary={score.accuracy}
-                    finishSpeed={score.speed}
-                    success={score.success}
+                    score={score}
                     setCurrentLevel={setCurrentLevel}
                     setAppStatus={setAppStatus}
                     setTrainerStatus={setTrainerStatus}

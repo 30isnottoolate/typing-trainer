@@ -1,4 +1,4 @@
-import React, {Dispatch, SetStateAction} from "react";
+import React, { Dispatch, SetStateAction } from "react";
 
 interface PauseBoxProps {
     continueTraining: () => void;
@@ -6,15 +6,15 @@ interface PauseBoxProps {
     setAppStatus: Dispatch<SetStateAction<string>>;
 }
 
-const PauseBox: React.FC<PauseBoxProps> = ({continueTraining, restartTraining, setAppStatus}: PauseBoxProps) => {
+const PauseBox: React.FC<PauseBoxProps> = ({ continueTraining, restartTraining, setAppStatus }: PauseBoxProps) => {
 
     return (
         <div className="menu-screen">
             <div className="pause-box">
                 <p>Training paused</p>
-                <button>Continue</button>
-                <button>Restart</button>
-                <button>Menu</button>
+                <button onClick={continueTraining} >Continue</button>
+                <button onClick={restartTraining} >Restart</button>
+                <button onClick={() => setAppStatus("menu")} >Menu</button>
             </div>
         </div>
     );
