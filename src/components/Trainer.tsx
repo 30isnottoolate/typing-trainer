@@ -10,17 +10,16 @@ import FinishBox from "./FinishBox";
 interface TrainerProps {
     currentLevel: number;
     setCurrentLevel: React.Dispatch<React.SetStateAction<number>>;
-    appStatus: string;
     setAppStatus: React.Dispatch<React.SetStateAction<string>>;
     progressionScore: { accuracy: number, speed: number };
 }
 
 const Trainer: React.FC<TrainerProps> = (
-    { currentLevel, setCurrentLevel, appStatus, setAppStatus, progressionScore }: TrainerProps) => {
+    { currentLevel, setCurrentLevel, setAppStatus, progressionScore }: TrainerProps) => {
 
     const [textInput, setTextInput] = useState("");
     const [textSource, setTextSource] = useState("");
-    const [trainerStatus, setTrainerStatus] = useState("idle"); // idle, active, paused, finished
+    const [trainerStatus, setTrainerStatus] = useState("active"); // active, paused, finished
     const [score, setScore] = useState({ time: 0, accuracy: 0, speed: 0, success: false });
     const [errorCount, setErrorCount] = useState(0);
     const [timer, setTimer] = useState({ active: false, start: 0, stored: 0 });
@@ -35,20 +34,14 @@ const Trainer: React.FC<TrainerProps> = (
 
     useEffect(() => {
         if (textAreaRef.current) {
-            textAreaRef.current.focus()
-            textAreaRef.current.setSelectionRange(textInput.length, textInput.length);
-        }
-    }, [trainerStatus]);
+            if (trainerStatus === "active") {
+                textAreaRef.current.focus();
+                textAreaRef.current.setSelectionRange(textInput.length, textInput.length);
 
-    /* useEffect(() => {
-        if (!timer.active && timer.start !== 0) {
-            setTimer(prevState => ({ ...prevState, stored: Date.now() - timer.start }));
-        } else if (timer.active && timer.start !== 0) {
-            setTimer(prevState => ({ ...prevState, start: Date.now() - timer.stored }));
-        } else if (timer.active && timer.start === 0) {
-            setTimer(prevState => ({ ...prevState, start: Date.now() }));
+            } else textAreaRef.current.blur();
         }
-    }, [timer.active]); */
+
+    }, [trainerStatus]);
 
     const pauseTraining = () => {
         setTrainerStatus("paused");
@@ -61,11 +54,11 @@ const Trainer: React.FC<TrainerProps> = (
     }
 
     const continueTraining = () => {
-        setTrainerStatus("idle");
+        setTrainerStatus("active");
     }
 
     const restartTraining = () => {
-        setTrainerStatus("idle");
+        setTrainerStatus("active");
         setTimer({ active: false, start: 0, stored: 0 });
         setTextSource(textGenerator(currentLevel, wordBank));
         setTextInput("");
@@ -86,8 +79,6 @@ const Trainer: React.FC<TrainerProps> = (
 
         setTrainerStatus("finished");
         setTimer({ active: false, start: 0, stored: 0 });
-        setTextSource(textGenerator(currentLevel, wordBank));
-        setTextInput("");
     }
 
     const handleChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
@@ -114,37 +105,33 @@ const Trainer: React.FC<TrainerProps> = (
     const textSourceClass = textInput !== textSource.slice(0, textInput.length) ? "typo" : "";
 
     const currentKey = textSource[textInput.length] === `\n` ? "return"
-        : textInput !== textSource.slice(0, textInput.length) ? "backsp."
+        : textInput !== textSource.slice(0, textInput.length) ? "back"
             : textSource[textInput.length];
 
     return (
         <>
-            {(trainerStatus === "idle" || trainerStatus === "active") &&
-                <>
-                    <div
-                        id="text-source"
-                        className={textSourceClass} >
-                        {textSource}
-                    </div>
-                    <textarea
-                        id="text-input"
-                        ref={textAreaRef}
-                        spellCheck={false}
-                        value={textInput}
-                        onChange={(event) => handleChange(event)}
-                    />
-                    <Keyboard currentKey={currentKey} />
-                    <div id="pause-button" onClick={() => pauseTraining()}>
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="2rem"
-                            height="2rem"
-                            viewBox="0 0 16 16">
-                            <path d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
-                        </svg>
-                    </div>
-                </>
-            }
+            <div
+                id="text-source"
+                className={textSourceClass} >
+                {textSource}
+            </div>
+            <textarea
+                id="text-input"
+                ref={textAreaRef}
+                spellCheck={false}
+                value={textInput}
+                onChange={(event) => handleChange(event)}
+            />
+            <Keyboard currentKey={currentKey} />
+            <div id="pause-button" onClick={() => pauseTraining()}>
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="2rem"
+                    height="2rem"
+                    viewBox="0 0 16 16">
+                    <path d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z" />
+                </svg>
+            </div>
             {trainerStatus === "paused" &&
                 <PauseBox
                     continueTraining={continueTraining}
@@ -158,6 +145,7 @@ const Trainer: React.FC<TrainerProps> = (
                     setCurrentLevel={setCurrentLevel}
                     setAppStatus={setAppStatus}
                     setTrainerStatus={setTrainerStatus}
+                    restartTraining={restartTraining}
                 />
             }
         </>

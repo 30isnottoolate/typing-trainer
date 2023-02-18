@@ -39,7 +39,6 @@ const App: React.FC = () => {
                 <Trainer
                     currentLevel={currentLevel}
                     setCurrentLevel={setCurrentLevel}
-                    appStatus={appStatus}
                     setAppStatus={setAppStatus}
                     progressionScore={progressionScore}
                 />
