@@ -34,7 +34,10 @@ const Trainer: React.FC<TrainerProps> = (
     }, [currentLevel]);
 
     useEffect(() => {
-        if (appStatus === "training" && textAreaRef.current) textAreaRef.current.focus();
+        if (appStatus === "training" && textAreaRef.current) {
+            textAreaRef.current.focus()
+            textAreaRef.current.setSelectionRange(textInput.length, textInput.length);
+        }
     }, [appStatus, trainerStatus]);
 
     useEffect(() => {
@@ -53,8 +56,7 @@ const Trainer: React.FC<TrainerProps> = (
     }
 
     const continueTraining = () => {
-        setTrainerStatus("active");
-        setTimer(prevState => ({ ...prevState, active: true }));
+        setTrainerStatus("idle");
     }
 
     const restartTraining = () => {
@@ -78,7 +80,7 @@ const Trainer: React.FC<TrainerProps> = (
         });
 
         setTrainerStatus("finished");
-        setTimer(prevState => ({ ...prevState, active: false }));
+        setTimer({ active: false, start: 0, stored: 0 });
         setTextSource(textGenerator(currentLevel, wordBank));
         setTextInput("");
     }
