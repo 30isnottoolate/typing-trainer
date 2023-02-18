@@ -39,11 +39,11 @@ const Trainer: React.FC<TrainerProps> = (
 
     useEffect(() => {
         if (!timer.active && timer.start !== 0) {
-            setTimer(prevState => { return { ...prevState, stored: Date.now() - timer.start } });
+            setTimer(prevState => ({ ...prevState, stored: Date.now() - timer.start }));
         } else if (timer.active && timer.start !== 0) {
-            setTimer(prevState => { return { ...prevState, start: Date.now() - timer.stored } });
+            setTimer(prevState => ({ ...prevState, start: Date.now() - timer.stored }));
         } else if (timer.active && timer.start === 0) {
-            setTimer(prevState => { return { ...prevState, start: Date.now() } });
+            setTimer(prevState => ({ ...prevState, start: Date.now() }));
         }
     }, [timer.active]);
 
@@ -52,9 +52,7 @@ const Trainer: React.FC<TrainerProps> = (
             setTextInput(event.currentTarget.value);
 
             if (!timer.active) {
-                setTimer(prevState => {
-                    return { ...prevState, active: true }
-                });
+                setTimer(prevState => ({ ...prevState, active: true }));
             }
 
             if (event.currentTarget.value !== textSource.slice(0, event.currentTarget.value.length)) {
@@ -73,7 +71,7 @@ const Trainer: React.FC<TrainerProps> = (
                     success: successScore
                 });
                 setTrainerStatus("finished");
-                setTimer(prevState => { return { ...prevState, active: false } });
+                setTimer(prevState => ({ ...prevState, active: false }));
             }
         }
     }
@@ -85,7 +83,7 @@ const Trainer: React.FC<TrainerProps> = (
             : textSource[textInput.length];
 
     const toggleTimer = () => {
-        setTimer(prevState => { return { ...prevState, active: !prevState.active } });
+        setTimer(prevState => ({ ...prevState, active: !prevState.active }));
     }
 
     return (
