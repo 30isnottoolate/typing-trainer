@@ -1,10 +1,10 @@
-import React from "react";
+import React, {Dispatch, SetStateAction} from "react";
 
 interface FinishBoxProps {
     score: {time: number, accuracy: number, speed: number, success: boolean};
-    setCurrentLevel: React.Dispatch<React.SetStateAction<number>>;
-    setAppStatus: React.Dispatch<React.SetStateAction<string>>;
-    setTrainerStatus: React.Dispatch<React.SetStateAction<string>>;
+    setCurrentLevel: Dispatch<SetStateAction<number>>;
+    setAppStatus: Dispatch<SetStateAction<string>>;
+    setTrainerStatus: Dispatch<SetStateAction<string>>;
 }
 
 const FinishBox: React.FC<FinishBoxProps> = ({ score, setCurrentLevel, setAppStatus, setTrainerStatus }: FinishBoxProps) => {
