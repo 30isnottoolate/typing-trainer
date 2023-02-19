@@ -4,6 +4,7 @@ import wordBank from "../utilities/wordBank";
 import textGenerator from "../utilities/textGenerator";
 
 import Keyboard from "./Keyboard";
+import PauseButton from "./PauseButton";
 import PauseBox from "./PauseBox";
 import FinishBox from "./FinishBox";
 
@@ -135,7 +136,8 @@ const Trainer: React.FC<TrainerProps> = (
                 onChange={(event) => handleChange(event)}
             />
             <Keyboard currentKey={currentKey} />
-            <div id="pause-button" onClick={() => pauseTraining()}>
+            <PauseButton pauseTraining={pauseTraining} />
+            {/* <div id="pause-button" onClick={() => pauseTraining()}>
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="2rem"
@@ -143,7 +145,7 @@ const Trainer: React.FC<TrainerProps> = (
                     viewBox="0 0 16 16">
                     <path d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z" />
                 </svg>
-            </div>
+            </div> */}
             {trainerStatus === "paused" &&
                 <PauseBox
                     continueTraining={continueTraining}
