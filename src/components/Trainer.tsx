@@ -39,12 +39,6 @@ const Trainer: React.FC<TrainerProps> = (
         return () => clearInterval(pingInterval);
     }, [timer.active]);
 
-    /* useEffect(() => {
-        setTextSource(textGenerator(currentLevel, wordBank));
-        setTextInput("");
-
-    }, [currentLevel]); */
-
     useEffect(() => {
         if (textAreaRef.current) {
             if (trainerStatus === "active") {
