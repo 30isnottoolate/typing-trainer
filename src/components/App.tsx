@@ -5,7 +5,17 @@ import Trainer from "./Trainer";
 
 const App: React.FC = () => {
     const [currentLevel, setCurrentLevel] = useState(0);
-    const [highestLevel, setHighestLevel] = useState(0);
+    const [highestLevel, setHighestLevel] = useState(() => {
+        if (localStorage.highestLevel && Number(localStorage.highestLevel) >= 0 && Number(localStorage.highestLevel) <= 10) {
+
+            return Number(localStorage.highestLevel);
+        } else {
+            localStorage.highestLevel = 0;
+
+            return 0;
+        }
+    });
+
     const [appStatus, setAppStatus] = useState("menu"); // menu, training
     const [progressionScore, setProgressionScore] = useState(() => {
         if (localStorage.accuracy && Number(localStorage.accuracy) >= 75 && Number(localStorage.accuracy) <= 100 &&
@@ -21,10 +31,14 @@ const App: React.FC = () => {
     });
 
     useEffect(() => {
+        localStorage.highestLevel = highestLevel;
+    }, [highestLevel]);
+
+    useEffect(() => {
         localStorage.accuracy = progressionScore.accuracy;
         localStorage.speed = progressionScore.speed;
 
-    }, [progressionScore.accuracy, progressionScore.speed])
+    }, [progressionScore.accuracy, progressionScore.speed]);
 
     return (
         <>
