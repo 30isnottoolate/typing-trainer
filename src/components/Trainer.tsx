@@ -27,6 +27,18 @@ const Trainer: React.FC<TrainerProps> = (
     const textAreaRef = useRef<HTMLTextAreaElement>(null);
 
     useEffect(() => {
+        let pingInterval: ReturnType<typeof setInterval>;
+
+        if (timer.active) {
+            pingInterval = setInterval(() => {
+                console.log(Math.round((Date.now() - timer.start) / 1000));
+            }, 500);
+        }
+
+        return () => clearInterval(pingInterval);
+    }, [timer.active]);
+
+    useEffect(() => {
         setTextSource(textGenerator(currentLevel, wordBank));
         setTextInput("");
 
@@ -49,7 +61,7 @@ const Trainer: React.FC<TrainerProps> = (
         if (timer.start === 0) {
             setTimer(prevState => ({ ...prevState, active: false }));
         } else {
-            setTimer(prevState => ({ ...prevState, active: false, stored: Date.now() - timer.start }));
+            setTimer(prevState => ({ ...prevState, active: false, stored: Date.now() - prevState.start }));
         }
     }
 
@@ -89,7 +101,7 @@ const Trainer: React.FC<TrainerProps> = (
                 if (timer.stored === 0) {
                     setTimer(prevState => ({ ...prevState, active: true, start: Date.now() }));
                 } else {
-                    setTimer(prevState => ({ ...prevState, active: true, start: Date.now() - timer.stored }));
+                    setTimer(prevState => ({ ...prevState, active: true, start: Date.now() - prevState.stored }));
                 }
             }
 
