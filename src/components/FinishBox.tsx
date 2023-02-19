@@ -17,9 +17,9 @@ const FinishBox: React.FC<FinishBoxProps> = (
         setTrainerStatus("active");
     } */
 
-    const toMenu = () => {
+    /* const toMenu = () => {
         setAppStatus("menu");
-    }
+    } */
 
     return (
         <div className="menu-screen">
@@ -35,7 +35,7 @@ const FinishBox: React.FC<FinishBoxProps> = (
                         <button onClick={nextLevel}>Next</button>
                     }
                     <button onClick={restartTraining}>Restart</button>
-                    <button onClick={toMenu}>Menu</button>
+                    <button onClick={() => setAppStatus("menu")}>Menu</button>
                 </div>
             </div>
         </div>
