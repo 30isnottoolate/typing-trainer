@@ -46,6 +46,7 @@ const App: React.FC = () => {
                 <LevelMenu
                     currentLevel={currentLevel}
                     setCurrentLevel={setCurrentLevel}
+                    highestLevel={highestLevel}
                     setAppStatus={setAppStatus}
                     progressionScore={progressionScore}
                     setProgressionScore={setProgressionScore}

@@ -3,6 +3,7 @@ import React from "react";
 interface LevelMenuProps {
     currentLevel: number;
     setCurrentLevel: React.Dispatch<React.SetStateAction<number>>;
+    highestLevel: number;
     setAppStatus: React.Dispatch<React.SetStateAction<string>>;
     progressionScore: { accuracy: number, speed: number };
     setProgressionScore: React.Dispatch<React.SetStateAction<object>>;
@@ -23,7 +24,7 @@ const levels = [
 ];
 
 const LevelMenu: React.FC<LevelMenuProps> = (
-    { currentLevel, setCurrentLevel, setAppStatus, progressionScore, setProgressionScore }: LevelMenuProps) => {
+    { currentLevel, setCurrentLevel, highestLevel, setAppStatus, progressionScore, setProgressionScore }: LevelMenuProps) => {
 
     const changeAccuracyScore = (event: React.ChangeEvent<HTMLInputElement>) => {
         setProgressionScore(prevState => ({ ...prevState, accuracy: event.target.value }));
@@ -71,8 +72,9 @@ const LevelMenu: React.FC<LevelMenuProps> = (
                     {levels.map((item, index) =>
                         <option
                             key={index}
-                            value={index} >
-                            {item}
+                            value={index}
+                            disabled={highestLevel >= index ? false : true} >
+                            {`${item}${highestLevel >= index ? "" : " [LOCKED]"}`}
                         </option>
                     )}
                 </select>
