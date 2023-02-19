@@ -19,7 +19,7 @@ const Trainer: React.FC<TrainerProps> = (
     { currentLevel, setCurrentLevel, setAppStatus, progressionScore }: TrainerProps) => {
 
     const [textInput, setTextInput] = useState("");
-    const [textSource, setTextSource] = useState("");
+    const [textSource, setTextSource] = useState(textGenerator(currentLevel, wordBank));
     const [trainerStatus, setTrainerStatus] = useState("active"); // active, paused, finished
     const [score, setScore] = useState({ time: 0, accuracy: 0, speed: 0, success: false });
     const [errorCount, setErrorCount] = useState(0);
@@ -39,11 +39,11 @@ const Trainer: React.FC<TrainerProps> = (
         return () => clearInterval(pingInterval);
     }, [timer.active]);
 
-    useEffect(() => {
+    /* useEffect(() => {
         setTextSource(textGenerator(currentLevel, wordBank));
         setTextInput("");
 
-    }, [currentLevel]);
+    }, [currentLevel]); */
 
     useEffect(() => {
         if (textAreaRef.current) {
