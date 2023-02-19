@@ -157,6 +157,7 @@ const Trainer: React.FC<TrainerProps> = (
                     setCurrentLevel={setCurrentLevel}
                     setAppStatus={setAppStatus}
                     setTrainerStatus={setTrainerStatus}
+                    nextLevel={nextLevel}
                     restartTraining={restartTraining}
                 />
             }

@@ -5,16 +5,17 @@ interface FinishBoxProps {
     setCurrentLevel: Dispatch<SetStateAction<number>>;
     setAppStatus: Dispatch<SetStateAction<string>>;
     setTrainerStatus: Dispatch<SetStateAction<string>>;
+    nextLevel: () => void;
     restartTraining: () => void;
 }
 
 const FinishBox: React.FC<FinishBoxProps> = (
-    { score, setCurrentLevel, setAppStatus, setTrainerStatus, restartTraining }: FinishBoxProps) => {
+    { score, setCurrentLevel, setAppStatus, setTrainerStatus, nextLevel, restartTraining }: FinishBoxProps) => {
 
-    const nextLevel = () => {
+    /* const nextLevel = () => {
         setCurrentLevel(prevState => prevState + 1);
         setTrainerStatus("active");
-    }
+    } */
 
     const toMenu = () => {
         setAppStatus("menu");
