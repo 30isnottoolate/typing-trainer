@@ -1,6 +1,7 @@
 import React from "react";
 
 interface LevelMenuProps {
+    currentLevel: number;
     setCurrentLevel: React.Dispatch<React.SetStateAction<number>>;
     setAppStatus: React.Dispatch<React.SetStateAction<string>>;
     progressionScore: { accuracy: number, speed: number };
@@ -22,7 +23,7 @@ const levels = [
 ];
 
 const LevelMenu: React.FC<LevelMenuProps> = (
-    { setCurrentLevel, setAppStatus, progressionScore, setProgressionScore }: LevelMenuProps) => {
+    { currentLevel, setCurrentLevel, setAppStatus, progressionScore, setProgressionScore }: LevelMenuProps) => {
 
     const changeAccuracyScore = (event: React.ChangeEvent<HTMLInputElement>) => {
         setProgressionScore(prevState => ({ ...prevState, accuracy: event.target.value }));
@@ -65,11 +66,12 @@ const LevelMenu: React.FC<LevelMenuProps> = (
                 <label htmlFor="level-selection">Choose a level: </label>
                 <select
                     name="level-selection"
+                    value={currentLevel}
                     onChange={event => setCurrentLevel(Number(event.target.value))}>
                     {levels.map((item, index) =>
                         <option
                             key={index}
-                            value={index + 1} >
+                            value={index} >
                             {item}
                         </option>
                     )}

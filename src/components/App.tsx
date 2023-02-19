@@ -4,7 +4,7 @@ import LevelMenu from "./LevelMenu";
 import Trainer from "./Trainer";
 
 const App: React.FC = () => {
-    const [currentLevel, setCurrentLevel] = useState(1);
+    const [currentLevel, setCurrentLevel] = useState(0);
     const [appStatus, setAppStatus] = useState("menu"); // menu, training
     const [progressionScore, setProgressionScore] = useState(() => {
         if (localStorage.accuracy && Number(localStorage.accuracy) >= 75 && Number(localStorage.accuracy) <= 100 &&
@@ -22,13 +22,14 @@ const App: React.FC = () => {
     useEffect(() => {
         localStorage.accuracy = progressionScore.accuracy;
         localStorage.speed = progressionScore.speed;
-        
+
     }, [progressionScore.accuracy, progressionScore.speed])
 
     return (
         <>
             {appStatus === "menu" &&
                 <LevelMenu
+                    currentLevel={currentLevel}
                     setCurrentLevel={setCurrentLevel}
                     setAppStatus={setAppStatus}
                     progressionScore={progressionScore}
