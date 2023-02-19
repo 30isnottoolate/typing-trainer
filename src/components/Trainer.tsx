@@ -94,6 +94,13 @@ const Trainer: React.FC<TrainerProps> = (
         setTimer({ active: false, start: 0, stored: 0 });
     }
 
+    const nextLevel = () => {
+        setTrainerStatus("active");
+        setCurrentLevel(prevState => prevState + 1);
+        setTextSource(textGenerator(currentLevel + 1, wordBank));
+        setTextInput("");
+    }
+
     const handleChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
         if (event.target) {
             setTextInput(event.currentTarget.value);
