@@ -5,6 +5,7 @@ import Trainer from "./Trainer";
 
 const App: React.FC = () => {
     const [currentLevel, setCurrentLevel] = useState(0);
+    const [highestLevel, setHighestLevel] = useState(0);
     const [appStatus, setAppStatus] = useState("menu"); // menu, training
     const [progressionScore, setProgressionScore] = useState(() => {
         if (localStorage.accuracy && Number(localStorage.accuracy) >= 75 && Number(localStorage.accuracy) <= 100 &&
