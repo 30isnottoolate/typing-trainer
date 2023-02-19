@@ -90,6 +90,10 @@ const Trainer: React.FC<TrainerProps> = (
 
         setTrainerStatus("finished");
         setTimer({ active: false, start: 0, stored: 0 });
+
+        if (currentLevel === highestLevel && successScore) {
+            setHighestLevel(prevState => prevState + 1);
+        }
     }
 
     const nextLevel = () => {
