@@ -11,12 +11,13 @@ import FinishBox from "./FinishBox";
 interface TrainerProps {
     currentLevel: number;
     setCurrentLevel: React.Dispatch<React.SetStateAction<number>>;
+    setHighestLevel: React.Dispatch<React.SetStateAction<number>>;
     setAppStatus: React.Dispatch<React.SetStateAction<string>>;
     progressionScore: { accuracy: number, speed: number };
 }
 
 const Trainer: React.FC<TrainerProps> = (
-    { currentLevel, setCurrentLevel, setAppStatus, progressionScore }: TrainerProps) => {
+    { currentLevel, setCurrentLevel, setHighestLevel, setAppStatus, progressionScore }: TrainerProps) => {
 
     const [textInput, setTextInput] = useState("");
     const [textSource, setTextSource] = useState(textGenerator(currentLevel, wordBank));
