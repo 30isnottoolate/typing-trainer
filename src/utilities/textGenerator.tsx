@@ -1,8 +1,8 @@
 const textGenerator = (currentLevel: number, wordBank: string[][]) => {
     let textCollector = "";
 
-    if (currentLevel > 0) {
-        let currentWords = wordBank[currentLevel - 1];
+    if (currentLevel >= 0) {
+        let currentWords = wordBank[currentLevel];
 
         for (let numberOfLines = 0; numberOfLines < 3; numberOfLines++) {
             let lineCollector = "";
