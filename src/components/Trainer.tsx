@@ -154,9 +154,7 @@ const Trainer: React.FC<TrainerProps> = (
             {trainerStatus === "finished" &&
                 <FinishBox
                     score={score}
-                    setCurrentLevel={setCurrentLevel}
                     setAppStatus={setAppStatus}
-                    setTrainerStatus={setTrainerStatus}
                     nextLevel={nextLevel}
                     restartTraining={restartTraining}
                 />

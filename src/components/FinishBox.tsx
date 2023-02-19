@@ -2,24 +2,13 @@ import React, {Dispatch, SetStateAction} from "react";
 
 interface FinishBoxProps {
     score: {time: number, accuracy: number, speed: number, success: boolean};
-    setCurrentLevel: Dispatch<SetStateAction<number>>;
     setAppStatus: Dispatch<SetStateAction<string>>;
-    setTrainerStatus: Dispatch<SetStateAction<string>>;
     nextLevel: () => void;
     restartTraining: () => void;
 }
 
 const FinishBox: React.FC<FinishBoxProps> = (
-    { score, setCurrentLevel, setAppStatus, setTrainerStatus, nextLevel, restartTraining }: FinishBoxProps) => {
-
-    /* const nextLevel = () => {
-        setCurrentLevel(prevState => prevState + 1);
-        setTrainerStatus("active");
-    } */
-
-    /* const toMenu = () => {
-        setAppStatus("menu");
-    } */
+    { score, setAppStatus, nextLevel, restartTraining }: FinishBoxProps) => {
 
     return (
         <div className="menu-screen">
