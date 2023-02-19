@@ -59,10 +59,12 @@ const Trainer: React.FC<TrainerProps> = (
     const pauseTraining = () => {
         setTrainerStatus("paused");
 
-        if (timer.start === 0) {
-            setTimer(prevState => ({ ...prevState, active: false }));
-        } else {
-            setTimer(prevState => ({ ...prevState, active: false, stored: Date.now() - prevState.start }));
+        if (timer.active !== false) {
+            if (timer.start === 0) {
+                setTimer(prevState => ({ ...prevState, active: false }));
+            } else {
+                setTimer(prevState => ({ ...prevState, active: false, stored: Date.now() - prevState.start }));
+            }
         }
     }
 
