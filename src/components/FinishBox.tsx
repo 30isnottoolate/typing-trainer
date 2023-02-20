@@ -1,6 +1,7 @@
 import React, {Dispatch, SetStateAction} from "react";
 
 interface FinishBoxProps {
+    currentLevel: number;
     score: {time: number, accuracy: number, speed: number, success: boolean};
     setAppStatus: Dispatch<SetStateAction<string>>;
     nextLevel: () => void;
@@ -8,7 +9,7 @@ interface FinishBoxProps {
 }
 
 const FinishBox: React.FC<FinishBoxProps> = (
-    { score, setAppStatus, nextLevel, restartTraining }: FinishBoxProps) => {
+    { currentLevel, score, setAppStatus, nextLevel, restartTraining }: FinishBoxProps) => {
 
     return (
         <div className="menu-screen">
