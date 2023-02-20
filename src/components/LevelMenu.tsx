@@ -37,6 +37,10 @@ const LevelMenu: React.FC<LevelMenuProps> = (
     return (
         <div className="menu-screen">
             <div className="menu-box">
+                <div id="logo">
+                    <h1>Typing Trainer</h1>
+                    <span>© {new Date().getFullYear()} Akos Varga, aka 30isnottoolate</span>
+                </div>
                 <p>Settings</p>
                 <p>Threshold to unlock next level:</p>
                 <div>
