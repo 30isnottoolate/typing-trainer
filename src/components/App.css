@@ -34,6 +34,14 @@
     z-index: 10;
 }
 
+select {
+    display: inline-block;
+    font-size: 1rem;
+    font-family: "Roboto Condensed", Helvetica;
+    width: 100%;
+    margin: 1rem 0 1.25rem 0;
+}
+
 button {
     background-color: #1e293b;
     color: #f8fafc;
@@ -70,6 +78,11 @@ button:active {
 .menu-box {
     width: 20rem;
     height: 30rem;
+}
+
+.menu-box button {
+    display: block;
+    margin: 0 auto;
 }
 
 .pause-box {
