@@ -57,12 +57,22 @@
 
 .finish-box {
     width: 20rem;
-    height: 10rem;
+    height: 12rem;
+}
+
+.finish-box p {
+    margin-bottom: 1rem;
 }
 
 .finish-stats-container {
     display: grid;
     grid-template-columns: auto auto;
+    column-gap: 1rem;
+    row-gap: 0.125rem;
+}
+
+.finish-stats-container span:nth-child(odd) {
+    text-align: right;
 }
 
 .buttons-container {
