@@ -86,8 +86,13 @@ button:active {
 }
 
 .pause-box {
-    width: 20rem;
-    height: 10rem;
+    width: 12rem;
+    height: auto;
+}
+
+.pause-box p {
+    text-align: center;
+    margin-bottom: 1.5rem;
 }
 
 .finish-box {
@@ -111,10 +116,17 @@ button:active {
     text-align: right;
 }
 
-.buttons-container {
+.finish-box .buttons-container {
     display: grid;
     grid-template-columns: auto auto auto;
     justify-content: end;
+}
+
+.pause-box .buttons-container {
+    display: grid;
+    grid-template-columns: auto;
+    justify-content: center;
+    gap: 0.25rem;
 }
 
 #text-source, #text-input {
