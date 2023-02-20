@@ -17,6 +17,8 @@ interface TrainerProps {
     progressionScore: { accuracy: number, speed: number };
 }
 
+const MAX_LEVEL = 10;
+
 const Trainer: React.FC<TrainerProps> = (
     { currentLevel, setCurrentLevel, highestLevel, setHighestLevel, setAppStatus, progressionScore }: TrainerProps) => {
 
@@ -91,7 +93,7 @@ const Trainer: React.FC<TrainerProps> = (
         setTrainerStatus("finished");
         setTimer({ active: false, start: 0, stored: 0 });
 
-        if (currentLevel === highestLevel && successScore) {
+        if (currentLevel === highestLevel && successScore && currentLevel < MAX_LEVEL) {
             setHighestLevel(prevState => prevState + 1);
         }
     }
