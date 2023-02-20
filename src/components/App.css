@@ -75,6 +75,19 @@ button:active {
     box-shadow: 0.25rem 0.25rem 1rem 0.25rem #0f172a;
 }
 
+#logo {
+    text-align: center;
+}
+
+#logo h1 {
+    font-size: 1.5rem;
+    font-family: "Fira Mono", monospace;
+}
+
+#logo span {
+    font-size: 0.75rem;
+}
+
 .menu-box {
     width: 20rem;
     height: 30rem;
