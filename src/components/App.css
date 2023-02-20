@@ -71,7 +71,8 @@
     font-family: "Fira Mono", monospace;
     position: absolute;
     width: 68.5ch;
-    height: calc(100vh - 20.5rem);
+    height: calc(100vh - 22rem);
+    top: 1.5rem;
     padding: 1ch;
     white-space: pre-wrap;
     overflow-y: scroll;
@@ -188,5 +189,6 @@
     top: 1rem;
     width: 2rem;
     height: 2rem;
+    z-index: 5;
     cursor: pointer;
 }
