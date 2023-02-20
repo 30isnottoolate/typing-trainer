@@ -37,7 +37,6 @@ const LevelMenu: React.FC<LevelMenuProps> = (
     return (
         <div className="menu-screen">
             <div className="menu-box">
-                <p>Highest level reached:</p>
                 <p>Settings</p>
                 <p>Threshold to unlock next level:</p>
                 <div>
