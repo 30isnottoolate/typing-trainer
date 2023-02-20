@@ -78,7 +78,7 @@ const LevelMenu: React.FC<LevelMenuProps> = (
                         </option>
                     )}
                 </select>
-                <button onClick={() => setAppStatus("training")}>Start Training</button>
+                <button onClick={() => setAppStatus("training")}>Start</button>
             </div>
         </div>
     );
