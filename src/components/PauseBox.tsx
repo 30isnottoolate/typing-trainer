@@ -12,9 +12,11 @@ const PauseBox: React.FC<PauseBoxProps> = ({ continueTraining, restartTraining, 
         <div className="menu-screen">
             <div className="pause-box">
                 <p>Training paused</p>
-                <button onClick={continueTraining} >Continue</button>
-                <button onClick={restartTraining} >Restart</button>
-                <button onClick={() => setAppStatus("menu")} >Menu</button>
+                <div className="buttons-container">
+                    <button onClick={continueTraining} >Continue</button>
+                    <button onClick={restartTraining} >Restart</button>
+                    <button onClick={() => setAppStatus("menu")} >Menu</button>
+                </div>
             </div>
         </div>
     );
