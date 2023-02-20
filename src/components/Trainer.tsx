@@ -31,7 +31,7 @@ const Trainer: React.FC<TrainerProps> = (
 
     const textAreaRef = useRef<HTMLTextAreaElement>(null);
 
-    useEffect(() => {
+    /* useEffect(() => {
         let pingInterval: ReturnType<typeof setInterval>;
 
         if (timer.active) {
@@ -41,7 +41,7 @@ const Trainer: React.FC<TrainerProps> = (
         }
 
         return () => clearInterval(pingInterval);
-    }, [timer.active]);
+    }, [timer.active]); */
 
     useEffect(() => {
         if (textAreaRef.current) {
