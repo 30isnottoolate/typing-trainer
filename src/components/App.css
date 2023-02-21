@@ -29,6 +29,18 @@
     user-select: none;
 }
 
+::-webkit-scrollbar {
+    width: 0.75rem;
+}
+
+::-webkit-scrollbar-track {
+    background: #00000000;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--back-quinary);
+}
+
 #root {
     display: grid;
     justify-items: center;
