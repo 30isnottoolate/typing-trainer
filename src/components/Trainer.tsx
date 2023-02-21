@@ -29,6 +29,7 @@ const Trainer: React.FC<TrainerProps> = (
     const [errorCount, setErrorCount] = useState(0);
     const [timer, setTimer] = useState({ active: false, start: 0, stored: 0 });
 
+    const textSourceRef = useRef<HTMLDivElement>(null);
     const textAreaRef = useRef<HTMLTextAreaElement>(null);
 
     /* useEffect(() => {
@@ -135,12 +136,13 @@ const Trainer: React.FC<TrainerProps> = (
     return (
         <>
             <div
+                ref={textSourceRef}
                 className={`text-source ${textSourceClass}`} >
                 {textSource}
             </div>
             <textarea
-                className="text-input"
                 ref={textAreaRef}
+                className="text-input"
                 spellCheck={false}
                 value={textInput}
                 onChange={(event) => handleChange(event)}
