@@ -206,7 +206,6 @@ button:active {
     font-size: 1.125rem;
     font-family: "Poppins", Arial, Helvetica, sans-serif;
     height: 3.125rem;
-    /* border: 0.0625rem solid #f8fafc; */
     border-radius: 0.3125rem;
 }
 
@@ -228,7 +227,6 @@ button:active {
 
 .highlighted {
     border: 0.1875rem solid var(--highlight-color);
-    /* box-shadow: 0 0 0.25rem 0.125rem var(--highlight-color); */
 }
 
 .first-row, .second-row, .third-row, .fourth-row, .fifth-row {
