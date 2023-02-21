@@ -18,12 +18,13 @@ interface TrainerProps {
 }
 
 const MAX_LEVEL = 10;
+const NUMBER_OF_LINES = 35;
 
 const Trainer: React.FC<TrainerProps> = (
     { currentLevel, setCurrentLevel, highestLevel, setHighestLevel, setAppStatus, progressionScore }: TrainerProps) => {
 
     const [textInput, setTextInput] = useState("");
-    const [textSource, setTextSource] = useState(textGenerator(currentLevel, wordBank));
+    const [textSource, setTextSource] = useState(textGenerator(currentLevel, NUMBER_OF_LINES, wordBank));
     const [trainerStatus, setTrainerStatus] = useState("active"); // active, paused, finished
     const [score, setScore] = useState({ time: 0, accuracy: 0, speed: 0, success: false });
     const [errorCount, setErrorCount] = useState(0);
@@ -74,7 +75,7 @@ const Trainer: React.FC<TrainerProps> = (
     const restartTraining = () => {
         setTrainerStatus("active");
         setTimer({ active: false, start: 0, stored: 0 });
-        setTextSource(textGenerator(currentLevel, wordBank));
+        setTextSource(textGenerator(currentLevel, NUMBER_OF_LINES, wordBank));
         setTextInput("");
     }
 
@@ -102,7 +103,7 @@ const Trainer: React.FC<TrainerProps> = (
     const nextLevel = () => {
         setTrainerStatus("active");
         setCurrentLevel(prevState => prevState + 1);
-        setTextSource(textGenerator(currentLevel + 1, wordBank));
+        setTextSource(textGenerator(currentLevel + 1, NUMBER_OF_LINES, wordBank));
         setTextInput("");
     }
 
