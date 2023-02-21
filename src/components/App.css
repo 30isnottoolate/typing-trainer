@@ -28,7 +28,7 @@
     display: grid;
     align-content: center;
     justify-content: center;
-    background-color: #80808080;
+    background-color: #33415580;
     width: 100vw;
     height: 100vh;
     z-index: 10;
@@ -43,7 +43,7 @@ select {
 }
 
 button {
-    background-color: #1e293b;
+    background-color: #1a3275;
     color: #f8fafc;
     font-size: 1rem;
     font-family: "Roboto Condensed", Helvetica;
@@ -56,7 +56,7 @@ button {
 }
 
 button:hover {
-    background-color: #0f172a;
+    background-color: #1d3986;
 }
 
 button:active {
@@ -65,7 +65,7 @@ button:active {
 }
 
 .menu-box, .pause-box, .finish-box {
-    background-color: #334155;
+    background-color: #1e293b;
     color: #f8fafc;
     font-family: "Roboto", Helvetica;
     position: relative;
@@ -222,7 +222,7 @@ button:active {
 }
 
 .highlighted {
-    box-shadow: 0 0 0.25rem 0.25rem var(--highlight-color);
+    box-shadow: 0 0 0.25rem 0.125rem var(--highlight-color);
 }
 
 .first-row, .second-row, .third-row, .fourth-row, .fifth-row {
