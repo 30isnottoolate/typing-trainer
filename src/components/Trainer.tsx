@@ -150,8 +150,8 @@ const Trainer: React.FC<TrainerProps> = (
                 className="text-input"
                 spellCheck={false}
                 value={textInput}
-                onChange={(event) => handleChange(event)}
-                onScroll={(event) => handleScroll(event)}
+                onChange={event => handleChange(event)}
+                onScroll={event => handleScroll(event)}
             />
             <Keyboard currentKey={currentKey} />
             <PauseButton pauseTraining={pauseTraining} />
