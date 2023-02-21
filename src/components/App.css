@@ -170,8 +170,8 @@ button:active {
     gap: 0.25rem;
 }
 
-#text-source,
-#text-input {
+.text-source,
+.text-input {
     background-color: #00000000;
     color: #ffffff;
     font-size: 1.25rem;
@@ -185,26 +185,27 @@ button:active {
     overflow-y: scroll;
 }
 
-.typo {
-    color: #ff0000;
-}
-
-#text-source {
+.text-source {
     opacity: 0.65;
 }
 
-#text-input {
+.typo {
+    color: var(--highlight-color);
+    opacity: 0.85;
+}
+
+.text-input {
     border-width: 0;
     resize: none;
     opacity: 1;
     z-index: 5;
 }
 
-#text-input:focus {
+.text-input:focus {
     outline: 0;
 }
 
-#text-source,
+.text-source,
 #keyboard {
     z-index: 0;
 }

@@ -135,12 +135,11 @@ const Trainer: React.FC<TrainerProps> = (
     return (
         <>
             <div
-                id="text-source"
-                className={textSourceClass} >
+                className={`text-source ${textSourceClass}`} >
                 {textSource}
             </div>
             <textarea
-                id="text-input"
+                className="text-input"
                 ref={textAreaRef}
                 spellCheck={false}
                 value={textInput}
