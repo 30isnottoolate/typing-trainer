@@ -4,12 +4,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap');
 
 :root {
-    --blank-key-color: #cbd5e188;
-    --first-column: #fde04788;
-    --second-column: #86efac88;
-    --third-column: #7dd3fc88;
-    --fourth-column: #f9a8d488;
-    --space-key-color: #d8b4fe88;
+    --blank-key-color: #cbd5e1dd;
+    --first-column: #fde047dd;
+    --second-column: #86efacdd;
+    --third-column: #7dd3fcdd;
+    --fourth-column: #f9a8d4dd;
+    --space-key-color: #d8b4fedd;
     --highlight-color: #ff0000;
 }
 
@@ -22,6 +22,9 @@
 #root {
     display: grid;
     justify-items: center;
+    background-color: #0f172a;
+    width: 100vw;
+    height: 100vh;
 }
 
 .menu-screen {
@@ -70,7 +73,7 @@ button:active {
     font-family: "Roboto", Helvetica;
     position: relative;
     padding: 1.5rem;
-    border: 1px solid #cbd5e1;
+    border: 1px solid #94a3b8;
     border-radius: 0.5rem;
     box-shadow: 0.25rem 0.25rem 1rem 0.25rem #0f172a;
 }
@@ -155,6 +158,8 @@ button:active {
 }
 
 #text-source, #text-input {
+    background-color: #00000000;
+    color: #ffffff;
     font-size: 1.25rem;
     font-family: "Fira Mono", monospace;
     position: absolute;
@@ -171,13 +176,13 @@ button:active {
 }
 
 #text-source {
-    opacity: 1;
+    opacity: 0.65;
 }
 
 #text-input {
     border-width: 0;
     resize: none; 
-    opacity: 0.6;
+    opacity: 1;
     z-index: 5;
 }
 
@@ -201,7 +206,7 @@ button:active {
     font-size: 1.125rem;
     font-family: "Poppins", Arial, Helvetica, sans-serif;
     height: 3.125rem;
-    border: 0.0625rem solid #000000;
+    /* border: 0.0625rem solid #f8fafc; */
     border-radius: 0.3125rem;
 }
 
@@ -222,7 +227,8 @@ button:active {
 }
 
 .highlighted {
-    box-shadow: 0 0 0.25rem 0.125rem var(--highlight-color);
+    border: 0.1875rem solid var(--highlight-color);
+    /* box-shadow: 0 0 0.25rem 0.125rem var(--highlight-color); */
 }
 
 .first-row, .second-row, .third-row, .fourth-row, .fifth-row {
