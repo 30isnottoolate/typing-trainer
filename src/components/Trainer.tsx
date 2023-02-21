@@ -128,6 +128,10 @@ const Trainer: React.FC<TrainerProps> = (
         }
     }
 
+    const handleScroll = (event: React.UIEvent<HTMLTextAreaElement>) => {
+        textSourceRef.current && textSourceRef.current.scrollTo({ top: event.currentTarget.scrollTop });
+    }
+
     const textSourceClass = textInput !== textSource.slice(0, textInput.length) ? "typo" : "";
 
     const currentKey = textSource[textInput.length] === `\n` ? "return"
@@ -147,9 +151,7 @@ const Trainer: React.FC<TrainerProps> = (
                 spellCheck={false}
                 value={textInput}
                 onChange={(event) => handleChange(event)}
-                onScroll={(event) => {
-                    textSourceRef.current && textSourceRef.current.scrollTo({ top: event.currentTarget.scrollTop });
-                }}
+                onScroll={(event) => handleScroll(event)}
             />
             <Keyboard currentKey={currentKey} />
             <PauseButton pauseTraining={pauseTraining} />
