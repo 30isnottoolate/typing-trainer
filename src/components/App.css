@@ -11,6 +11,16 @@
     --fourth-column: #f9a8d4dd;
     --space-key-color: #d8b4fedd;
     --highlight-color: #ff0000;
+
+    --front-primary: #ffffff;
+    --front-secondary: #f8fafc;
+    --front-tertiary: #94a3b8;
+
+    --back-primary: #1e293b;
+    --back-secondary: #33415580;
+    --back-tertiary: #0f172a;
+    --back-quaternary: #1a3275;
+    --back-quinary: #1d3986;
 }
 
 * {
@@ -22,7 +32,7 @@
 #root {
     display: grid;
     justify-items: center;
-    background-color: #1e293b;
+    background-color: var(--back-primary);
     width: 100vw;
     height: 100vh;
 }
@@ -31,7 +41,7 @@
     display: grid;
     align-content: center;
     justify-content: center;
-    background-color: #33415580;
+    background-color: var(--back-secondary);
     width: 100vw;
     height: 100vh;
     z-index: 10;
@@ -45,22 +55,30 @@ select {
     margin: 1rem 0 1.25rem 0;
 }
 
+button, 
+.menu-box,
+.pause-box,
+.finish-box {
+    color: var(--front-secondary);
+    border: 1px solid var(--front-tertiary);
+}
+
 button {
-    background-color: #1a3275;
-    color: #f8fafc;
+    background-color: var(--back-quaternary);
+    /* color: #f8fafc; */
     font-size: 1rem;
     font-family: "Roboto Condensed", Helvetica;
     width: 5rem;
     height: 1.75rem;
-    border: 1px solid #94a3b8;
+    /* border: 1px solid #94a3b8; */
     border-radius: 0.25rem;
     margin-left: 0.25rem;
-    box-shadow: 1px 1px 0.25rem 1px #0f172a;
+    box-shadow: 1px 1px 0.25rem 1px var(--back-tertiary);
     cursor: pointer;
 }
 
 button:hover {
-    background-color: #1d3986;
+    background-color: var(--back-quinary);
 }
 
 button:active {
@@ -71,14 +89,14 @@ button:active {
 .menu-box,
 .pause-box,
 .finish-box {
-    background-color: #1e293b;
-    color: #f8fafc;
+    background-color: var(--back-primary);
+    /* color: #f8fafc; */
     font-family: "Roboto", Helvetica;
     position: relative;
     padding: 1.5rem;
-    border: 1px solid #94a3b8;
+    /* border: 1px solid #94a3b8; */
     border-radius: 0.5rem;
-    box-shadow: 0.25rem 0.25rem 1rem 0.25rem #0f172a;
+    box-shadow: 0.25rem 0.25rem 1rem 0.25rem var(--back-tertiary);
 }
 
 #logo {
@@ -133,7 +151,7 @@ button:active {
 }
 
 #pause-button svg {
-    fill: #f8fafc;
+    fill: var(--front-secondary);
 }
 
 .finish-box {
@@ -173,7 +191,7 @@ button:active {
 .text-source,
 .text-input {
     background-color: #00000000;
-    color: #ffffff;
+    color: var(--front-primary);
     font-size: 1.25rem;
     font-family: "Fira Mono", monospace;
     position: absolute;
