@@ -146,6 +146,9 @@ const Trainer: React.FC<TrainerProps> = (
                 spellCheck={false}
                 value={textInput}
                 onChange={(event) => handleChange(event)}
+                onScroll={(event) => {
+                    textSourceRef.current && textSourceRef.current.scrollTo({ top: event.currentTarget.scrollTop });
+                }}
             />
             <Keyboard currentKey={currentKey} />
             <PauseButton pauseTraining={pauseTraining} />
