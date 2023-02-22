@@ -4,12 +4,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap');
 
 :root {
-    --blank-key-color: #cbd5e1dd;
-    --first-column: #fde047dd;
-    --second-column: #86efacdd;
-    --third-column: #7dd3fcdd;
-    --fourth-column: #f9a8d4dd;
-    --space-key-color: #d8b4fedd;
+    --blank-key-color: #cbd5e1ee;
+    --first-column: #fde047ee;
+    --second-column: #86efacee;
+    --third-column: #7dd3fcee;
+    --fourth-column: #f9a8d4ee;
+    --space-key-color: #d8b4feee;
     --highlight-color: #ff0000;
 
     --front-primary: #ffffff;
