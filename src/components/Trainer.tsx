@@ -109,7 +109,7 @@ const Trainer: React.FC<TrainerProps> = (
 
     const handeKeyDown = (event: React.KeyboardEvent<HTMLTextAreaElement>) => {
         let numberOfLines = textInput.match(/\n/g);
-        
+
         if (numberOfLines && numberOfLines.length === NUMBER_OF_LINES - 1 && event.code === "Enter") {
             event.preventDefault();
         }
@@ -148,22 +148,25 @@ const Trainer: React.FC<TrainerProps> = (
 
     return (
         <>
-            <div
-                ref={textSourceRef}
-                className={`text-source ${textSourceClass}`} >
-                {textSource}
+            <div className="text-container">
+                <div
+                    ref={textSourceRef}
+                    className={`text-source ${textSourceClass}`} >
+                    {textSource}
+                </div>
+                <textarea
+                    ref={textAreaRef}
+                    className="text-input"
+                    spellCheck={false}
+                    value={textInput}
+                    onKeyDown={event => handeKeyDown(event)}
+                    onChange={event => handleChange(event)}
+                    onScroll={event => handleScroll(event)}
+                />
+
             </div>
-            <textarea
-                ref={textAreaRef}
-                className="text-input"
-                spellCheck={false}
-                value={textInput}
-                onKeyDown={event => handeKeyDown(event)}
-                onChange={event => handleChange(event)}
-                onScroll={event => handleScroll(event)}
-            />
-            <Keyboard currentKey={currentKey} />
-            <PauseButton pauseTraining={pauseTraining} />
+                <Keyboard currentKey={currentKey} />
+                <PauseButton pauseTraining={pauseTraining} />
             {trainerStatus === "paused" &&
                 <PauseBox
                     continueTraining={continueTraining}
