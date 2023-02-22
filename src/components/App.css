@@ -44,7 +44,7 @@
 #root {
     display: grid;
     justify-items: center;
-    background-color: var(--back-primary);
+    background-color: var(--back-quaternary);
     width: 100vw;
     height: 100vh;
 }
@@ -54,6 +54,7 @@
     align-content: center;
     justify-content: center;
     background-color: var(--back-secondary);
+    position: absolute;
     width: 100vw;
     height: 100vh;
     z-index: 10;
@@ -158,6 +159,20 @@ button:active {
     cursor: pointer;
 }
 
+.text-container {
+    display: grid;
+    justify-items: center;
+    background-color: var(--back-primary);
+    position: absolute;
+    top: 1.5rem;
+    width: 54.5rem;
+    height: calc(100vh - 22rem);
+    padding: 1.5rem;
+    border: 1px solid var(--front-tertiary);
+    border-radius: 0.5rem;
+    box-shadow: 0.25rem 0.25rem 1rem 0.125rem var(--back-tertiary);
+}
+
 #pause-button svg {
     fill: var(--front-secondary);
 }
@@ -175,7 +190,7 @@ button:active {
     font-family: "Fira Mono", monospace;
     position: absolute;
     width: 68.5ch;
-    height: calc(100vh - 22rem);
+    height: calc(100vh - 25rem);
     top: 1.5rem;
     padding: 1ch;
     white-space: pre-wrap;
