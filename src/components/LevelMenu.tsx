@@ -26,7 +26,7 @@ const levels = [
 ];
 
 const LevelMenu: React.FC<LevelMenuProps> = (
-    { currentLevel, setCurrentLevel, highestLevel, setAppStatus, progressionScore, setProgressionScore }: LevelMenuProps) => {
+    { currentLevel, setCurrentLevel, highestLevel, setAppStatus, numberOfLines, setNumberOfLines, progressionScore, setProgressionScore }: LevelMenuProps) => {
 
     const changeAccuracyScore = (event: React.ChangeEvent<HTMLInputElement>) => {
         setProgressionScore(prevState => ({ ...prevState, accuracy: event.target.value }));
@@ -51,8 +51,8 @@ const LevelMenu: React.FC<LevelMenuProps> = (
                         name="length"
                         min="5"
                         max="50"
-                        /* value={progressionScore.accuracy}
-                        onChange={event => changeAccuracyScore(event)} */
+                        value={numberOfLines}
+                        onChange={event => setNumberOfLines(Number(event.target.value))}
                     />
                     <span> lines</span>
                 </div>
