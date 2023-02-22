@@ -107,6 +107,14 @@ const Trainer: React.FC<TrainerProps> = (
         setTextInput("");
     }
 
+    const handeKeyDown = (event: React.KeyboardEvent<HTMLTextAreaElement>) => {
+        let numberOfLines = textInput.match(/\n/g);
+        
+        if (numberOfLines && numberOfLines.length === NUMBER_OF_LINES - 1 && event.code === "Enter") {
+            event.preventDefault();
+        }
+    }
+
     const handleChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
         if (event.target) {
             setTextInput(event.currentTarget.value);
@@ -150,6 +158,7 @@ const Trainer: React.FC<TrainerProps> = (
                 className="text-input"
                 spellCheck={false}
                 value={textInput}
+                onKeyDown={event => handeKeyDown(event)}
                 onChange={event => handleChange(event)}
                 onScroll={event => handleScroll(event)}
             />
