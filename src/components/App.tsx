@@ -17,7 +17,17 @@ const App: React.FC = () => {
     });
 
     const [appStatus, setAppStatus] = useState("menu"); // menu, training
-    const [numberOfLines, setNumberOfLines] = useState(10);
+    const [numberOfLines, setNumberOfLines] = useState(() => {
+        if (localStorage.numberOfLines && Number(localStorage.numberOfLines) >= 5 && Number(localStorage.numberOfLines) <= 50) {
+
+            return Number(localStorage.numberOfLines);
+        } else {
+            localStorage.numberOfLines = 10;
+
+            return 10;
+        }
+    });
+
     const [progressionScore, setProgressionScore] = useState(() => {
         if (localStorage.accuracy && Number(localStorage.accuracy) >= 75 && Number(localStorage.accuracy) <= 100 &&
             localStorage.speed && Number(localStorage.speed) >= 150 && Number(localStorage.speed) <= 300) {
@@ -34,6 +44,10 @@ const App: React.FC = () => {
     useEffect(() => {
         localStorage.highestLevel = highestLevel;
     }, [highestLevel]);
+
+    useEffect(() => {
+        localStorage.numberOfLines = numberOfLines;
+    }, [numberOfLines]);
 
     useEffect(() => {
         localStorage.accuracy = progressionScore.accuracy;
