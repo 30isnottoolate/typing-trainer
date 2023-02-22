@@ -16,8 +16,8 @@
     --front-secondary: #f8fafc;
     --front-tertiary: #94a3b8;
 
-    --back-primary: #1e293b;
-    --back-secondary: #33415580;
+    --back-primary: #0b1532;
+    --back-secondary: #162b6480;
     --back-tertiary: #0f172a;
     --back-quaternary: #1a3275;
     --back-quinary: #1d3986;
@@ -104,7 +104,7 @@ button:active {
     position: relative;
     padding: 1.5rem;
     border-radius: 0.5rem;
-    box-shadow: 0.25rem 0.25rem 1rem 0.25rem var(--back-tertiary);
+    box-shadow: 0.25rem 0.25rem 1rem 0.125rem var(--back-tertiary);
 }
 
 #logo {
