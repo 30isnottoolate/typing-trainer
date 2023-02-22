@@ -66,7 +66,7 @@ button,
 .pause-box,
 .finish-box {
     color: var(--front-secondary);
-    border: 1px solid var(--front-tertiary);
+    border: 0.0625rem solid var(--front-tertiary);
 }
 
 .menu-box,
@@ -134,7 +134,7 @@ button {
     height: 1.75rem;
     border-radius: 0.25rem;
     margin-left: 0.25rem;
-    box-shadow: 1px 1px 0.25rem 1px var(--back-tertiary);
+    box-shadow: 0.0625rem 0.0625rem 0.25rem 0.0625rem var(--back-tertiary);
     cursor: pointer;
 }
 
@@ -144,7 +144,7 @@ button:hover {
 
 button:active {
     box-shadow: none;
-    transform: translate(1px, 1px);
+    transform: translate(0.0625rem, 0.0625rem);
 }
 
 .menu-box button {
@@ -169,7 +169,7 @@ button:active {
     width: 53.5rem;
     height: calc(100vh - 24rem);
     padding: 1rem;
-    border: 1px solid var(--front-tertiary);
+    border: 0.0625rem solid var(--front-tertiary);
     border-radius: 0.5rem;
     box-shadow: 0.25rem 0.25rem 1rem 0.125rem var(--back-tertiary);
 }
@@ -220,7 +220,7 @@ button:active {
 #keyboard {
     background-color: var(--back-primary);
     padding: 0.625rem 1rem;
-    border: 1px solid var(--front-tertiary);
+    border: 0.0625rem solid var(--front-tertiary);
     border-radius: 0.5rem;
     box-shadow: 0.25rem 0.25rem 1rem 0.125rem var(--back-tertiary);
 }
