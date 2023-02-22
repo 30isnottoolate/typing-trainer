@@ -41,6 +41,19 @@ const LevelMenu: React.FC<LevelMenuProps> = (
                     <h1>Typing Trainer</h1>
                     <span>© {new Date().getFullYear()} Akos Varga, aka 30isnottoolate</span>
                 </div>
+                <p>Settings:</p>
+                <div className="settings-container">
+                    <label htmlFor="accuracy">Length: </label>
+                    <input
+                        type="number"
+                        name="length"
+                        min="5"
+                        max="50"
+                        /* value={progressionScore.accuracy}
+                        onChange={event => changeAccuracyScore(event)} */
+                    />
+                    <span> lines</span>
+                </div>
                 <p>Threshold to unlock next level:</p>
                 <div className="threshold-container">
                     <label htmlFor="accuracy">Accuracy: </label>
