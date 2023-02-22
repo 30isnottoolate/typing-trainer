@@ -13,6 +13,7 @@ interface TrainerProps {
     setCurrentLevel: React.Dispatch<React.SetStateAction<number>>;
     highestLevel: number;
     setHighestLevel: React.Dispatch<React.SetStateAction<number>>;
+    numberOfLines: number;
     setAppStatus: React.Dispatch<React.SetStateAction<string>>;
     progressionScore: { accuracy: number, speed: number };
 }
