@@ -44,6 +44,7 @@
 #root {
     display: grid;
     justify-items: center;
+    align-content: center;
     background-color: var(--back-quaternary);
     width: 100vw;
     height: 100vh;
@@ -163,11 +164,11 @@ button:active {
     display: grid;
     justify-items: center;
     background-color: var(--back-primary);
-    position: absolute;
-    top: 1.5rem;
-    width: 54.5rem;
-    height: calc(100vh - 22rem);
-    padding: 1.5rem;
+    /* position: absolute;
+    top: 1.5rem; */
+    width: 53.5rem;
+    height: calc(100vh - 24rem);
+    padding: 1rem;
     border: 1px solid var(--front-tertiary);
     border-radius: 0.5rem;
     box-shadow: 0.25rem 0.25rem 1rem 0.125rem var(--back-tertiary);
@@ -190,9 +191,9 @@ button:active {
     font-family: "Fira Mono", monospace;
     position: absolute;
     width: 68.5ch;
-    height: calc(100vh - 25rem);
-    top: 1.5rem;
-    padding: 1ch;
+    height: calc(100vh - 26.5rem);
+    /* top: 1rem; */
+    padding: 0.5ch 0.5ch 1ch 1ch;
     white-space: pre-wrap;
     overflow-y: scroll;
 }
@@ -218,8 +219,13 @@ button:active {
 }
 
 #keyboard {
-    position: absolute;
-    bottom: 1.5rem;
+    background-color: var(--back-primary);
+    /* position: absolute;
+    bottom: 1.5rem; */
+    padding: 0.625rem 1rem;
+    border: 1px solid var(--front-tertiary);
+    border-radius: 0.5rem;
+    box-shadow: 0.25rem 0.25rem 1rem 0.125rem var(--back-tertiary);
 }
 
 .key,
