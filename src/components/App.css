@@ -164,8 +164,6 @@ button:active {
     display: grid;
     justify-items: center;
     background-color: var(--back-primary);
-    /* position: absolute;
-    top: 1.5rem; */
     width: 53.5rem;
     height: calc(100vh - 24rem);
     padding: 1rem;
@@ -192,7 +190,6 @@ button:active {
     position: absolute;
     width: 68.5ch;
     height: calc(100vh - 26.5rem);
-    /* top: 1rem; */
     padding: 0.5ch 0.5ch 1ch 1ch;
     white-space: pre-wrap;
     overflow-y: scroll;
@@ -220,8 +217,6 @@ button:active {
 
 #keyboard {
     background-color: var(--back-primary);
-    /* position: absolute;
-    bottom: 1.5rem; */
     padding: 0.625rem 1rem;
     border: 1px solid var(--front-tertiary);
     border-radius: 0.5rem;
