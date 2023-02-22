@@ -99,14 +99,16 @@ button,
     font-size: 0.75rem;
 }
 
+.settings-container,
 .threshold-container {
     display: grid;
-    grid-template-columns: auto 22% auto;
+    grid-template-columns: 35.5% 22% 35.5%;
     align-items: center;
     column-gap: 0.5rem;
     margin: 1rem 0 2rem 0;
 }
 
+.settings-container label,
 .threshold-container label {
     text-align: right;
 }
