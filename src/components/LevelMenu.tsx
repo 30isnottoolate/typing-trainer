@@ -5,6 +5,8 @@ interface LevelMenuProps {
     setCurrentLevel: React.Dispatch<React.SetStateAction<number>>;
     highestLevel: number;
     setAppStatus: React.Dispatch<React.SetStateAction<string>>;
+    numberOfLines: number;
+    setNumberOfLines: React.Dispatch<React.SetStateAction<number>>;
     progressionScore: { accuracy: number, speed: number };
     setProgressionScore: React.Dispatch<React.SetStateAction<object>>;
 }

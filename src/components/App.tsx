@@ -49,6 +49,8 @@ const App: React.FC = () => {
                     setCurrentLevel={setCurrentLevel}
                     highestLevel={highestLevel}
                     setAppStatus={setAppStatus}
+                    numberOfLines={numberOfLines}
+                    setNumberOfLines={setNumberOfLines}
                     progressionScore={progressionScore}
                     setProgressionScore={setProgressionScore}
                 />
