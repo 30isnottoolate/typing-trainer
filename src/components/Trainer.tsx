@@ -149,6 +149,7 @@ const Trainer: React.FC<TrainerProps> = (
     return (
         <>
             <div className="text-container">
+                <p className="timer">00:00</p>
                 <div
                     ref={textSourceRef}
                     className={`text-source ${textSourceClass}`} >
