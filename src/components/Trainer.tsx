@@ -36,18 +36,6 @@ const Trainer: React.FC<TrainerProps> = (
     const textSourceRef = useRef<HTMLDivElement>(null);
     const textAreaRef = useRef<HTMLTextAreaElement>(null);
 
-    /* useEffect(() => {
-        let pingInterval: ReturnType<typeof setInterval>;
-
-        if (timer.active) {
-            pingInterval = setInterval(() => {
-                console.log(Math.round((Date.now() - timer.start) / 1000));
-            }, 500);
-        }
-
-        return () => clearInterval(pingInterval);
-    }, [timer.active]); */
-
     useEffect(() => {
         let pingInterval: ReturnType<typeof setInterval>;
 
