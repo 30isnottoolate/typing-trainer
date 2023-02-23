@@ -162,6 +162,19 @@ button:active {
     cursor: pointer;
 }
 
+#pause-button svg {
+    fill: var(--front-secondary);
+}
+
+.timer {
+    color: var(--front-secondary);
+    font-size: 1.5rem;
+    font-family: "Fira Mono", monospace;
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+}
+
 .text-container {
     display: grid;
     justify-items: center;
@@ -172,10 +185,6 @@ button:active {
     border: 0.0625rem solid var(--front-tertiary);
     border-radius: 0.5rem;
     box-shadow: 0.25rem 0.25rem 1rem 0.125rem var(--back-tertiary);
-}
-
-#pause-button svg {
-    fill: var(--front-secondary);
 }
 
 .text-source,
