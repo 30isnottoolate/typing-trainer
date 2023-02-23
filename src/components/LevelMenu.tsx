@@ -45,7 +45,7 @@ const LevelMenu: React.FC<LevelMenuProps> = (
                 </div>
                 <p>Settings:</p>
                 <div className="settings-container">
-                    <label htmlFor="accuracy">Length: </label>
+                    <label htmlFor="length">Length: </label>
                     <input
                         type="number"
                         name="length"
