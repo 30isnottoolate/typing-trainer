@@ -65,6 +65,8 @@ const App: React.FC = () => {
                     highestLevel={highestLevel}
                     setAppStatus={setAppStatus}
                     numberOfLines={numberOfLines}
+                    keyboardVisibility={keyboardVisibility}
+                    setKeyboardVisibity={setKeyboardVisibity}
                     setNumberOfLines={setNumberOfLines}
                     progressionScore={progressionScore}
                     setProgressionScore={setProgressionScore}

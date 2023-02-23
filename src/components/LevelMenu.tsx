@@ -7,6 +7,8 @@ interface LevelMenuProps {
     setAppStatus: React.Dispatch<React.SetStateAction<string>>;
     numberOfLines: number;
     setNumberOfLines: React.Dispatch<React.SetStateAction<number>>;
+    keyboardVisibility: boolean;
+    setKeyboardVisibity: React.Dispatch<React.SetStateAction<boolean>>;
     progressionScore: { accuracy: number, speed: number };
     setProgressionScore: React.Dispatch<React.SetStateAction<object>>;
 }
