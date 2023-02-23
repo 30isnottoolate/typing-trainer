@@ -9,6 +9,8 @@ interface LevelMenuProps {
     setNumberOfLines: Dispatch<SetStateAction<number>>;
     keyboardVisibility: boolean;
     setKeyboardVisibity: Dispatch<SetStateAction<boolean>>;
+    timerVisibility: boolean;
+    setTimerVisibility: Dispatch<SetStateAction<boolean>>;
     progressionScore: { accuracy: number, speed: number };
     setProgressionScore: Dispatch<SetStateAction<object>>;
 }
