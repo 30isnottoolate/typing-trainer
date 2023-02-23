@@ -1,4 +1,4 @@
-import React, {Dispatch, SetStateAction} from "react";
+import React, { Dispatch, SetStateAction } from "react";
 
 interface LevelMenuProps {
     currentLevel: number;
@@ -28,7 +28,8 @@ const levels = [
 ];
 
 const LevelMenu: React.FC<LevelMenuProps> = (
-    { currentLevel, setCurrentLevel, highestLevel, setAppStatus, numberOfLines, setNumberOfLines, progressionScore, setProgressionScore }: LevelMenuProps) => {
+    { currentLevel, setCurrentLevel, highestLevel, setAppStatus, numberOfLines, setNumberOfLines,
+        keyboardVisibility, setKeyboardVisibity, progressionScore, setProgressionScore }: LevelMenuProps) => {
 
     const changeAccuracyScore = (event: React.ChangeEvent<HTMLInputElement>) => {
         setProgressionScore(prevState => ({ ...prevState, accuracy: event.target.value }));
@@ -61,8 +62,8 @@ const LevelMenu: React.FC<LevelMenuProps> = (
                     <input
                         type="checkbox"
                         name="keyboardVisibility"
-                        checked={true}
-                        onChange={event => {}}
+                        checked={keyboardVisibility}
+                        onChange={event => setKeyboardVisibity(event.target.checked)}
                     />
                     <span></span>
                     <label htmlFor="timerVisibility">Timer: </label>
@@ -70,7 +71,7 @@ const LevelMenu: React.FC<LevelMenuProps> = (
                         type="checkbox"
                         name="timerVisibility"
                         checked={true}
-                        onChange={event => {}}
+                        onChange={event => { }}
                     />
                     <span></span>
                 </div>
