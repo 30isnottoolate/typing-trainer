@@ -40,6 +40,7 @@ const App: React.FC = () => {
             return { accuracy: 95, speed: 180 }
         }
     });
+    const [keyboardVisibility, setKeyboardVisibity] = useState(true);
 
     useEffect(() => {
         localStorage.highestLevel = highestLevel;
