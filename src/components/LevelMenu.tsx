@@ -1,16 +1,16 @@
-import React from "react";
+import React, {Dispatch, SetStateAction} from "react";
 
 interface LevelMenuProps {
     currentLevel: number;
-    setCurrentLevel: React.Dispatch<React.SetStateAction<number>>;
+    setCurrentLevel: Dispatch<SetStateAction<number>>;
     highestLevel: number;
-    setAppStatus: React.Dispatch<React.SetStateAction<string>>;
+    setAppStatus: Dispatch<SetStateAction<string>>;
     numberOfLines: number;
-    setNumberOfLines: React.Dispatch<React.SetStateAction<number>>;
+    setNumberOfLines: Dispatch<SetStateAction<number>>;
     keyboardVisibility: boolean;
-    setKeyboardVisibity: React.Dispatch<React.SetStateAction<boolean>>;
+    setKeyboardVisibity: Dispatch<SetStateAction<boolean>>;
     progressionScore: { accuracy: number, speed: number };
-    setProgressionScore: React.Dispatch<React.SetStateAction<object>>;
+    setProgressionScore: Dispatch<SetStateAction<object>>;
 }
 
 const levels = [
