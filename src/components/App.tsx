@@ -41,6 +41,7 @@ const App: React.FC = () => {
         }
     });
     const [keyboardVisibility, setKeyboardVisibity] = useState(true);
+    const [timerVisibility, setTimerVisibility] = useState(true);
 
     useEffect(() => {
         localStorage.highestLevel = highestLevel;
