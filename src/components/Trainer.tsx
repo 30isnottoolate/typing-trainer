@@ -165,7 +165,7 @@ const Trainer: React.FC<TrainerProps> = (
         <>
             <div className="text-container">
                 {timerVisibility &&
-                    <p className="timer">00:00</p>
+                    <p className="timer">{timer.value}</p>
                 }
                 <div
                     ref={textSourceRef}
