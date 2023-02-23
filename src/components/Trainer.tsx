@@ -31,7 +31,7 @@ const Trainer: React.FC<TrainerProps> = (
     const [trainerStatus, setTrainerStatus] = useState("active"); // active, paused, finished
     const [score, setScore] = useState({ time: 0, accuracy: 0, speed: 0, success: false });
     const [errorCount, setErrorCount] = useState(0);
-    const [timer, setTimer] = useState({ active: false, start: 0, stored: 0 });
+    const [timer, setTimer] = useState({ active: false, value: 0, start: 0, stored: 0 });
 
     const textSourceRef = useRef<HTMLDivElement>(null);
     const textAreaRef = useRef<HTMLTextAreaElement>(null);
@@ -47,6 +47,18 @@ const Trainer: React.FC<TrainerProps> = (
 
         return () => clearInterval(pingInterval);
     }, [timer.active]); */
+
+    useEffect(() => {
+        let pingInterval: ReturnType<typeof setInterval>;
+
+        if (timer.active) {
+            pingInterval = setInterval(() => {
+                setTimer(prevState => ({ ...prevState, value: Math.round((Date.now() - timer.start) / 1000) }));
+            }, 500);
+        }
+
+        return () => clearInterval(pingInterval);
+    }, [timer.active]);
 
     useEffect(() => {
         if (textAreaRef.current) {
@@ -77,7 +89,7 @@ const Trainer: React.FC<TrainerProps> = (
 
     const restartTraining = () => {
         setTrainerStatus("active");
-        setTimer({ active: false, start: 0, stored: 0 });
+        setTimer({ active: false, value: 0, start: 0, stored: 0 });
         setTextSource(textGenerator(currentLevel, numberOfLines, wordBank));
         setTextInput("");
     }
@@ -96,7 +108,7 @@ const Trainer: React.FC<TrainerProps> = (
         });
 
         setTrainerStatus("finished");
-        setTimer({ active: false, start: 0, stored: 0 });
+        setTimer({ active: false, value: 0, start: 0, stored: 0 });
 
         if (currentLevel === highestLevel && successScore && currentLevel < MAX_LEVEL) {
             setHighestLevel(prevState => prevState + 1);
