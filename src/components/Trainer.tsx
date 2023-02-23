@@ -16,6 +16,8 @@ interface TrainerProps {
     numberOfLines: number;
     setAppStatus: Dispatch<SetStateAction<string>>;
     progressionScore: { accuracy: number, speed: number };
+    keyboardVisibility: boolean;
+    timerVisibility: boolean;
 }
 
 const MAX_LEVEL = 10;
@@ -166,8 +168,8 @@ const Trainer: React.FC<TrainerProps> = (
                 />
 
             </div>
-                <Keyboard currentKey={currentKey} />
-                <PauseButton pauseTraining={pauseTraining} />
+            <Keyboard currentKey={currentKey} />
+            <PauseButton pauseTraining={pauseTraining} />
             {trainerStatus === "paused" &&
                 <PauseBox
                     continueTraining={continueTraining}

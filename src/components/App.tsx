@@ -84,6 +84,8 @@ const App: React.FC = () => {
                     numberOfLines={numberOfLines}
                     setAppStatus={setAppStatus}
                     progressionScore={progressionScore}
+                    keyboardVisibility={keyboardVisibility}
+                    timerVisibility={timerVisibility}
                 />
             }
         </>
