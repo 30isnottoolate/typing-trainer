@@ -23,7 +23,8 @@ interface TrainerProps {
 const MAX_LEVEL = 10;
 
 const Trainer: React.FC<TrainerProps> = (
-    { currentLevel, setCurrentLevel, highestLevel, setHighestLevel, numberOfLines, setAppStatus, progressionScore }: TrainerProps) => {
+    { currentLevel, setCurrentLevel, highestLevel, setHighestLevel, numberOfLines, setAppStatus,
+        progressionScore, keyboardVisibility, timerVisibility }: TrainerProps) => {
 
     const [textInput, setTextInput] = useState("");
     const [textSource, setTextSource] = useState(textGenerator(currentLevel, numberOfLines, wordBank));
@@ -151,7 +152,9 @@ const Trainer: React.FC<TrainerProps> = (
     return (
         <>
             <div className="text-container">
-                <p className="timer">00:00</p>
+                {timerVisibility &&
+                    <p className="timer">00:00</p>
+                }
                 <div
                     ref={textSourceRef}
                     className={`text-source ${textSourceClass}`} >
@@ -168,7 +171,9 @@ const Trainer: React.FC<TrainerProps> = (
                 />
 
             </div>
-            <Keyboard currentKey={currentKey} />
+            {keyboardVisibility &&
+                <Keyboard currentKey={currentKey} />
+            }
             <PauseButton pauseTraining={pauseTraining} />
             {trainerStatus === "paused" &&
                 <PauseBox
