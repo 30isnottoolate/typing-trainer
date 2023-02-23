@@ -55,6 +55,14 @@ const LevelMenu: React.FC<LevelMenuProps> = (
                         onChange={event => setNumberOfLines(Number(event.target.value))}
                     />
                     <span> lines</span>
+                    <label htmlFor="keyboardVisibility">Keyboard: </label>
+                    <input
+                        type="checkbox"
+                        name="keyboardVisibility"
+                        checked={true}
+                        onChange={event => {}}
+                    />
+                    <span></span>
                 </div>
                 <p>Threshold to unlock next level:</p>
                 <div className="threshold-container">
