@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef, useEffect, Dispatch, SetStateAction } from "react";
 
 import wordBank from "../utilities/wordBank";
 import textGenerator from "../utilities/textGenerator";
@@ -10,11 +10,11 @@ import FinishBox from "./FinishBox";
 
 interface TrainerProps {
     currentLevel: number;
-    setCurrentLevel: React.Dispatch<React.SetStateAction<number>>;
+    setCurrentLevel: Dispatch<SetStateAction<number>>;
     highestLevel: number;
-    setHighestLevel: React.Dispatch<React.SetStateAction<number>>;
+    setHighestLevel: Dispatch<SetStateAction<number>>;
     numberOfLines: number;
-    setAppStatus: React.Dispatch<React.SetStateAction<string>>;
+    setAppStatus: Dispatch<SetStateAction<string>>;
     progressionScore: { accuracy: number, speed: number };
 }
 
