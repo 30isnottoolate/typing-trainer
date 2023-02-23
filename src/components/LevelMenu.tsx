@@ -63,6 +63,14 @@ const LevelMenu: React.FC<LevelMenuProps> = (
                         onChange={event => {}}
                     />
                     <span></span>
+                    <label htmlFor="timerVisibility">Timer: </label>
+                    <input
+                        type="checkbox"
+                        name="timerVisibility"
+                        checked={true}
+                        onChange={event => {}}
+                    />
+                    <span></span>
                 </div>
                 <p>Threshold to unlock next level:</p>
                 <div className="threshold-container">
