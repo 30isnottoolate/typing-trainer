@@ -49,9 +49,9 @@ const LevelMenu: React.FC<LevelMenuProps> = (
                     <h1>Typing Trainer</h1>
                     <span>© {new Date().getFullYear()} Akos Varga, aka 30isnottoolate</span>
                 </div>
-                <p>Settings:</p>
+                <p>Trainer settings:</p>
                 <div className="settings-container">
-                    <label htmlFor="length">Length: </label>
+                    <label htmlFor="length">Length (lines): </label>
                     <input
                         type="number"
                         name="length"
@@ -60,27 +60,24 @@ const LevelMenu: React.FC<LevelMenuProps> = (
                         value={numberOfLines}
                         onChange={event => setNumberOfLines(Number(event.target.value))}
                     />
-                    <span> lines</span>
-                    <label htmlFor="keyboardVisibility">Keyboard: </label>
+                    <label htmlFor="keyboardVisibility">Show keyboard: </label>
                     <input
                         type="checkbox"
                         name="keyboardVisibility"
                         checked={keyboardVisibility}
                         onChange={event => setKeyboardVisibity(event.target.checked)}
                     />
-                    <span>{keyboardVisibility ? "visible" : "hidden"}</span>
-                    <label htmlFor="timerVisibility">Timer: </label>
+                    <label htmlFor="timerVisibility">Show timer: </label>
                     <input
                         type="checkbox"
                         name="timerVisibility"
                         checked={timerVisibility}
                         onChange={event => setTimerVisibility(event.target.checked)}
                     />
-                    <span>{timerVisibility ? "visible" : "hidden"}</span>
                 </div>
                 <p>Threshold to unlock next level:</p>
                 <div className="threshold-container">
-                    <label htmlFor="accuracy">Accuracy: </label>
+                    <label htmlFor="accuracy">Accuracy (%): </label>
                     <input
                         type="number"
                         name="accuracy"
@@ -89,8 +86,7 @@ const LevelMenu: React.FC<LevelMenuProps> = (
                         value={progressionScore.accuracy}
                         onChange={event => changeAccuracyScore(event)}
                     />
-                    <span> %</span>
-                    <label htmlFor="speed">Speed: </label>
+                    <label htmlFor="speed">Speed (chars/min): </label>
                     <input
                         type="number"
                         name="speed"
@@ -99,7 +95,6 @@ const LevelMenu: React.FC<LevelMenuProps> = (
                         value={progressionScore.speed}
                         onChange={event => changeSpeedScore(event)}
                     />
-                    <span> char/min</span>
                 </div>
                 <label htmlFor="level-selection">Choose a level: </label>
                 <select
