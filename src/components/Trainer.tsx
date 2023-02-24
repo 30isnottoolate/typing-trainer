@@ -153,7 +153,9 @@ const Trainer: React.FC<TrainerProps> = (
         <>
             <div className="text-container">
                 {timerVisibility &&
-                    <p className="timer">{timer.value}</p>
+                    <p className="timer">
+                        {`${timer.value / 60 < 10 ? "0" : ""}${Math.floor(timer.value / 60)}:${timer.value % 60 < 10 ? "0" : ""}${timer.value % 60}`}
+                    </p>
                 }
                 <div
                     ref={textSourceRef}
