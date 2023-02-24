@@ -4,19 +4,9 @@ import LevelMenu from "./LevelMenu";
 import Trainer from "./Trainer";
 
 const App: React.FC = () => {
-    const [currentLevel, setCurrentLevel] = useState(0);
-    const [highestLevel, setHighestLevel] = useState(() => {
-        if (localStorage.highestLevel && Number(localStorage.highestLevel) >= 0 && Number(localStorage.highestLevel) <= 10) {
-
-            return Number(localStorage.highestLevel);
-        } else {
-            localStorage.highestLevel = 0;
-
-            return 0;
-        }
-    });
-
     const [appStatus, setAppStatus] = useState("menu"); // menu, training
+    const [currentLevel, setCurrentLevel] = useState(0);
+
     const [numberOfLines, setNumberOfLines] = useState(() => {
         if (localStorage.numberOfLines && Number(localStorage.numberOfLines) >= 5 && Number(localStorage.numberOfLines) <= 50) {
 
@@ -25,6 +15,24 @@ const App: React.FC = () => {
             localStorage.numberOfLines = 10;
 
             return 10;
+        }
+    });
+
+    const [keyboardVisibility, setKeyboardVisibity] = useState(() => {
+        if (localStorage.keyboardVisibility) {
+            return localStorage.keyboardVisibility === "false" ? false : true;
+        } else {
+            localStorage.keyboardVisibility = true;
+            return true;
+        }
+    });
+
+    const [timerVisibility, setTimerVisibility] = useState(() => {
+        if (localStorage.timerVisibility) {
+            return localStorage.timerVisibility === "false" ? false : true;
+        } else {
+            localStorage.timerVisibility = true;
+            return true;
         }
     });
 
@@ -40,22 +48,39 @@ const App: React.FC = () => {
             return { accuracy: 95, speed: 180 }
         }
     });
-    const [keyboardVisibility, setKeyboardVisibity] = useState(true);
-    const [timerVisibility, setTimerVisibility] = useState(true);
 
-    useEffect(() => {
-        localStorage.highestLevel = highestLevel;
-    }, [highestLevel]);
+    const [highestLevel, setHighestLevel] = useState(() => {
+        if (localStorage.highestLevel && Number(localStorage.highestLevel) >= 0 && Number(localStorage.highestLevel) <= 10) {
+
+            return Number(localStorage.highestLevel);
+        } else {
+            localStorage.highestLevel = 0;
+
+            return 0;
+        }
+    });
 
     useEffect(() => {
         localStorage.numberOfLines = numberOfLines;
     }, [numberOfLines]);
 
     useEffect(() => {
+        localStorage.keyboardVisibility = keyboardVisibility;
+    }, [keyboardVisibility]);
+
+    useEffect(() => {
+        localStorage.timerVisibility = timerVisibility;
+    }, [timerVisibility]);
+
+    useEffect(() => {
         localStorage.accuracy = progressionScore.accuracy;
         localStorage.speed = progressionScore.speed;
 
     }, [progressionScore.accuracy, progressionScore.speed]);
+
+    useEffect(() => {
+        localStorage.highestLevel = highestLevel;
+    }, [highestLevel]);
 
     return (
         <>
