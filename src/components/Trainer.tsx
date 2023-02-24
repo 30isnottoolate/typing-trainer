@@ -96,7 +96,7 @@ const Trainer: React.FC<TrainerProps> = (
         });
 
         setTrainerStatus("finished");
-        setTimer({ active: false, value: 0, start: 0, stored: 0 });
+        setTimer(prevState => ({ ...prevState, active: false }));
 
         if (currentLevel === highestLevel && successScore && currentLevel < MAX_LEVEL) {
             setHighestLevel(prevState => prevState + 1);
@@ -105,6 +105,7 @@ const Trainer: React.FC<TrainerProps> = (
 
     const nextLevel = () => {
         setTrainerStatus("active");
+        setTimer({ active: false, value: 0, start: 0, stored: 0 });
         setCurrentLevel(prevState => prevState + 1);
         setTextSource(textGenerator(currentLevel + 1, numberOfLines, wordBank));
         setTextInput("");
