@@ -68,7 +68,7 @@ const LevelMenu: React.FC<LevelMenuProps> = (
                         checked={keyboardVisibility}
                         onChange={event => setKeyboardVisibity(event.target.checked)}
                     />
-                    <span></span>
+                    <span>{keyboardVisibility ? "visible" : "hidden"}</span>
                     <label htmlFor="timerVisibility">Timer: </label>
                     <input
                         type="checkbox"
@@ -76,7 +76,7 @@ const LevelMenu: React.FC<LevelMenuProps> = (
                         checked={timerVisibility}
                         onChange={event => setTimerVisibility(event.target.checked)}
                     />
-                    <span></span>
+                    <span>{timerVisibility ? "visible" : "hidden"}</span>
                 </div>
                 <p>Threshold to unlock next level:</p>
                 <div className="threshold-container">
