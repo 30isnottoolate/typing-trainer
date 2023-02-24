@@ -102,8 +102,9 @@ button,
 .settings-container,
 .threshold-container {
     display: grid;
-    grid-template-columns: 35.5% 22% 35.5%;
+    grid-template-columns: 63% 22%;
     align-items: center;
+    justify-content: center;
     column-gap: 0.5rem;
     margin: 1rem 0 2rem 0;
 }
